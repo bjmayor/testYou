@@ -1,1 +1,1 @@
-<?phpclass Result_model extends CI_Model {    public function __construct()    {        $this->load->database();    }}?>
+<?phpclass Result_model extends CI_Model {    public static $TBNAME = "result";    public $id;    public $question_id;    public $score_start;    public $score_end;    public $show_text_result;    public $show_img_result;    public $show_people_count;    public $result_answer_id;    public $result_question_id;    public function __construct()    {        $this->load->database();    }}?>

@@ -1,1 +1,1 @@
-<?phpclass Question_tag_model extends CI_Model {    public function __construct()    {        $this->load->database();    }}?>
+<?phpclass Question_tag_model extends CI_Model {    public static $TBNAME = "question_tag";    public $id;    public $description;    public $quesiton_id;    public function __construct()    {        $this->load->database();    }}?>
