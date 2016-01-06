@@ -1,0 +1,1 @@
+<h2><?php echo $title; ?></h2><?php foreach ($metas  as $meta_item): ?>    <h3><?php echo $meta_item['seo_title']; ?></h3>        <div class="main">                <?php echo $meta_item['seo_description']; ?>    </div>            <p><a href="<?php echo site_url('admin/meta/view/'.$meta_item['id']); ?>">View meta</a></p><?php endforeach; ?>
