@@ -1,1 +1,1 @@
-<?phpclass Answer_model extends CI_Model {    public function __construct()    {        $this->load->database();    }}?>
+<?php/** *答案选项 * * @author shunping.liu@huangjinqianbao.com * @version $Id$ * @copyright shunping.liu@huangjinqianbao.com, 06 一月, 2016 * @package default **//** * Define DocBlock *//class Answer_model extends CI_Model {    public function __construct()    {        $this->load->database();    }}?>
