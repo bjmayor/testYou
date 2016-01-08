@@ -41,15 +41,9 @@
                   <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 分类</label>
                   <div class="col-sm-10">
                     <select class="form-control" style="width: 100%;">
-                      <option selected="selected">爱情</option>
-                      <option>性格</option>
-                      <option>社交</option>
-                      <option>财富</option>
-                      <option>职场</option>
-                      <option>趣味</option>
-                      <option>能力</option>
-                      <option>智商</option>
-                      <option>综合</option>
+                    <?php foreach($category as $item): ?>
+                    <option value='<?php echo $item['id'];?>' ><?php echo $item['description'];?></option>
+                    <?php endforeach;?>
                     </select>
                   </div>
                 </div>

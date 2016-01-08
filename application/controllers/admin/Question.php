@@ -10,6 +10,8 @@ class Question extends Admin_Controller {
         /* Load :: Common */
         $this->load->helper('number');
         $this->load->model('admin/dashboard_model');
+
+        $this->load->model('question_category_model');
     }
 
     public function single()
@@ -20,6 +22,7 @@ class Question extends Admin_Controller {
         }
         else
         {
+            $this->data['category'] = $this->question_category_model->get_all();
             /* Load Template */
             $this->template->admin_render('admin/question/single', $this->data);
         }
