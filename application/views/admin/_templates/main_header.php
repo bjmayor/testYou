@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
             <header class="main-header">
                 <a href="<?php echo site_url('admin/dashboard'); ?>" class="logo">
-                    <span class="logo-mini"><b>A</b><?php echo $title_mini; ?></span>
-                    <span class="logo-lg"><b>Admin</b><?php echo $title_lg; ?></span>
+                    <span class="logo-mini">后台</span>
+                    <span class="logo-lg">后台管理系统</span>
                 </a>
 
                 <nav class="navbar navbar-static-top" role="navigation">
