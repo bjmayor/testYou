@@ -1,16 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends Public_Controller {
+class Home extends MY_Controller {
 
-    public function __construct()
+
+    public function index()
     {
-        parent::__construct();
+        $this->load->view('index',$this->data);
     }
 
-
-	public function index()
-	{
-		$this->load->view('public/home', $this->data);
-	}
+    public function top()
+    {
+        $this->load->view('top',$this->data);
+    }
 }
