@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                   <li><a href="<?php echo site_url('admin/question/single');?>"><i class="fa fa-circle-o text-aqua"></i>单选题</a></li>
                                   </ul>
                         </li>
-                        <li class="active"><a href="#"><i class="fa fa-th"></i> <span>题库管理</span></a></li>
+                        <li class="active"><a href="<?php echo site_url('admin/question/page');?>"><i class="fa fa-th"></i> <span>题库管理</span></a></li>
                         <li class="header text-uppercase"><?php echo lang('menu_administration'); ?></li>
                         <li class="<?=active_link_controller('users')?>">
                             <a href="<?php echo site_url('admin/users'); ?>">
