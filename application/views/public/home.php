@@ -33,9 +33,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php endif; ?>
 
 <?php if ($logout_link): ?>
-            <p><a href="<?php echo site_url('auth/logout/public'); ?>">Logout</a></p>
+            <p><a href="<?php echo site_url('auth/logout/public'); ?>">登出</a></p>
 <?php else: ?>
-            <p><a href="<?php echo site_url('auth/login'); ?>">Login</a></p>
+            <p><a href="<?php echo site_url('auth/login'); ?>">登录</a></p>
 <?php endif; ?>
         </article>
 
