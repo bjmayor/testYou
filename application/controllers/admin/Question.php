@@ -65,5 +65,17 @@ class Question extends Admin_Controller {
             $this->template->admin_render('admin/question/page', $this->data);
         }
    }
+    /***interface*/
 
+    public function create()
+    {
+        if($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
+        {
+        }
+        else
+        {
+            new Response().result(-1,"no auth");            
+        }
+
+    }
 }
