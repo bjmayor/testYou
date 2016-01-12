@@ -115,7 +115,10 @@
                   </div>
                 </div>
 
-       
+               <div class="col-sm-10">
+                   <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
+                </div>
+
                 
               </div>
               <!-- /.box-body -->

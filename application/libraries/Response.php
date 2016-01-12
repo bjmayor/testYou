@@ -4,27 +4,17 @@
 class Response{
     public $code;
     public $msg;
+    public $data;
 
     public function __construct()
     {
     }
 
-    public function result($response)
-    {
-        if($response)
-        {
-            echo json_encode($response);
-        }
-        else
-        {
-            echo json_encode(array("msg"=>$this->msg,"code"=>$this->code));
-        }
-    }
-
-    public function result($code, $msg)
+    public function result($code, $msg, $data="")
     {
         $this->code = $code;
         $this->msg = $msg;
-        $this->result();
+        $this->data = $data;
+        echo json_encode(array("msg"=>$this->msg,"code"=>$this->code, "data"=>$this->data));
     }
 }

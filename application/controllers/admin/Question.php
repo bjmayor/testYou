@@ -10,7 +10,7 @@ class Question extends Admin_Controller {
         /* Load :: Common */
         $this->load->helper('number');
         $this->load->model('admin/dashboard_model');
-
+        $this->load->model('question_model');
         $this->load->model('question_category_model');
     }
 
@@ -61,16 +61,20 @@ class Question extends Admin_Controller {
         }
         else
         {
-            /* Load Template */
+            $this->data['questions'] = $this->question_model->getPage($page,$num,$category_id);
             $this->template->admin_render('admin/question/page', $this->data);
         }
    }
-    /***interface*/
 
+    /***interface*/
+    /*
+     * 创建一个问题
+     */
     public function create()
     {
         if($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
         {
+//            $this->question_model->();
         }
         else
         {
