@@ -74,11 +74,23 @@ class Question extends Admin_Controller {
     {
         if($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
         {
-//            $this->question_model->();
+            $question_id = $this->question_model->insert_question(array(
+                'title'=>$this->input->post('title'),
+                'description'=>$this->input->post('description'),
+                'question_category_id'=>$this->input->post('question_category_id')
+            ));
+            if ($question_id > 0)
+            {
+                Response::build(0,"ok",$question_id)->show();
+            }
+            else
+            {
+                Response::build(1,"error","问题创建失败")->show();
+            }
         }
         else
         {
-            new Response().result(-1,"no auth");            
+            Response::build(-1,"no auth")->show();            
         }
 
     }

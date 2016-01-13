@@ -20,27 +20,27 @@
             <h3 class="box-title" >题目属性</h3>
           </div>
           <div class="box-body">
-           <form class="form-horizontal">
+           <form class="form-horizontal" name="create_question">
               <div class="box-body">
                 <div class="form-group">
                   <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 题目</label>
 
                   <div class="col-sm-10">
-                    <input type="title" class="form-control" id="inputTitle">
+                    <input type="title" class="form-control" id="title">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="简介" class="col-sm-2 control-label"><i class="text-red">*</i> 简介</label>
 
                   <div class="col-sm-10">
-                    <script type="text/plain" id="myEditor" style="width:100%;height:100px;"></script>
+                    <script type="text/plain" id="description" style="width:100%;height:100px;"></script>
                   </div>
                 </div>
 
                  <div class="form-group">
                   <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 分类</label>
                   <div class="col-sm-10">
-                    <select class="form-control" style="width: 100%;">
+                    <select class="form-control" style="width: 100%;" id = "question_category_id">
                     <?php foreach($category as $item): ?>
                     <option value='<?php echo $item['id'];?>' ><?php echo $item['description'];?></option>
                     <?php endforeach;?>
@@ -112,11 +112,11 @@
                         <!-- /.box-body -->
                       </div>
                    
-                  </div>
-                </div>
-
-               <div class="col-sm-10">
-                   <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
+ 
+                      <div class="col-sm-10">
+                           <button type="submit" class="btn btn-success" id="create_question"><i class="fa fa-save"></i>  保存</button>
+                      </div>
+                 </div>
                 </div>
 
                 
@@ -347,10 +347,28 @@
   <!-- /.content-wrapper -->
 <script type="text/javascript">
 $(function(){
-    var um = UM.getEditor('myEditor');
+    var um = UM.getEditor('description');
     var um1 = UM.getEditor('myEditor1');
     var um2 = UM.getEditor('myEditor2');
     var um3 = UM.getEditor('myEditor3');
+    $("form[name=create_question]").submit(function(){
+        $.post("create?t=1",
+            {
+                title:$("#title").val(),
+                description:um.getContent(),
+                question_category_id:$("#question_category_id").val()
+            },
+                function(data,status){
+                    if(status==="success")
+                    {
+                        alert("Data: " + data + "\nStatus: " + status);
+                    }
+                    else
+                    {
+                        alert("error");
+                    }
+        });
+    });
 
 });
 </script>

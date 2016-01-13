@@ -10,11 +10,17 @@ class Response{
     {
     }
 
-    public function result($code, $msg, $data="")
+    public static function build($code, $msg, $data="")
     {
-        $this->code = $code;
-        $this->msg = $msg;
-        $this->data = $data;
+        $res = new Response();
+        $res->code = $code;
+        $res->msg = $msg;
+        $res->data = $data;
+        return $res;
+    }
+
+    public function show()
+    {
         echo json_encode(array("msg"=>$this->msg,"code"=>$this->code, "data"=>$this->data));
     }
 }
