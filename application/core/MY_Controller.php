@@ -23,6 +23,7 @@ class MY_Controller extends CI_Controller
         $this->data['plugins_dir']    = $this->config->item('plugins_dir');
         $this->data['avatar_dir']     = $this->config->item('avatar_dir');
         $this->data['front_dir']     = $this->config->item('front_dir');
+        $this->data['um_dir']     = $this->config->item('umeditor_dir');
 
         /* Any mobile device (phones or tablets) */
         if ($this->mobile_detect->isMobile())

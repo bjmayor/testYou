@@ -345,3 +345,12 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+<script type="text/javascript">
+$(function(){
+    var um = UM.getEditor('myEditor');
+    var um1 = UM.getEditor('myEditor1');
+    var um2 = UM.getEditor('myEditor2');
+    var um3 = UM.getEditor('myEditor3');
+
+});
+</script>

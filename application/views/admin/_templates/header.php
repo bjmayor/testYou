@@ -48,6 +48,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <script src="<?php echo base_url($plugins_dir . '/respond/respond.min.js'); ?>"></script>
         <![endif]-->
 <?php endif; ?>
+     <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script>
+    <link href="<?php echo base_url($um_dir);?>/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+      <script type="text/javascript" charset="utf-8" src="<?php echo base_url($um_dir);?>/umeditor.config.js"></script>
+      <script type="text/javascript" charset="utf-8" src="<?php echo base_url($um_dir);?>/umeditor.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url($um_dir);?>/lang/zh-cn/zh-cn.js"></script>
     </head>
     <body class="hold-transition skin-blue fixed sidebar-mini">
 <?php if ($mobile === FALSE && $admin_prefs['transition_page'] == TRUE): ?>

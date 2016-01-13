@@ -11,7 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </footer>
         </div>
 
-        <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script>
         <script src="<?php echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url($plugins_dir . '/slimscroll/slimscroll.min.js'); ?>"></script>
 <?php if ($mobile == TRUE): ?>
