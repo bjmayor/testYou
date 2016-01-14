@@ -3,8 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Test extends MY_Controller {
 
-    public function index()
+    public function __construct()
     {
+        parent::__construct();
+        $this->load->model('question_model');
+    }
+    public function index($question_id)
+    {
+        $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
         $this->load->view('test/index',$this->data);
     }
 
