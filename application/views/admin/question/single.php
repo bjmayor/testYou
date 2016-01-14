@@ -53,7 +53,7 @@
                   <div class="col-sm-10">
                     <div class="row">
                       <div class="col-xs-4 col-sm-2">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="question_tag">
                       </div>
                       <div class="col-xs-4 col-sm-2">
                         <input type="text" class="form-control">
@@ -91,21 +91,21 @@
                               <label for="title" class="col-sm-2 control-label">Title</label>
 
                               <div class="col-sm-10">
-                                <input type="title" class="form-control" id="inputTitle">
+                                <input type="title" class="form-control" id="seo_title">
                               </div>
                             </div>
                             <div class="form-group">
                               <label for="title" class="col-sm-2 control-label">Keywords</label>
 
                               <div class="col-sm-10">
-                                <input type="title" class="form-control" id="inputTitle">
+                                <input type="title" class="form-control" id="seo_keywords">
                               </div>
                             </div>
                             <div class="form-group">
                               <label for="title" class="col-sm-2 control-label">Description</label>
 
                               <div class="col-sm-10">
-                                <input type="title" class="form-control" id="inputTitle">
+                                <input type="title" class="form-control" id="seo_description">
                               </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
           <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
             <h3 class="box-title" >问题选项</h3>
           </div>
-          <form class="form-horizontal">
+          <form class="form-horizontal" id="answer">
             <div class="box-body">
                   <div class="form-group">
                     <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项A</label>
@@ -356,18 +356,23 @@ $(function(){
             {
                 title:$("#title").val(),
                 description:um.getContent(),
-                question_category_id:$("#question_category_id").val()
+                question_category_id:$("#question_category_id").val(),
+                seo_title : $("#seo_title").val(),
+                seo_keywords:$("#seo_keywords").val(),
+                seo_description:$("#seo_description").val(),
+                question_tag:$("#question_tag").val()
             },
                 function(data,status){
                     if(status==="success")
                     {
-                        alert("Data: " + data + "\nStatus: " + status);
+                        alert(data);
                     }
                     else
                     {
                         alert("error");
                     }
         });
+        return false;
     });
 
 });
