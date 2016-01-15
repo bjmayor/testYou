@@ -16,15 +16,31 @@
         <div class="current-title text-c"><?php echo $question['title']; ?></div>
         </header>
         <section class="main-suc">
+        <?php if ($main_question['question_type']==2):?>
         <div class="test-two">
-            <div class="number"><div class="num-bj">1/12</div></div>
-            <div class="questions">1、你喜欢什么水果？</div>
+            <div class="number"><div class="num-bj"><?php echo $index; ?>/<?php echo $total; ?></div></div>
+            <div class="questions"><?php echo $index; ?>、<?php echo $question['title']; ?></div>
         </div>
+        <?php endif;?>
         <div class="invitation">
-            <a class="answer" href="#">苹果</a>
-            <a class="answer" href="#">草莓</a>
-            <a class="answer" href="#">橘子</a>
+            <?php if($answer != false):?>
+            <?php foreach($answer as $item):?>
+                <a class="answer" href="#" result="<?php echo $item['result_label']; ?>" next_id="<?php echo $item['next_question_id']; ?>" score="<?php echo $item['score']; ?>"><?php echo $item['answer_text'];?></a>
+            <?php endforeach;?>
+            <?php endif;?>
         </div> 
         </section>
+<script>
+var question_id =  <?php echo $main_question['id'];?>;
+$(function(){
+    $(".answer").click(function(){
+        if($(this).attr('result')!=='')
+        {
+            window.location.href = "test/result/"+question_id+"/".$(this).attr('result');
+        }
+        return false;
+    });
+});
+</script>
     </body>
 </html>
