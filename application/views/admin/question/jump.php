@@ -20,7 +20,7 @@
             <h3 class="box-title" >题目属性</h3>
           </div>
           <div class="box-body">
-           <form class="form-horizontal">
+           <form class="form-horizontal" name="create_question">
               <div class="box-body">
                 <div class="form-group">
                   <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 题目</label>
@@ -33,7 +33,7 @@
                   <label for="简介" class="col-sm-2 control-label"><i class="text-red">*</i> 简介</label>
 
                   <div class="col-sm-10">
-                    <script type="text/plain" id="myEditor" style="width:100%;height:100px;"></script>
+                    <script type="text/plain" id="description" style="width:100%;height:100px;"></script>
                   </div>
                 </div>
 
@@ -41,15 +41,10 @@
                   <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 分类</label>
                   <div class="col-sm-10">
                     <select class="form-control" style="width: 100%;">
-                      <option selected="selected">爱情</option>
-                      <option>性格</option>
-                      <option>社交</option>
-                      <option>财富</option>
-                      <option>职场</option>
-                      <option>趣味</option>
-                      <option>能力</option>
-                      <option>智商</option>
-                      <option>综合</option>
+                    <?php foreach($category as $item): ?>
+                    <option value='<?php echo $item['id'];?>' ><?php echo $item['description'];?></option>
+                    <?php endforeach;?>
+
                     </select>
                   </div>
                 </div>
@@ -377,3 +372,36 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+<script type="text/javascript">
+$(function(){
+    var um = UM.getEditor('description');
+    var um1 = UM.getEditor('myEditor1');
+    var um2 = UM.getEditor('myEditor2');
+    var um3 = UM.getEditor('myEditor3');
+    $("form[name=create_question]").submit(function(){
+        $.post("create?t=1",
+            {
+                title:$("#title").val(),
+                description:um.getContent(),
+                question_category_id:$("#question_category_id").val(),
+                seo_title : $("#seo_title").val(),
+                seo_keywords:$("#seo_keywords").val(),
+                seo_description:$("#seo_description").val(),
+                question_type:3,
+                question_tag:$("#question_tag").val()
+            },
+                function(data,status){
+                    if(status==="success")
+                    {
+                        alert(data);
+                    }
+                    else
+                    {
+                        alert("error");
+                    }
+        });
+        return false;
+    });
+
+});
+</script>

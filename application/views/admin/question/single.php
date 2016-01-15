@@ -360,6 +360,7 @@ $(function(){
                 seo_title : $("#seo_title").val(),
                 seo_keywords:$("#seo_keywords").val(),
                 seo_description:$("#seo_description").val(),
+                question_type:1,
                 question_tag:$("#question_tag").val()
             },
                 function(data,status){

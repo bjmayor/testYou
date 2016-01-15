@@ -15,7 +15,7 @@ class Question extends Admin_Controller {
         $this->load->model('question_category_model');
     }
 
-    public function single()
+    public function single($question_id=-1)
     {
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
         {
@@ -23,13 +23,19 @@ class Question extends Admin_Controller {
         }
         else
         {
+            if($question_id>0)
+            {
+                $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+                $this->data['meta'] = $this->meta_model->get_meta($this->data['question']->id);
+            }
+
             $this->data['category'] = $this->question_category_model->get_all();
             /* Load Template */
             $this->template->admin_render('admin/question/single', $this->data);
         }
     }
 
-    public function jump()
+    public function jump($question_id=-1)
     {
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
         {
@@ -37,12 +43,17 @@ class Question extends Admin_Controller {
         }
         else
         {
+            if($question_id>0)
+            {
+                $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+                $this->data['meta'] = $this->meta_model->get_meta($this->data['question']->id);
+            }
             $this->data['category'] = $this->question_category_model->get_all();
             $this->template->admin_render('admin/question/jump', $this->data);
         }
     }
 
-    public function score()
+    public function score($question_id=-1)
     {
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
         {
@@ -50,6 +61,12 @@ class Question extends Admin_Controller {
         }
         else
         {
+            if($question_id>0)
+            {
+                $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+                $this->data['meta'] = $this->meta_model->get_meta($this->data['question']->id);
+            }
+
             $this->data['category'] = $this->question_category_model->get_all();
             $this->template->admin_render('admin/question/score', $this->data);
         }
@@ -126,7 +143,7 @@ class Question extends Admin_Controller {
 
     public function del()
     {
-         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
+        if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
         {
             redirect('auth/login', 'refresh');
         }
