@@ -19,7 +19,7 @@ class Test extends MY_Controller {
     {
 
         $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
-        $this->data['meta'] = $this->meta_model->get_meta($this->data['question']->id);
+        $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
         $this->load->view('test/start',$this->data);
     }
 

@@ -13,7 +13,7 @@
 
     <body>
         <header class="headcity">
-        <div class="current-title text-c"><?php echo $question->title; ?></div>
+        <div class="current-title text-c"><?php echo $question['title']; ?></div>
         </header>
         <section class="main-suc">
         <div class="test-two">

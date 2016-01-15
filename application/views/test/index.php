@@ -10,14 +10,14 @@
 
 <body>
 <header class="headcity">
-<span class="retn"><i class="icon return"></i></span><div class="current-title text-l"><?php echo $question->title; ?></div>
+<span class="retn"><i class="icon return"></i></span><div class="current-title text-l"><?php echo $question['title']; ?></div>
 </header>
 <section class="main-suc">
 	<div class="test-pic">
     <img src="<?php echo base_url($front_dir);?>/images/img.jpg">
     </div>
-    <div class="pad"><?php echo $question->description;  ?></div>
-    <div class="invitation"><a class="friend" href="<?php echo base_url('test/start/'.$question->id);?>">开始测试</a></div>	
+    <div class="pad"><?php echo $question['description'];  ?></div>
+    <div class="invitation"><a class="friend" href="<?php echo base_url('test/start/'.$question['id']);?>">开始测试</a></div>	
 </section>
 </body>
 </html>
