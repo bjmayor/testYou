@@ -23,7 +23,7 @@ class Test extends MY_Controller {
         $this->load->view('test/start',$this->data);
     }
 
-    public function result()
+    public function result($result_id)
     {
         $this->load->view('test/result',$this->data);
     }
