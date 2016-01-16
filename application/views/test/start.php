@@ -25,7 +25,7 @@
         <div class="invitation">
             <?php if($answer != false):?>
             <?php foreach($answer as $item):?>
-                <a class="answer" href="#" result="<?php echo $item['result_label']; ?>" next_id="<?php echo $item['next_question_id']; ?>" score="<?php echo $item['score']; ?>"><?php echo $item['answer_text'];?></a>
+                <a class="answer" href="#" result="<?php echo $item['result_label']; ?>" next_id="<?php echo isset($item['next_question_id'])?$item['next_question_id']:-1; ?>" score="<?php echo $item['score']; ?>"><?php echo $item['answer_text'];?></a>
             <?php endforeach;?>
             <?php endif;?>
         </div> 
