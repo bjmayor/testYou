@@ -21,6 +21,7 @@ class Home extends MY_Controller {
         case 0:
             $this->data['questions'] = $this->question_model->get_question(array(
                 "sort_by"=>'create_time',
+                "pid"=>'NULL',
                 'sort_direction'=>'desc',
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
@@ -30,6 +31,7 @@ class Home extends MY_Controller {
             $this->data['questions'] = $this->question_model->get_question(array(
                 "sort_by"=>'visit_count',
                 'sort_direction'=>'desc',
+                "pid"=>'NULL',
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
             ));
@@ -38,6 +40,7 @@ class Home extends MY_Controller {
         case 2:
              $this->data['questions'] = $this->question_model->get_question(array(
                 "is_recommend"=>1,
+                "pid"=>'NULL',
                 "sort_by"=>'create_time',
                 'sort_direction'=>'desc',
                 'limit'=>$page_num,
@@ -66,6 +69,7 @@ class Home extends MY_Controller {
                 "question_category_id"=>$category_id,
                 "sort_by"=>'create_time',
                 'sort_direction'=>'desc',
+                "pid"=>'NULL',
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
             ));
@@ -75,6 +79,7 @@ class Home extends MY_Controller {
                 "question_category_id"=>$category_id,
                 "sort_by"=>'visit_count',
                 'sort_direction'=>'desc',
+                "pid"=>'NULL',
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
             ));
@@ -86,6 +91,7 @@ class Home extends MY_Controller {
                 "is_recommend"=>1,
                 "sort_by"=>'create_time',
                 'sort_direction'=>'desc',
+                "pid"=>'NULL',
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
             ));

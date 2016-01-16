@@ -54,8 +54,11 @@ class Test extends MY_Controller {
         $this->load->view('test/start',$this->data);
     }
 
-    public function result($result_id)
+    public function result($question_id,$result_label)
     {
+        $this->load->model('result_model');
+        $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+        $this->data['result'] = $this->result_model->get_result(array('question_id'=>$question_id,'label'=>$result_label));
         $this->load->view('test/result',$this->data);
     }
 

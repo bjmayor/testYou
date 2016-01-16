@@ -9,6 +9,7 @@
         content="<?php echo $meta['seo_description']; ?>">
         <meta name="keywords" content="<?php echo $meta['seo_keywords']; ?>">
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/ceshi.css" type="text/css">
+        <script type="text/javascript" charset="utf-8" src="<?php echo base_url($front_dir);?>/js/zepto.min.js"></script>
     </head>
 
     <body>
@@ -31,12 +32,12 @@
         </div> 
         </section>
 <script>
-var question_id =  <?php echo $main_question['id'];?>;
+var questionId =  <?php echo $main_question['id'];?>;
 $(function(){
     $(".answer").click(function(){
         if($(this).attr('result')!=='')
         {
-            window.location.href = "test/result/"+question_id+"/".$(this).attr('result');
+            window.location.href = "<?php echo site_url('test/result/');?>"+"/"+questionId+"/"+$(this).attr('result');
         }
         return false;
     });
