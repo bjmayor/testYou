@@ -12,6 +12,7 @@ class Question extends Admin_Controller {
         $this->load->model('admin/dashboard_model');
         $this->load->model('question_model');
         $this->load->model('meta_model');
+        $this->load->model('answer_model');
         $this->load->model('question_category_model');
     }
 
@@ -26,7 +27,8 @@ class Question extends Admin_Controller {
             if($question_id>0)
             {
                 $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
-                $this->data['meta'] = $this->meta_model->get_meta($this->data['question']->id);
+                $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
+                $this->data['answer'] = $this->answer_model->get_answer(array('question_id'=>$question_id));
             }
 
             $this->data['category'] = $this->question_category_model->get_all();
@@ -139,6 +141,7 @@ class Question extends Admin_Controller {
         }
 
     }
+
 
 
     public function del()
