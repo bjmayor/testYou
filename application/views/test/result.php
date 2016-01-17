@@ -49,6 +49,9 @@ $(function(){
         loadList();
         return false;
     });
+    $(".retn").click(function(){
+        history.go(-1);
+    });
 });
 </script>
     </body>
