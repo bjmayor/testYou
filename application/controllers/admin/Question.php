@@ -86,7 +86,7 @@ class Question extends Admin_Controller {
             $this->template->admin_render('admin/question/page', $this->data);
         }
     }
-    private function do_upload($dir='',$filename='userfile')
+    public function do_upload($dir='',$filename='userfile')
     {
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
         {
@@ -110,13 +110,13 @@ class Question extends Admin_Controller {
 
             if ( ! $this->upload->do_upload($filename))
             {
-                return  $this->upload->display_errors();
+                Response::build(-1,'error',$this->upload->display_errors())->show();
 
             }
             else
             {
                 /* Data */
-                return $this->upload->data();
+                Response::build(0,'ok',$this->upload->data())->show();
             }
         }
     }
@@ -128,16 +128,17 @@ class Question extends Admin_Controller {
      */
     public function create()
     {
-        $upload_data = $this->do_upload('question');
         if($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
         {
             if (strlen($this->input->post('title'))==0)
             {
                 Response::build(2,"标题不能为空")->show();
+                return;
             }
             if (strlen($this->input->post('description'))==0)
             {
                 Response::build(2,"描述不能为空")->show();
+                return;
             }
             $seo_title = $this->input->post('seo_title');
             if(strlen($seo_title) == 0)
@@ -165,7 +166,6 @@ class Question extends Admin_Controller {
             ));
             if ($question_id > 0)
             {
-                redirect('single/'.$question_id);
                 Response::build(0,"ok",$question_id)->show();
             }
             else

@@ -42,6 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/colorpickersliders/colorpickersliders.min.css'); ?>">
 <?php endif; ?>
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/domprojects/css/dp.min.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/jquery/jquery.form.css'); ?>">
 <?php if ($mobile === FALSE): ?>
         <!--[if lt IE 9]>
             <script src="<?php echo base_url($plugins_dir . '/html5shiv/html5shiv.min.js'); ?>"></script>
@@ -49,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <![endif]-->
 <?php endif; ?>
      <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script>
+     <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.form.js'); ?>"></script>
     <link href="<?php echo base_url($um_dir);?>/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
       <script type="text/javascript" charset="utf-8" src="<?php echo base_url($um_dir);?>/umeditor.config.js"></script>
       <script type="text/javascript" charset="utf-8" src="<?php echo base_url($um_dir);?>/umeditor.min.js"></script>

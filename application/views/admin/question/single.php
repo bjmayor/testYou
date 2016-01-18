@@ -21,7 +21,7 @@
         </div>
         <div class="box-body">
 
-            <?php echo form_open_multipart('admin/question/create', array("class"=>"form-horizontal","name"=>"create_question"));?>
+            <?php echo form_open('admin/question/create', array("class"=>"form-horizontal","name"=>"create_question"));?>
                 <div class="box-body">
                     <div class="form-group">
                         <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 题目</label>
@@ -74,8 +74,14 @@
                         <label for="title" class="col-sm-2 control-label">封面图</label>
 
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" name="userfile">
+                            <input type="file" class="form-control" name="userfile" id = "question_img">
+                            <input type="hidden"  name="img" value="<?php echo isset($question)?$question['img']:''; ?>">
                         </div>
+                        <div class="progress"> 
+                            <span class="bar"></span><span class="percent">0%</span > 
+                        </div> 
+                        <div class="files"></div> 
+                        <div id="showimg"></div> 
                     </div>
 
 
@@ -293,18 +299,19 @@
             um.setContent('<?php echo $question['description']; ?>',false,false);
             <?php endif;?>
             //创建问题
-            /*
             $("form[name=create_question]").submit(function(){
                 $.post("create",
                     {
                         title:$("#title").val(),
                         description:um.getContent(),
                         question_category_id:$("#question_category_id").val(),
+                        img:'',
                         seo_title : $("#seo_title").val(),
                         seo_keywords:$("#seo_keywords").val(),
                         seo_description:$("#seo_description").val(),
                         question_type:1,
                         question_tag:$("#question_tag").val(),
+        
                         id:questionId
                     },
                     function(data,status){
@@ -321,7 +328,6 @@
                     });
                     return false;
             });
-             */
             //保存答案
             $("form[name=answer]").submit(function(){
                 var answerData = [];
@@ -362,7 +368,43 @@
                 });
                 return false;
             });
-
-
+            var bar = $('.bar'); 
+                var percent = $('.percent'); 
+                var showimg = $('#showimg'); 
+                var progress = $(".progress"); 
+                var files = $(".files"); 
+                //var btn = $(".btn span"); 
+                $("#question_img").wrap("<form id='myupload' action='"+"<?php echo site_url('admin/question/do_upload/question');?>"+"'  method='post' enctype='multipart/form-data'></form>"); 
+                $("#question_img").change(function(){ //选择文件 
+                    $("#myupload").ajaxSubmit({ 
+                        dataType:  'json', //数据格式为json 
+                        beforeSend: function() { //开始上传 
+                            showimg.empty(); //清空显示的图片 
+                            progress.show(); //显示进度条 
+                            var percentVal = '0%'; //开始进度为0% 
+                            bar.width(percentVal); //进度条的宽度 
+                            percent.html(percentVal); //显示进度为0% 
+                 //           btn.html("上传中..."); //上传按钮显示上传中 
+                        }, 
+                        uploadProgress: function(event, position, total, percentComplete) { 
+                            var percentVal = percentComplete + '%'; //获得进度 
+                            bar.width(percentVal); //上传进度条宽度变宽 
+                            percent.html(percentVal); //显示上传进度百分比 
+                        }, 
+                        success: function(data) { //成功 
+                            //获得后台返回的json数据，显示文件名，大小，以及删除按钮 
+                            files.html("<b>"+data.name+"("+data.size+"k)</b> <span class='delimg' rel='"+data.pic+"'>删除</span>"); 
+                            //显示上传后的图片 
+                            var img = "http://www.xiaojiaoluo.com/upload/question/"+data.file_name; 
+                            showimg.html("<img src='"+img+"'>"); 
+                  //          btn.html("添加附件"); //上传按钮还原 
+                        }, 
+                        error:function(xhr){ //上传失败 
+                   //         btn.html("上传失败"); 
+                            bar.width('0'); 
+                            files.html(xhr.responseText); //返回失败信息 
+                        } 
+                    }); 
+                }); 
         });
 </script>
