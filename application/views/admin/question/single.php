@@ -373,8 +373,8 @@
                 var progress = $(".progress"); 
                 var files = $(".files"); 
                 //var btn = $(".btn span"); 
-                $("#question_img").wrap("<form id='myupload' action='"+"<?php echo site_url('admin/question/do_upload/question');?>"+"'  method='post' enctype='multipart/form-data'></form>"); 
                 $("#question_img").change(function(){ //选择文件 
+                    $("#question_img").wrap("<form id='myupload' action='"+"<?php echo site_url('admin/question/do_upload/question');?>"+"'  method='post' enctype='multipart/form-data'></form>"); 
                     $("#myupload").ajaxSubmit({ 
                         dataType:  'json', //数据格式为json 
                         beforeSend: function() { //开始上传 
@@ -395,7 +395,7 @@
                             var img = "http://www.xiaojiaoluo.com/upload/question/"+data.data.file_name; 
                             showimg.html("<img src='"+img+"'>"); 
                             $("input[name=img]").val('question/'+data.data.file_name);
-                            $("question_img").parent().remove();
+                            $("#question_img").unwrap();
                   //          btn.html("添加附件"); //上传按钮还原 
                         }, 
                         error:function(xhr){ //上传失败 
