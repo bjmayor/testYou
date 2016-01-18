@@ -20,13 +20,14 @@
             <h3 class="box-title" >题目属性</h3>
         </div>
         <div class="box-body">
-            <form class="form-horizontal" name="create_question">
+
+            <?php echo form_open_multipart('admin/question/create', array("class"=>"form-horizontal","name"=>"create_question"));?>
                 <div class="box-body">
                     <div class="form-group">
                         <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 题目</label>
 
                         <div class="col-sm-10">
-                            <input type="title" class="form-control" id="title" value=<?php echo isset($question)?$question['title']:""; ?>>
+                            <input type="title" class="form-control"  name = "title" id="title" value=<?php echo isset($question)?$question['title']:""; ?>>
                         </div>
                     </div>
                     <div class="form-group">
@@ -73,7 +74,7 @@
                         <label for="title" class="col-sm-2 control-label">封面图</label>
 
                         <div class="col-sm-10">
-                            <input type="file" class="form-control">
+                            <input type="file" class="form-control" name="userfile">
                         </div>
                     </div>
 
@@ -292,6 +293,7 @@
             um.setContent('<?php echo $question['description']; ?>',false,false);
             <?php endif;?>
             //创建问题
+            /*
             $("form[name=create_question]").submit(function(){
                 $.post("create",
                     {
@@ -319,6 +321,7 @@
                     });
                     return false;
             });
+             */
             //保存答案
             $("form[name=answer]").submit(function(){
                 var answerData = [];

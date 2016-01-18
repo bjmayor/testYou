@@ -36,7 +36,7 @@ class Files extends Admin_Controller {
 	}
 
 
-	public function do_upload()
+	public function do_upload($dir='',$filename='userfile',$is_ajax = false)
 	{
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
         {
@@ -45,7 +45,7 @@ class Files extends Admin_Controller {
         else
         {
             /* Conf */
-            $config['upload_path']      = './upload/';
+            $config['upload_path']      = './upload/'.$dir;
             $config['allowed_types']    = 'gif|jpg|png';
             $config['max_size']         = 2048;
             $config['max_width']        = 1024;
@@ -58,21 +58,32 @@ class Files extends Admin_Controller {
             $this->breadcrumbs->unshift(2, lang('menu_files'), 'admin/files');
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
-            if ( ! $this->upload->do_upload('userfile'))
+            if ( ! $this->upload->do_upload($filename))
             {
                 /* Data */
                 $this->data['error'] = $this->upload->display_errors();
+                if($is_ajax)
+                {
+                    Response::build(-1,'error',$this->data)->show();
+                }
+                else
+                {
+                    $this->template->admin_render('admin/files/index', $this->data);
+                }
 
-                /* Load Template */
-                $this->template->admin_render('admin/files/index', $this->data);
             }
             else
             {
                 /* Data */
                 $this->data['upload_data'] = $this->upload->data();
-
-                /* Load Template */
-                $this->template->admin_render('admin/files/upload', $this->data);
+                if($is_ajax)
+                {
+                    Response::build(-1,'error',$this->data)->show();
+                }
+                else
+                {
+                    $this->template->admin_render('admin/files/upload', $this->data);
+                }
             }
         }
 	}

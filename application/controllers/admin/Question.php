@@ -86,6 +86,41 @@ class Question extends Admin_Controller {
             $this->template->admin_render('admin/question/page', $this->data);
         }
     }
+    private function do_upload($dir='',$filename='userfile')
+    {
+        if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
+        {
+            redirect('auth/login', 'refresh');
+        }
+        else
+        {
+            /* Conf */
+            $config['upload_path']      = './upload/'.$dir;
+            $config['allowed_types']    = 'gif|jpg|png';
+            $config['max_size']         = 2048;
+            $config['max_width']        = 1024;
+            $config['max_height']       = 1024;
+            $config['file_ext_tolower'] = TRUE;
+
+            $this->load->library('upload', $config);
+
+            /* Breadcrumbs */
+            $this->breadcrumbs->unshift(2, lang('menu_files'), 'admin/files');
+            $this->data['breadcrumb'] = $this->breadcrumbs->show();
+
+            if ( ! $this->upload->do_upload($filename))
+            {
+                return  $this->upload->display_errors();
+
+            }
+            else
+            {
+                /* Data */
+                return $this->upload->data();
+            }
+        }
+    }
+
 
     /***interface*/
     /*
@@ -93,6 +128,7 @@ class Question extends Admin_Controller {
      */
     public function create()
     {
+        $upload_data = $this->do_upload('question');
         if($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
         {
             if (strlen($this->input->post('title'))==0)
@@ -123,11 +159,13 @@ class Question extends Admin_Controller {
             $question_id = $this->question_model->insert_question(array(
                 'title'=>$this->input->post('title'),
                 'description'=>$this->input->post('description'),
+                'img'=>"question/".$upload_data['file_name'],
                 'question_category_id'=>$this->input->post('question_category_id'),
                 'meta_id'=>$meta_id
             ));
             if ($question_id > 0)
             {
+                redirect('single/'.$question_id);
                 Response::build(0,"ok",$question_id)->show();
             }
             else
