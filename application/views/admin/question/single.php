@@ -147,12 +147,12 @@
                 <?php if(isset($answer) && $answer!=false):?>
 
                 <?php foreach($answer as $item): ?>
-                <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项A</label>
+                <div class="form-group" name="answer_group">
+                <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项<span><?php echo $item['label']; ?></span></label>
                     <div class="col-sm-10">
                         <div class="row">
                             <div class="col-xs-9 col-sm-9">
-                                <input type="text" class="form-control" name="answer" label="a">
+                                <input type="text" class="form-control" name="answer" label="<?php echo $item['label']; ?>">
                             </div>
                             <div class="col-xs-3 col-sm-3">
                                 <input type="text" class="form-control" placeholder="对应结果" name="result_label">
@@ -164,8 +164,8 @@
                 <?php endforeach;?>
 
                 <?php else: ?>
-                <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项a</label>
+                <div class="form-group" name="answer_group">
+                    <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项<span>a</span></label>
                     <div class="col-sm-10">
                         <div class="row">
                             <div class="col-xs-9 col-sm-9">
@@ -179,8 +179,8 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项b</label>
+                <div class="form-group" name="answer_group">
+                    <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项<span>b</span></label>
                     <div class="col-sm-10">
                         <div class="row">
                             <div class="col-xs-9 col-sm-9">
@@ -199,7 +199,7 @@
                     <div class="col-sm-10">
 
                         <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
-                        <button type="button" class="btn btn-default" style="margin-left:20px"> 增加选项</button>
+                        <button type="button" class="btn btn-default" style="margin-left:20px" name="add_answer"> 增加选项</button>
 
                     </div>
                 </div>
@@ -300,7 +300,7 @@
             <?php endif;?>
             //创建问题
             $("form[name=create_question]").submit(function(){
-                $.post("create",
+                $.post("<?php echo site_url('admin/question/create'); ?>",
                     {
                         title:$("#title").val(),
                         description:um.getContent(),
@@ -318,7 +318,7 @@
                         {
                             var res = eval("("+data+")");
                             questionId = res.data;
-                            window.location.href = "single/"+res.data;
+                            window.location.href =  "<?php echo site_url('admin/question/single');?>" + "/"+res.data;
                         }
                         else
                         {
@@ -405,5 +405,13 @@
                         } 
                     }); 
                 }); 
+                $("button[name=add_answer]").click(function(){
+                    var lastGroup =  $("div[name=answer_group]").last();
+                    var copyGroup = lastGroup.clone();
+                    var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
+                    copyGroup.find("input[name=answer]").attr("label",label);
+                    copyGroup.find("span").html(label);
+                    copyGroup.insertAfter(lastGroup);
+                });
         });
 </script>

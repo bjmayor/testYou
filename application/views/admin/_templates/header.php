@@ -42,7 +42,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/colorpickersliders/colorpickersliders.min.css'); ?>">
 <?php endif; ?>
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/domprojects/css/dp.min.css'); ?>">
-        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/jquery/jquery.form.css'); ?>">
 <?php if ($mobile === FALSE): ?>
         <!--[if lt IE 9]>
             <script src="<?php echo base_url($plugins_dir . '/html5shiv/html5shiv.min.js'); ?>"></script>
