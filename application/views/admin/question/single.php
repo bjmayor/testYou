@@ -305,13 +305,12 @@
                         title:$("#title").val(),
                         description:um.getContent(),
                         question_category_id:$("#question_category_id").val(),
-                        img:'',
+                        img:$("input[name=img]").val(),
                         seo_title : $("#seo_title").val(),
                         seo_keywords:$("#seo_keywords").val(),
                         seo_description:$("#seo_description").val(),
                         question_type:1,
                         question_tag:$("#question_tag").val(),
-        
                         id:questionId
                     },
                     function(data,status){
@@ -352,14 +351,14 @@
             //保存结论
             $("form[name=result]").submit(function(){
                 var label = $(this).attr('label');
-                var result = {question_id:questionId,label:label,result_label:'a',show_text_result:''};
+                var result = {question_id:questionId,label:label,result_label:'a',show_text_result:'你是个人..嘿嘿',show_html_result:'非得这样说才可以么？哈哈'};
                 $("input[name=answer]").each(function(){});
                 $.post("<?php echo site_url('admin/result/create');?>",
-                        {result:result},
+                        {results:[result]},
                     function(data,status){
                         if(status === "success")
                         {
-                            alert('操作成功');
+                            alert('操作成功'+data);
                         }
                         else
                         {
@@ -392,11 +391,11 @@
                             percent.html(percentVal); //显示上传进度百分比 
                         }, 
                         success: function(data) { //成功 
-                            //获得后台返回的json数据，显示文件名，大小，以及删除按钮 
-                            files.html("<b>"+data.name+"("+data.size+"k)</b> <span class='delimg' rel='"+data.pic+"'>删除</span>"); 
                             //显示上传后的图片 
-                            var img = "http://www.xiaojiaoluo.com/upload/question/"+data.file_name; 
+                            var img = "http://www.xiaojiaoluo.com/upload/question/"+data.data.file_name; 
                             showimg.html("<img src='"+img+"'>"); 
+                            $("input[name=img]").val('question/'+data.data.file_name);
+                            $("question_img").parent().remove();
                   //          btn.html("添加附件"); //上传按钮还原 
                         }, 
                         error:function(xhr){ //上传失败 

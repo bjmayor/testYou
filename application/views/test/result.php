@@ -15,12 +15,12 @@
         </header>
         <section class="main-suc">
         <div class="succes-pic">
-            <img src="<?php echo base_url($front_dir);?>/images/pic.jpg">
+        <img src="<?php echo site_url();?>/result/"<?php echo $result['show_img_result']; ?>>
         </div>
         <div class="cont-text">
             <div class="title-s"><?php echo $result['show_text_result']; ?></div>
             <div class="test">
-                <?php echo $result['show_html_result'];?>
+                <?php echo $result["show_html_result"];?>
             </div>
             <div class="invitation"><a class="friend" href="#">邀请好友测试</a></div>   
         </div>

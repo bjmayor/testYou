@@ -39,14 +39,14 @@ class Test extends MY_Controller {
         switch($this->data['main_question']['question_type'])
         {
         case 1:
-            $this->data['answer'] = $this->answer_model->get_answer(array('question_id'));
+            $this->data['answer'] = $this->answer_model->get_answer(array('question_id'=>$question_id));
             break;
         case 2:
             break;
         case 3:
             break;
         }
-
+        //$this->output->enable_profiler();
         $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$this->data['main_question']['id']));
         $this->data['total'] = count($this->data['sub_questions']);
         $this->data['index'] = $index;

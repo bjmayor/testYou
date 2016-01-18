@@ -151,27 +151,46 @@ class Question extends Admin_Controller {
                 $seo_description = $this->input->post('description');
             }
 
-            $meta_id =  $this->meta_model->insert_meta(
-                $seo_title,
-                $seo_description,
-                $this->input->post('seo_keywords') 
-            );
+            //编辑功能
+            if($this->input->post('id')!='-1')
+            {
+                $question = $this->question_model->get_question(array('id'=>$this->input->post('id')));
+                $this->meta_model->update_meta($seo_title,$seo_description,$question['id']);
+                $this->question_model->update_question(array(
+                    'title'=>$this->input->post('title'),
+                    'description'=>$this->input->post('description'),
+                    'img'=>$this->input->post('img'),
+                    'question_category_id'=>$this->input->post('question_category_id'),
+                    'meta_id'=>$question['meta_id'],
+                    'id'=>$question['id']
+                ));
 
-            $question_id = $this->question_model->insert_question(array(
-                'title'=>$this->input->post('title'),
-                'description'=>$this->input->post('description'),
-                'img'=>"question/".$upload_data['file_name'],
-                'question_category_id'=>$this->input->post('question_category_id'),
-                'meta_id'=>$meta_id
-            ));
-            if ($question_id > 0)
-            {
-                Response::build(0,"ok",$question_id)->show();
             }
-            else
+            else//新建
             {
-                Response::build(1,"error","问题创建失败")->show();
+                $meta_id =  $this->meta_model->insert_meta(
+                    $seo_title,
+                    $seo_description,
+                    $this->input->post('seo_keywords') 
+                );
+
+                $question_id = $this->question_model->insert_question(array(
+                    'title'=>$this->input->post('title'),
+                    'description'=>$this->input->post('description'),
+                    'img'=>$this->input->post('img'),
+                    'question_category_id'=>$this->input->post('question_category_id'),
+                    'meta_id'=>$meta_id
+                ));
+                if ($question_id > 0)
+                {
+                    Response::build(0,"ok",$question_id)->show();
+                }
+                else
+                {
+                    Response::build(1,"error","问题创建失败")->show();
+                }
             }
+
         }
         else
         {
