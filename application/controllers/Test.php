@@ -27,30 +27,49 @@ class Test extends MY_Controller {
     {
 
         $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+        $is_main_question = false;
         //当前是某个测试题 子问题
         if($this->data['question']['pid'] !=0  &&is_int($this->data['question']['pid']))
         {
-           $this->data['main_question'] = $this->question_model->get_question(array('id'=>$this->data['question']['pid']));
+            $this->data['main_question'] = $this->question_model->get_question(array('id'=>$this->data['question']['pid']));
         }
         else
         {
+            $is_main_question = true;
             $this->data['main_question'] = $this->data['question'];
         }
-        switch($this->data['main_question']['question_type'])
-        {
-        case 1:
-            $this->data['answer'] = $this->answer_model->get_answer(array('question_id'=>$question_id));
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        }
-        //$this->output->enable_profiler();
+
         $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$this->data['main_question']['id']));
         $this->data['total'] = count($this->data['sub_questions']);
         $this->data['index'] = $index;
         $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
+
+        switch($this->data['main_question']['question_type'])
+        {
+        case 1:
+            $this->data['answers'] = $this->answer_model->get_answer(array('question_id'=>$question_id));
+            break;
+        case 2:
+            //如果是最后一次点击，需要计算分数
+            //TODO
+            if($index >= $this->data['total'])
+            {
+                redirect('test/result/'.$this->data['main_question']['id'].'/a');
+            }
+            else
+            {
+                $this->data['question'] = $this->data['sub_questions'][$index];
+                $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
+            }
+            break;
+        case 3:
+            if($is_main_question)
+            {
+                $this->data['question'] = $this->data['sub_questions'][$index];
+            }
+            $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
+            break;
+        }
         $this->load->view('test/start',$this->data);
     }
 

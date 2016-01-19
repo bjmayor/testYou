@@ -19,14 +19,14 @@
         <section class="main-suc">
         <?php if ($main_question['question_type']==2):?>
         <div class="test-two">
-            <div class="number"><div class="num-bj"><?php echo $index; ?>/<?php echo $total; ?></div></div>
-            <div class="questions"><?php echo $index; ?>、<?php echo $question['title']; ?></div>
+            <div class="number"><div class="num-bj"><?php echo $index+1; ?>/<?php echo $total; ?></div></div>
+            <div class="questions"><?php echo $index+1; ?>、<?php echo $question['title']; ?></div>
         </div>
         <?php endif;?>
         <div class="invitation">
-            <?php if($answer != false):?>
-            <?php foreach($answer as $item):?>
-                <a class="answer" href="#" result="<?php echo $item['result_label']; ?>" next_id="<?php echo isset($item['next_question_id'])?$item['next_question_id']:-1; ?>" score="<?php echo $item['score']; ?>"><?php echo $item['answer_text'];?></a>
+            <?php if($answers != false):?>
+            <?php foreach($answers as $answer):?>
+                <a class="answer" href="#" result="<?php echo $answer['result_label']; ?>" next_id="<?php echo isset($answer['next_question_label'])?$answer['next_question_label']:-1; ?>" score="<?php echo $answer['score']; ?>"><?php echo $answer['answer_text'];?></a>
             <?php endforeach;?>
             <?php endif;?>
         </div> 
@@ -38,6 +38,14 @@ $(function(){
         if($(this).attr('result')!=='')
         {
             window.location.href = "<?php echo site_url('test/result/');?>"+"/"+questionId+"/"+$(this).attr('result');
+        }
+        else if($(this).attr('next_id') != -1)
+        {
+            window.location.href = "<?php echo site_url('test/start/');?>"+"/"+$(this).attr('next_id');
+        }
+        else
+        {
+            window.location.href = "<?php echo site_url('test/start/');?>"+"/"+questionId+"/"+"<?php echo $index+1; ?>"
         }
         return false;
     });

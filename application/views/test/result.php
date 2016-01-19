@@ -15,7 +15,7 @@
         </header>
         <section class="main-suc">
         <div class="succes-pic">
-        <img src="<?php echo site_url();?>/result/"<?php echo $result['show_img_result']; ?>>
+        <img src="<?php echo site_url();?>/upload/<?php echo $result['show_img_result']; ?>">
         </div>
         <div class="cont-text">
             <div class="title-s"><?php echo $result['show_text_result']; ?></div>

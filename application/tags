@@ -1,0 +1,783 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Admin_Controller	core/MY_Controller.php	/^class Admin_Controller extends MY_Controller$/;"	c
+Auth	controllers/Auth.php	/^class Auth extends MY_Controller {$/;"	c
+Auth	controllers/Auth_original.php	/^class Auth extends CI_Controller {$/;"	c
+Bcrypt	libraries/Bcrypt.php	/^class Bcrypt {$/;"	c
+Breadcrumbs	libraries/admin/Breadcrumbs.php	/^class Breadcrumbs {$/;"	c
+CI	helpers/menu_helper.php	/^        $CI    =& get_instance();$/;"	v
+CI	libraries/Template.php	/^		$this->CI =& get_instance();$/;"	v
+CI	libraries/Template.php	/^    protected $CI;$/;"	v
+CI	libraries/admin/Breadcrumbs.php	/^		$this->CI =& get_instance();$/;"	v
+CI	libraries/admin/Breadcrumbs.php	/^    protected $CI;$/;"	v
+CI	libraries/admin/Page_title.php	/^		$this->CI =& get_instance();$/;"	v
+CI	libraries/admin/Page_title.php	/^    protected $CI;$/;"	v
+Core_model	models/admin/Core_model.php	/^class Core_model extends CI_Model {$/;"	c
+DIR_READ_MODE	config/constants.php	/^defined('DIR_READ_MODE')   OR define('DIR_READ_MODE', 0755);$/;"	d
+DIR_WRITE_MODE	config/constants.php	/^defined('DIR_WRITE_MODE')  OR define('DIR_WRITE_MODE', 0755);$/;"	d
+Dashboard	controllers/admin/Dashboard.php	/^class Dashboard extends Admin_Controller {$/;"	c
+Dashboard_model	models/admin/Dashboard_model.php	/^class Dashboard_model extends CI_Model {$/;"	c
+Database	controllers/admin/Database.php	/^class Database extends Admin_Controller {$/;"	c
+EXIT_CONFIG	config/constants.php	/^defined('EXIT_CONFIG')         OR define('EXIT_CONFIG', 3); \/\/ configuration error$/;"	d
+EXIT_DATABASE	config/constants.php	/^defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); \/\/ database error$/;"	d
+EXIT_ERROR	config/constants.php	/^defined('EXIT_ERROR')          OR define('EXIT_ERROR', 1); \/\/ generic error$/;"	d
+EXIT_SUCCESS	config/constants.php	/^defined('EXIT_SUCCESS')        OR define('EXIT_SUCCESS', 0); \/\/ no errors$/;"	d
+EXIT_UNKNOWN_CLASS	config/constants.php	/^defined('EXIT_UNKNOWN_CLASS')  OR define('EXIT_UNKNOWN_CLASS', 5); \/\/ unknown class$/;"	d
+EXIT_UNKNOWN_FILE	config/constants.php	/^defined('EXIT_UNKNOWN_FILE')   OR define('EXIT_UNKNOWN_FILE', 4); \/\/ file not found$/;"	d
+EXIT_UNKNOWN_METHOD	config/constants.php	/^defined('EXIT_UNKNOWN_METHOD') OR define('EXIT_UNKNOWN_METHOD', 6); \/\/ unknown class member$/;"	d
+EXIT_USER_INPUT	config/constants.php	/^defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); \/\/ invalid user input$/;"	d
+EXIT__AUTO_MAX	config/constants.php	/^defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); \/\/ highest automatically-assigned error code$/;"	d
+EXIT__AUTO_MIN	config/constants.php	/^defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); \/\/ lowest automatically-assigned error code$/;"	d
+FILE_READ_MODE	config/constants.php	/^defined('FILE_READ_MODE')  OR define('FILE_READ_MODE', 0644);$/;"	d
+FILE_WRITE_MODE	config/constants.php	/^defined('FILE_WRITE_MODE') OR define('FILE_WRITE_MODE', 0666);$/;"	d
+FOPEN_READ	config/constants.php	/^defined('FOPEN_READ')                           OR define('FOPEN_READ', 'rb');$/;"	d
+FOPEN_READ_WRITE	config/constants.php	/^defined('FOPEN_READ_WRITE')                     OR define('FOPEN_READ_WRITE', 'r+b');$/;"	d
+FOPEN_READ_WRITE_CREATE	config/constants.php	/^defined('FOPEN_READ_WRITE_CREATE')              OR define('FOPEN_READ_WRITE_CREATE', 'a+b');$/;"	d
+FOPEN_READ_WRITE_CREATE_DESTRUCTIVE	config/constants.php	/^defined('FOPEN_READ_WRITE_CREATE_DESCTRUCTIVE') OR define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE', 'w+b'); \/\/ truncates existing file data, use with care$/;"	d
+FOPEN_READ_WRITE_CREATE_STRICT	config/constants.php	/^defined('FOPEN_READ_WRITE_CREATE_STRICT')       OR define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');$/;"	d
+FOPEN_WRITE_CREATE	config/constants.php	/^defined('FOPEN_WRITE_CREATE')                   OR define('FOPEN_WRITE_CREATE', 'ab');$/;"	d
+FOPEN_WRITE_CREATE_DESTRUCTIVE	config/constants.php	/^defined('FOPEN_WRITE_CREATE_DESTRUCTIVE')       OR define('FOPEN_WRITE_CREATE_DESTRUCTIVE', 'wb'); \/\/ truncates existing file data, use with care$/;"	d
+FOPEN_WRITE_CREATE_STRICT	config/constants.php	/^defined('FOPEN_WRITE_CREATE_STRICT')            OR define('FOPEN_WRITE_CREATE_STRICT', 'xb');$/;"	d
+Files	controllers/admin/Files.php	/^class Files extends Admin_Controller {$/;"	c
+Groups	controllers/admin/Groups.php	/^class Groups extends Admin_Controller {$/;"	c
+Home	controllers/Home.php	/^class Home extends MY_Controller {$/;"	c
+Ion_auth	libraries/Ion_auth.php	/^class Ion_auth$/;"	c
+Ion_auth_model	models/Ion_auth_model.php	/^class Ion_auth_model extends CI_Model$/;"	c
+License	controllers/admin/License.php	/^class License extends Admin_Controller {$/;"	c
+MY_Controller	core/MY_Controller.php	/^class MY_Controller extends CI_Controller$/;"	c
+Mobile_Detect	libraries/common/Mobile_detect.php	/^class Mobile_Detect$/;"	c
+Original	controllers/admin/_Original.php	/^class Original extends Admin_Controller {$/;"	c
+Page_title	libraries/admin/Page_title.php	/^class Page_title {$/;"	c
+Preferences_model	models/admin/Preferences_model.php	/^class Preferences_model extends CI_Model {$/;"	c
+Prefs	controllers/admin/Prefs.php	/^class Prefs extends Admin_Controller {$/;"	c
+Prefs_model	models/common/Prefs_model.php	/^class Prefs_model extends CI_Model {$/;"	c
+Public_Controller	core/MY_Controller.php	/^class Public_Controller extends MY_Controller$/;"	c
+Question	controllers/admin/Question.php	/^class Question extends Admin_Controller {$/;"	c
+Question_tag_model	models/Question_tag_model.php	/^<?php$/;"	c
+Resources	controllers/admin/Resources.php	/^class Resources extends Admin_Controller {$/;"	c
+Response	libraries/Response.php	/^class Response{$/;"	c
+SHOW_DEBUG_BACKTRACE	config/constants.php	/^defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);$/;"	d
+TBNAME	models/Answer_model.php	/^<?php$/;"	v
+TBNAME	models/Meta_model.php	/^<?php$/;"	v
+TBNAME	models/Question_category_model.php	/^<?php$/;"	v
+TBNAME	models/Question_model.php	/^<?php$/;"	v
+TBNAME	models/Question_tag_model.php	/^<?php$/;"	v
+TBNAME	models/Result_model.php	/^<?php$/;"	v
+TBNAME	models/User_model.php	/^<?php$/;"	v
+Template	libraries/Template.php	/^class Template {$/;"	c
+Test	controllers/Test.php	/^class Test extends MY_Controller {$/;"	c
+Users	controllers/admin/Users.php	/^class Users extends Admin_Controller {$/;"	c
+__call	libraries/Ion_auth.php	/^	public function __call($method, $arguments)$/;"	f
+__call	libraries/common/Mobile_detect.php	/^    public function __call($name, $arguments)$/;"	f
+__construct	controllers/Auth.php	/^	function __construct()$/;"	f
+__construct	controllers/Auth_original.php	/^	function __construct()$/;"	f
+__construct	controllers/Home.php	/^    public function __construct()$/;"	f
+__construct	controllers/Question.php	/^<?php$/;"	f
+__construct	controllers/Test.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/Answer.php	/^<?php$/;"	f
+__construct	controllers/admin/Dashboard.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/Database.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/Files.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/Groups.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/License.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/Meta.php	/^<?php$/;"	f
+__construct	controllers/admin/Prefs.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/Question.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/Resources.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/Result.php	/^<?php$/;"	f
+__construct	controllers/admin/Users.php	/^    public function __construct()$/;"	f
+__construct	controllers/admin/_Original.php	/^    public function __construct()$/;"	f
+__construct	core/MY_Controller.php	/^	public function __construct()$/;"	f
+__construct	core/MY_Model.php	/^<?php$/;"	f
+__construct	libraries/Bcrypt.php	/^  public function __construct($params=array('rounds'=>7, 'salt_prefix'=>'$2y$')) {$/;"	f
+__construct	libraries/Ion_auth.php	/^	public function __construct()$/;"	f
+__construct	libraries/Response.php	/^    public function __construct()$/;"	f
+__construct	libraries/Template.php	/^    public function __construct()$/;"	f
+__construct	libraries/admin/Breadcrumbs.php	/^    public function __construct()$/;"	f
+__construct	libraries/admin/Page_title.php	/^    public function __construct()$/;"	f
+__construct	libraries/common/Mobile_detect.php	/^    public function __construct($/;"	f
+__construct	models/Answer_model.php	/^<?php$/;"	f
+__construct	models/Ion_auth_model.php	/^	public function __construct()$/;"	f
+__construct	models/Meta_model.php	/^<?php$/;"	f
+__construct	models/Question_category_model.php	/^<?php$/;"	f
+__construct	models/Question_model.php	/^<?php$/;"	f
+__construct	models/User_model.php	/^<?php$/;"	f
+__construct	models/admin/Core_model.php	/^    public function __construct()$/;"	f
+__construct	models/admin/Dashboard_model.php	/^    public function __construct()$/;"	f
+__construct	models/admin/Preferences_model.php	/^    public function __construct()$/;"	f
+__construct	models/common/Prefs_model.php	/^    public function __construct()$/;"	f
+__get	libraries/Ion_auth.php	/^	public function __get($var)$/;"	f
+_cache_groups	models/Ion_auth_model.php	/^	protected $_cache_groups = array();$/;"	v
+_cache_user_in_group	libraries/Ion_auth.php	/^		$this->_cache_user_in_group =& $this->ion_auth_model->_cache_user_in_group;$/;"	v
+_cache_user_in_group	libraries/Ion_auth.php	/^	public $_cache_user_in_group;$/;"	v
+_cache_user_in_group	models/Ion_auth_model.php	/^	public $_cache_user_in_group = array();$/;"	v
+_call_hook	models/Ion_auth_model.php	/^	protected function _call_hook($event, $name)$/;"	f
+_doctypes	config/doctypes.php	/^$_doctypes = array($/;"	v
+_extra_set	libraries/Ion_auth.php	/^	public $_extra_set = array();$/;"	v
+_extra_where	libraries/Ion_auth.php	/^	public $_extra_where = array();$/;"	v
+_filter_data	models/Ion_auth_model.php	/^	protected function _filter_data($table, $data)$/;"	f
+_get_csrf_nonce	controllers/Auth_original.php	/^	function _get_csrf_nonce()$/;"	f
+_get_csrf_nonce	controllers/admin/Users.php	/^	public function _get_csrf_nonce()$/;"	f
+_ion_hooks	models/Ion_auth_model.php	/^		$this->_ion_hooks = new stdClass;$/;"	v
+_ion_hooks	models/Ion_auth_model.php	/^	protected $_ion_hooks;$/;"	v
+_ion_like	models/Ion_auth_model.php	/^			$this->_ion_like = array();$/;"	v
+_ion_like	models/Ion_auth_model.php	/^	public $_ion_like = array();$/;"	v
+_ion_limit	models/Ion_auth_model.php	/^			$this->_ion_limit  = NULL;$/;"	v
+_ion_limit	models/Ion_auth_model.php	/^		$this->_ion_limit = $limit;$/;"	v
+_ion_limit	models/Ion_auth_model.php	/^	public $_ion_limit = NULL;$/;"	v
+_ion_offset	models/Ion_auth_model.php	/^			$this->_ion_offset = NULL;$/;"	v
+_ion_offset	models/Ion_auth_model.php	/^		$this->_ion_offset = $offset;$/;"	v
+_ion_offset	models/Ion_auth_model.php	/^	public $_ion_offset = NULL;$/;"	v
+_ion_order	models/Ion_auth_model.php	/^			$this->_ion_order    = NULL;$/;"	v
+_ion_order	models/Ion_auth_model.php	/^		$this->_ion_order    = $order;$/;"	v
+_ion_order	models/Ion_auth_model.php	/^	public $_ion_order = NULL;$/;"	v
+_ion_order_by	models/Ion_auth_model.php	/^			$this->_ion_order_by = NULL;$/;"	v
+_ion_order_by	models/Ion_auth_model.php	/^		$this->_ion_order_by = $by;$/;"	v
+_ion_order_by	models/Ion_auth_model.php	/^	public $_ion_order_by = NULL;$/;"	v
+_ion_select	models/Ion_auth_model.php	/^			$this->_ion_select = array();$/;"	v
+_ion_select	models/Ion_auth_model.php	/^	public $_ion_select = array();$/;"	v
+_ion_where	models/Ion_auth_model.php	/^			$this->_ion_where = array();$/;"	v
+_ion_where	models/Ion_auth_model.php	/^	public $_ion_where = array();$/;"	v
+_output	models/Ion_auth_model.php	/^			$_output = array();$/;"	v
+_output	models/Ion_auth_model.php	/^		$_output = '';$/;"	v
+_prepare_ip	models/Ion_auth_model.php	/^	protected function _prepare_ip($ip_address) {$/;"	f
+_render_page	controllers/Auth_original.php	/^	function _render_page($view, $data=null, $returnhtml=false)\/\/I think this makes more sense$/;"	f
+_rules	libraries/common/Mobile_detect.php	/^            $_rules = array_change_key_case($this->getRules());$/;"	v
+_valid_csrf_nonce	controllers/Auth_original.php	/^	function _valid_csrf_nonce()$/;"	f
+_valid_csrf_nonce	controllers/admin/Users.php	/^	public function _valid_csrf_nonce()$/;"	f
+activate	controllers/Auth_original.php	/^	function activate($id, $code=false)$/;"	f
+activate	controllers/admin/Users.php	/^	function activate($id, $code = FALSE)$/;"	f
+activate	models/Ion_auth_model.php	/^	public function activate($id, $code = false)$/;"	f
+activation	controllers/Auth_original.php	/^			$activation = $this->ion_auth->activate($id);$/;"	v
+activation	controllers/Auth_original.php	/^			$activation = $this->ion_auth->activate($id, $code);$/;"	v
+activation	controllers/admin/Users.php	/^			$activation = $this->ion_auth->activate($id);$/;"	v
+activation	controllers/admin/Users.php	/^            $activation = $this->ion_auth->activate($id, $code);$/;"	v
+activation_code	libraries/Ion_auth.php	/^			$activation_code = $this->ion_auth_model->activation_code;$/;"	v
+activation_code	models/Ion_auth_model.php	/^		$activation_code       = sha1(md5(microtime()));$/;"	v
+activation_code	models/Ion_auth_model.php	/^		$this->activation_code = $activation_code;$/;"	v
+activation_code	models/Ion_auth_model.php	/^	public $activation_code;$/;"	v
+activation_code_part	models/Ion_auth_model.php	/^			$activation_code_part = openssl_random_pseudo_bytes(128);$/;"	v
+activation_code_part	models/Ion_auth_model.php	/^			$activation_code_part = sha1($activation_code_part . mt_rand() . microtime());$/;"	v
+activation_code_part	models/Ion_auth_model.php	/^		$activation_code_part = "";$/;"	v
+active_group	config/database.php	/^$active_group = 'default';$/;"	v
+active_link_controller	helpers/menu_helper.php	/^    function active_link_controller($controller)$/;"	f
+active_link_function	helpers/menu_helper.php	/^    function active_link_function($controller)$/;"	f
+add_to_group	models/Ion_auth_model.php	/^	public function add_to_group($group_ids, $user_id=false)$/;"	f
+additional_data	controllers/Auth_original.php	/^			$additional_data = array($/;"	v
+additional_data	controllers/admin/Users.php	/^			$additional_data = array($/;"	v
+additional_data	libraries/Ion_auth.php	/^	public function register($identity, $password, $email, $additional_data = array(), $group_ids = array()) \/\/need to test email activation$/;"	v
+additional_data	models/Ion_auth_model.php	/^		if (is_string($additional_data)) $additional_data = array('description' => $additional_data);$/;"	v
+additional_data	models/Ion_auth_model.php	/^	public function register($identity, $password, $email, $additional_data = array(), $groups = array())$/;"	v
+admin_group	libraries/Ion_auth.php	/^		$admin_group = $this->config->item('admin_group', 'ion_auth');$/;"	v
+admin_prefs	models/common/Prefs_model.php	/^    public function admin_prefs()$/;"	f
+admin_render	libraries/Template.php	/^    public function admin_render($content, $data = NULL)$/;"	f
+altHeader	libraries/common/Mobile_detect.php	/^        $altHeader = 'HTTP_' . $header;$/;"	v
+and	config/ion_auth.php	/^ | The controller should check this function and act$/;"	f
+and	config/migration.php	/^| If this is set to TRUE when you load the migrations class and have$/;"	c
+android	views/admin/_templates/header.php	/^<?php if ($mobile == TRUE && $android == TRUE): ?>$/;"	v
+arrVer	libraries/common/Mobile_detect.php	/^        $arrVer = explode('.', $ver, 2);$/;"	v
+array_sorter	libraries/admin/Breadcrumbs.php	/^    function array_sorter($key)$/;"	f
+attempts	models/Ion_auth_model.php	/^				$attempts = $this->get_attempts_num($identity);$/;"	v
+auth_render	libraries/Template.php	/^    public function auth_render($content, $data = NULL)$/;"	f
+base64_digits	models/Ion_auth_model.php	/^        $base64_digits   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/';$/;"	v
+base64_string	models/Ion_auth_model.php	/^        $base64_string   = base64_encode($salt);$/;"	v
+bcrypt64_digits	models/Ion_auth_model.php	/^        $bcrypt64_digits = '.\/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';$/;"	v
+bl	models/Ion_auth_model.php	/^            $bl = strlen($buffer);$/;"	v
+breadcrumb_close	libraries/admin/Breadcrumbs.php	/^		$this->breadcrumb_close        = $this->CI->config->item('breadcrumb_close');$/;"	v
+breadcrumb_el_close	libraries/admin/Breadcrumbs.php	/^		$this->breadcrumb_el_close     = $this->CI->config->item('breadcrumb_el_close');$/;"	v
+breadcrumb_el_first	libraries/admin/Breadcrumbs.php	/^		$this->breadcrumb_el_first     = $this->CI->config->item('breadcrumb_el_first');$/;"	v
+breadcrumb_el_last_open	libraries/admin/Breadcrumbs.php	/^		$this->breadcrumb_el_last_open = $this->CI->config->item('breadcrumb_el_last');$/;"	v
+breadcrumb_el_open	libraries/admin/Breadcrumbs.php	/^		$this->breadcrumb_el_open      = $this->CI->config->item('breadcrumb_el_open');$/;"	v
+breadcrumb_open	libraries/admin/Breadcrumbs.php	/^        $this->breadcrumb_open         = $this->CI->config->item('breadcrumb_open');$/;"	v
+breadcrumbs	libraries/admin/Breadcrumbs.php	/^    private $breadcrumbs = array();$/;"	v
+browsers	config/user_agents.php	/^$browsers = array($/;"	v
+browsers	libraries/common/Mobile_detect.php	/^    protected static $browsers = array($/;"	v
+buffer	models/Ion_auth_model.php	/^ 		$buffer = '';$/;"	v
+buffer	models/Ion_auth_model.php	/^            $buffer = mcrypt_create_iv($raw_salt_len, MCRYPT_DEV_URANDOM);$/;"	v
+buffer	models/Ion_auth_model.php	/^            $buffer = openssl_random_pseudo_bytes($raw_salt_len);$/;"	v
+buffer_valid	models/Ion_auth_model.php	/^                $buffer_valid = true;$/;"	v
+buffer_valid	models/Ion_auth_model.php	/^        $buffer_valid = false;$/;"	v
+build	libraries/Response.php	/^    public static function build($code, $msg, $data="")$/;"	f
+bytes	libraries/Bcrypt.php	/^      $bytes = '';$/;"	v
+bytes	libraries/Bcrypt.php	/^      $bytes = fread($hRand, $count);$/;"	v
+bytes	libraries/Bcrypt.php	/^      $bytes = openssl_random_pseudo_bytes($count);$/;"	v
+bytes	libraries/Bcrypt.php	/^      $bytes = substr($bytes, 0, $count);$/;"	v
+bytes	libraries/Bcrypt.php	/^    $bytes = $this->getRandomBytes(16);$/;"	v
+bytes	libraries/Bcrypt.php	/^    $bytes = '';$/;"	v
+c1	libraries/Bcrypt.php	/^      $c1 = ($c1 & 0x03) << 4;$/;"	v
+c1	libraries/Bcrypt.php	/^      $c1 = ($c2 & 0x0f) << 2;$/;"	v
+c1	libraries/Bcrypt.php	/^      $c1 = ord($input[$i++]);$/;"	v
+c2	libraries/Bcrypt.php	/^      $c2 = ord($input[$i++]);$/;"	v
+cache	libraries/common/Mobile_detect.php	/^        $this->cache = array();$/;"	v
+cache	libraries/common/Mobile_detect.php	/^    protected $cache = array();$/;"	v
+cfHeaders	libraries/common/Mobile_detect.php	/^            $cfHeaders = $_SERVER;$/;"	v
+cfHeaders	libraries/common/Mobile_detect.php	/^            $cfHeaders = $this->getCfHeaders();$/;"	v
+ch	helpers/MY_url_helper.php	/^                $ch = curl_init($url);    $/;"	v
+change	controllers/Auth_original.php	/^					$change = $this->ion_auth->reset_password($identity, $this->input->post('new'));$/;"	v
+change	controllers/Auth_original.php	/^			$change = $this->ion_auth->change_password($identity, $this->input->post('old'), $this->input->post('new'));$/;"	v
+change_password	controllers/Auth_original.php	/^	function change_password()$/;"	f
+change_password	models/Ion_auth_model.php	/^	public function change_password($identity, $old, $new)$/;"	f
+checkHttpHeadersForMobile	libraries/common/Mobile_detect.php	/^    public function checkHttpHeadersForMobile()$/;"	f
+check_group	libraries/Ion_auth.php	/^			$check_group = array($check_group);$/;"	v
+checked	views/admin/users/edit.php	/^            $checked = ' checked="checked"';$/;"	v
+checked	views/admin/users/edit.php	/^    $checked = NULL;$/;"	v
+checked	views/auth/_Original/edit_user.php	/^                          $checked= ' checked="checked"';$/;"	v
+checked	views/auth/_Original/edit_user.php	/^                  $checked = null;$/;"	v
+class	helpers/menu_helper.php	/^        $class = $CI->router->fetch_class();$/;"	v
+class	helpers/menu_helper.php	/^        $class = $CI->router->fetch_method();$/;"	v
+clear_errors	models/Ion_auth_model.php	/^	public function clear_errors()$/;"	f
+clear_forgotten_password_code	models/Ion_auth_model.php	/^	public function clear_forgotten_password_code($code) {$/;"	f
+clear_login_attempts	models/Ion_auth_model.php	/^	public function clear_login_attempts($identity, $expire_period = 86400) {$/;"	f
+clear_messages	models/Ion_auth_model.php	/^	public function clear_messages()$/;"	f
+cloudfrontHeaders	libraries/common/Mobile_detect.php	/^        $this->cloudfrontHeaders = array();$/;"	v
+cloudfrontHeaders	libraries/common/Mobile_detect.php	/^    protected $cloudfrontHeaders = array();$/;"	v
+code	controllers/Auth_original.php	/^	function activate($id, $code=false)$/;"	v
+code	controllers/admin/Users.php	/^	function activate($id, $code = FALSE)$/;"	v
+code	helpers/MY_url_helper.php	/^                $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);$/;"	v
+code	libraries/Response.php	/^    public $code;$/;"	v
+code	models/Ion_auth_model.php	/^	public function activate($id, $code = false)$/;"	v
+columns	models/Ion_auth_model.php	/^		$columns = $this->db->list_fields($table);$/;"	v
+config	config/memcached.php	/^$config = array($/;"	v
+create	controllers/admin/Groups.php	/^	public function create()$/;"	f
+create	controllers/admin/Question.php	/^    public function create()$/;"	f
+create	controllers/admin/Users.php	/^	public function create()$/;"	f
+create_group	controllers/Auth_original.php	/^	function create_group()$/;"	f
+create_group	models/Ion_auth_model.php	/^	public function create_group($group_name = FALSE, $group_description = '', $additional_data = array())$/;"	f
+create_user	controllers/Auth_original.php	/^	function create_user()$/;"	f
+currentGroups	controllers/Auth_original.php	/^		$currentGroups = $this->ion_auth->get_users_groups($id)->result();$/;"	v
+currentGroups	controllers/admin/Users.php	/^		$currentGroups = $this->ion_auth->get_users_groups($id)->result();$/;"	v
+data	controllers/Auth_original.php	/^				$data = array($/;"	v
+data	controllers/Auth_original.php	/^	function _render_page($view, $data=null, $returnhtml=false)\/\/I think this makes more sense$/;"	v
+data	controllers/admin/Meta.php	/^<?php$/;"	v
+data	controllers/admin/Prefs.php	/^                $data = array($/;"	v
+data	controllers/admin/Prefs.php	/^            $data = array($/;"	v
+data	controllers/admin/Users.php	/^				$data = array($/;"	v
+data	libraries/Ion_auth.php	/^				$data = array($/;"	v
+data	libraries/Ion_auth.php	/^			$data = array($/;"	v
+data	libraries/Response.php	/^    public $data;$/;"	v
+data	libraries/Response.php	/^    public static function build($code, $msg, $data="")$/;"	v
+data	libraries/Template.php	/^    public function admin_render($content, $data = NULL)$/;"	v
+data	libraries/Template.php	/^    public function auth_render($content, $data = NULL)$/;"	v
+data	models/Ion_auth_model.php	/^			$data = array($/;"	v
+data	models/Ion_auth_model.php	/^		$data = $this->_filter_data($this->tables['users'], $data);$/;"	v
+data	models/Ion_auth_model.php	/^		$data = array($/;"	v
+data	models/Ion_auth_model.php	/^		$data = array('name'=>$group_name,'description'=>$group_description);$/;"	v
+data	models/Ion_auth_model.php	/^		$data = array();$/;"	v
+data	models/Ion_auth_model.php	/^		if (!empty($additional_data)) $data = array_merge($this->_filter_data($this->tables['groups'], $additional_data), $data);$/;"	v
+db_password	models/Ion_auth_model.php	/^			$db_password =  $salt . substr(sha1($salt . $password), 0, -$this->salt_length);$/;"	v
+db_password	models/Ion_auth_model.php	/^			$db_password = sha1($password . $hash_password_db->salt);$/;"	v
+deactivate	controllers/Auth_original.php	/^	function deactivate($id = NULL)$/;"	f
+deactivate	controllers/admin/Users.php	/^	public function deactivate($id = NULL)$/;"	f
+deactivate	libraries/Ion_auth.php	/^			$deactivate = $this->ion_auth_model->deactivate($id);$/;"	v
+deactivate	models/Ion_auth_model.php	/^	public function deactivate($id = NULL)$/;"	f
+default_group	models/Ion_auth_model.php	/^		$default_group = $query;$/;"	v
+default_rounds	models/Ion_auth_model.php	/^		$this->default_rounds = $this->config->item('default_rounds', 'ion_auth');$/;"	v
+del	controllers/admin/Question.php	/^    public function del()$/;"	f
+delete	controllers/admin/Groups.php	/^	public function delete()$/;"	f
+delete	controllers/admin/Users.php	/^	public function delete()$/;"	f
+delete_group	models/Ion_auth_model.php	/^	public function delete_group($group_id = FALSE)$/;"	f
+delete_user	models/Ion_auth_model.php	/^	public function delete_user($id)$/;"	f
+delimiters_source	models/Ion_auth_model.php	/^		$delimiters_source = $this->config->item('delimiters_source', 'ion_auth');$/;"	v
+detectionType	libraries/common/Mobile_detect.php	/^        $this->detectionType = $type;$/;"	v
+detectionType	libraries/common/Mobile_detect.php	/^    protected $detectionType = self::DETECTION_TYPE_MOBILE;$/;"	v
+disk_freepercent	models/admin/Dashboard_model.php	/^    public function disk_freepercent($dir = DIRECTORY_SEPARATOR, $display_unit = FALSE)$/;"	f
+disk_freespace	models/admin/Dashboard_model.php	/^    public function disk_freespace($dir = DIRECTORY_SEPARATOR)$/;"	f
+disk_totalspace	models/admin/Dashboard_model.php	/^    public function disk_totalspace($dir = DIRECTORY_SEPARATOR)$/;"	f
+disk_usepercent	models/admin/Dashboard_model.php	/^    public function disk_usepercent($dir = DIRECTORY_SEPARATOR, $display_unit = FALSE)$/;"	f
+disk_usespace	models/admin/Dashboard_model.php	/^    public function disk_usespace($dir = DIRECTORY_SEPARATOR)$/;"	f
+display_unit	models/admin/Dashboard_model.php	/^    public function disk_freepercent($dir = DIRECTORY_SEPARATOR, $display_unit = FALSE)$/;"	v
+display_unit	models/admin/Dashboard_model.php	/^    public function disk_usepercent($dir = DIRECTORY_SEPARATOR, $display_unit = FALSE)$/;"	v
+display_unit	models/admin/Dashboard_model.php	/^    public function memory_usepercent($real = TRUE, $display_unit = FALSE)$/;"	v
+do_upload	controllers/admin/Files.php	/^	public function do_upload($dir='',$filename='userfile',$is_ajax = false)$/;"	f
+do_upload	controllers/admin/Question.php	/^    private function do_upload($dir='',$filename='userfile')$/;"	f
+edit	controllers/admin/Groups.php	/^	public function edit($id)$/;"	f
+edit	controllers/admin/Users.php	/^	public function edit($id)$/;"	f
+edit_group	controllers/Auth_original.php	/^	function edit_group($id)$/;"	f
+edit_user	controllers/Auth_original.php	/^	function edit_user($id)$/;"	f
+email	controllers/Auth_original.php	/^			$email    = strtolower($this->input->post('email'));$/;"	v
+email	controllers/admin/Users.php	/^			$email    = strtolower($this->input->post('email'));$/;"	v
+email_activation	libraries/Ion_auth.php	/^		$email_activation = $this->config->item('email_activation', 'ion_auth');$/;"	v
+email_check	models/Ion_auth_model.php	/^	public function email_check($email = '')$/;"	f
+email_config	libraries/Ion_auth.php	/^		$email_config = $this->config->item('email_config', 'ion_auth');$/;"	v
+encodeBytes	libraries/Bcrypt.php	/^  private function encodeBytes($input) {$/;"	f
+errorLang	models/Ion_auth_model.php	/^				$errorLang = $this->lang->line($error) ? $this->lang->line($error) : '##' . $error . '##';$/;"	v
+errorLang	models/Ion_auth_model.php	/^			$errorLang = $this->lang->line($error) ? $this->lang->line($error) : '##' . $error . '##';$/;"	v
+error_end_delimiter	models/Ion_auth_model.php	/^			$this->error_end_delimiter     = $this->config->item('error_end_delimiter', 'ion_auth');$/;"	v
+error_end_delimiter	models/Ion_auth_model.php	/^			$this->error_end_delimiter = $error_suffix->getValue($this->form_validation);$/;"	v
+error_end_delimiter	models/Ion_auth_model.php	/^		$this->error_end_delimiter   = $end_delimiter;$/;"	v
+error_end_delimiter	models/Ion_auth_model.php	/^	protected $error_end_delimiter;$/;"	v
+error_prefix	models/Ion_auth_model.php	/^			$error_prefix = $form_validation_class->getProperty("_error_prefix");$/;"	v
+error_start_delimiter	models/Ion_auth_model.php	/^			$this->error_start_delimiter   = $this->config->item('error_start_delimiter', 'ion_auth');$/;"	v
+error_start_delimiter	models/Ion_auth_model.php	/^			$this->error_start_delimiter = $error_prefix->getValue($this->form_validation);$/;"	v
+error_start_delimiter	models/Ion_auth_model.php	/^		$this->error_start_delimiter = $start_delimiter;$/;"	v
+error_start_delimiter	models/Ion_auth_model.php	/^	protected $error_start_delimiter;$/;"	v
+error_suffix	models/Ion_auth_model.php	/^			$error_suffix = $form_validation_class->getProperty("_error_suffix");$/;"	v
+errors	models/Ion_auth_model.php	/^		$this->errors      = array();$/;"	v
+errors	models/Ion_auth_model.php	/^		$this->errors = array();$/;"	v
+errors	models/Ion_auth_model.php	/^	protected $errors;$/;"	v
+errors	models/Ion_auth_model.php	/^	public function errors()$/;"	f
+errors_array	models/Ion_auth_model.php	/^	public function errors_array($langify = TRUE)$/;"	f
+existing_group	models/Ion_auth_model.php	/^			$existing_group = $this->db->get_where($this->tables['groups'], array('name' => $group_name))->row();$/;"	v
+existing_group	models/Ion_auth_model.php	/^		$existing_group = $this->db->get_where($this->tables['groups'], array('name' => $group_name))->num_rows();$/;"	v
+expiration	libraries/Ion_auth.php	/^				$expiration = $this->config->item('forgot_password_expiration', 'ion_auth');$/;"	v
+expiration	models/Ion_auth_model.php	/^				$expiration = $this->config->item('forgot_password_expiration', 'ion_auth');$/;"	v
+expire	models/Ion_auth_model.php	/^				$expire = $this->config->item('user_expire', 'ion_auth');$/;"	v
+expire	models/Ion_auth_model.php	/^				$expire = (60*60*24*365*2);$/;"	v
+expire	models/Ion_auth_model.php	/^			$expire = $this->config->item('user_expire', 'ion_auth');$/;"	v
+expire	models/Ion_auth_model.php	/^			$expire = (60*60*24*365*2);$/;"	v
+expire_period	models/Ion_auth_model.php	/^	public function clear_login_attempts($identity, $expire_period = 86400) {$/;"	v
+f	models/Ion_auth_model.php	/^            $f = fopen('\/dev\/urandom', 'r');$/;"	v
+filtered_data	models/Ion_auth_model.php	/^		$filtered_data = array();$/;"	v
+for	libraries/common/Mobile_detect.php	/^ * Mobile_Detect is a lightweight PHP class for detecting mobile devices (including tablets).$/;"	c
+foreign_characters	config/foreign_chars.php	/^$foreign_characters = array($/;"	v
+forgot_password	controllers/Auth_original.php	/^	function forgot_password()$/;"	f
+forgotten	controllers/Auth_original.php	/^			$forgotten = $this->ion_auth->forgotten_password($identity->{$this->config->item('identity', 'ion_auth')});$/;"	v
+forgotten_password	libraries/Ion_auth.php	/^	public function forgotten_password($identity)    \/\/changed $email to $identity$/;"	f
+forgotten_password	models/Ion_auth_model.php	/^	public function forgotten_password($identity)$/;"	f
+forgotten_password_check	libraries/Ion_auth.php	/^	public function forgotten_password_check($code)$/;"	f
+forgotten_password_code	models/Ion_auth_model.php	/^		$this->forgotten_password_code = $key;$/;"	v
+forgotten_password_code	models/Ion_auth_model.php	/^	public $forgotten_password_code;$/;"	v
+forgotten_password_complete	libraries/Ion_auth.php	/^	public function forgotten_password_complete($code)$/;"	f
+forgotten_password_complete	models/Ion_auth_model.php	/^	public function forgotten_password_complete($code, $salt=FALSE)$/;"	f
+form_validation_class	models/Ion_auth_model.php	/^			$form_validation_class = new ReflectionClass("CI_Form_validation");$/;"	v
+gID	views/admin/users/edit.php	/^    $gID     = $group['id'];$/;"	v
+gID	views/auth/_Original/edit_user.php	/^                  $gID=$group['id'];$/;"	v
+getBrowsers	libraries/common/Mobile_detect.php	/^    public static function getBrowsers()$/;"	f
+getCfHeaders	libraries/common/Mobile_detect.php	/^    public function getCfHeaders()$/;"	f
+getHttpHeader	libraries/common/Mobile_detect.php	/^    public function getHttpHeader($header)$/;"	f
+getHttpHeaders	libraries/common/Mobile_detect.php	/^    public function getHttpHeaders()$/;"	f
+getMatchesArray	libraries/common/Mobile_detect.php	/^    public function getMatchesArray()$/;"	f
+getMatchingRegex	libraries/common/Mobile_detect.php	/^    public function getMatchingRegex()$/;"	f
+getMobileDetectionRules	libraries/common/Mobile_detect.php	/^    public static function getMobileDetectionRules()$/;"	f
+getMobileDetectionRulesExtended	libraries/common/Mobile_detect.php	/^    public function getMobileDetectionRulesExtended()$/;"	f
+getMobileHeaders	libraries/common/Mobile_detect.php	/^    public function getMobileHeaders()$/;"	f
+getOperatingSystems	libraries/common/Mobile_detect.php	/^    public static function getOperatingSystems()$/;"	f
+getPhoneDevices	libraries/common/Mobile_detect.php	/^    public static function getPhoneDevices()$/;"	f
+getProperties	libraries/common/Mobile_detect.php	/^    public static function getProperties()$/;"	f
+getRandomBytes	libraries/Bcrypt.php	/^  private function getRandomBytes($count) {$/;"	f
+getRules	libraries/common/Mobile_detect.php	/^    public function getRules()$/;"	f
+getSalt	libraries/Bcrypt.php	/^  private function getSalt() {$/;"	f
+getScriptVersion	libraries/common/Mobile_detect.php	/^    public static function getScriptVersion()$/;"	f
+getTabletDevices	libraries/common/Mobile_detect.php	/^    public static function getTabletDevices()$/;"	f
+getUaHttpHeaders	libraries/common/Mobile_detect.php	/^    public function getUaHttpHeaders()$/;"	f
+getUserAgent	libraries/common/Mobile_detect.php	/^    public function getUserAgent()$/;"	f
+getUserAgents	libraries/common/Mobile_detect.php	/^    public static function getUserAgents()$/;"	f
+getUtilities	libraries/common/Mobile_detect.php	/^    public static function getUtilities()$/;"	f
+get_attempts_num	models/Ion_auth_model.php	/^	function get_attempts_num($identity)$/;"	f
+get_count_record	models/admin/Dashboard_model.php	/^    public function get_count_record($table)$/;"	f
+get_file_install	models/admin/Core_model.php	/^    public function get_file_install()$/;"	f
+get_interface	models/admin/Preferences_model.php	/^    public function get_interface($table)$/;"	f
+get_last_attempt_time	models/Ion_auth_model.php	/^	public function get_last_attempt_time($identity) {$/;"	f
+get_user_id	libraries/Ion_auth.php	/^	public function get_user_id()$/;"	f
+get_users_groups	models/Ion_auth_model.php	/^	public function get_users_groups($id=FALSE)$/;"	f
+group	controllers/Auth_original.php	/^		$group = $this->ion_auth->group($id)->row();$/;"	v
+group	controllers/admin/Groups.php	/^		$group = $this->ion_auth->group($id)->row();$/;"	v
+group	models/Ion_auth_model.php	/^					$group = $this->group($group_id)->result();$/;"	v
+group	models/Ion_auth_model.php	/^		$group = $this->group($group_id)->row();$/;"	v
+group	models/Ion_auth_model.php	/^	public function group($id = NULL)$/;"	f
+group	models/Ion_auth_model.php	/^        $group = $this->db->get_where($this->tables['groups'], array('id' => $group_id))->row();$/;"	v
+groupData	controllers/Auth_original.php	/^					$groupData = $this->input->post('groups');$/;"	v
+groupData	controllers/admin/Users.php	/^                    $groupData = $this->input->post('groups');$/;"	v
+group_description	models/Ion_auth_model.php	/^	public function create_group($group_name = FALSE, $group_description = '', $additional_data = array())$/;"	v
+group_id	models/Ion_auth_model.php	/^		$group_id = $this->db->insert_id();$/;"	v
+group_ids	models/Ion_auth_model.php	/^				$group_ids = array($group_ids);$/;"	v
+group_ids	models/Ion_auth_model.php	/^			$group_ids = array($group_ids);$/;"	v
+group_ids	models/Ion_auth_model.php	/^			$group_ids = array();$/;"	v
+group_name	models/Ion_auth_model.php	/^					$group_name = $group[0]->name;$/;"	v
+group_name	models/Ion_auth_model.php	/^					$group_name = $this->_cache_groups[$group_id];$/;"	v
+group_name	models/Ion_auth_model.php	/^	public function update_group($group_id = FALSE, $group_name = FALSE, $additional_data = array())$/;"	v
+group_names	models/Ion_auth_model.php	/^			$group_names = array();$/;"	v
+group_update	controllers/Auth_original.php	/^				$group_update = $this->ion_auth->update_group($id, $_POST['group_name'], $_POST['group_description']);$/;"	v
+group_update	controllers/admin/Groups.php	/^				$group_update = $this->ion_auth->update_group($id, $_POST['group_name'], $_POST['group_description']);$/;"	v
+groups	controllers/Auth_original.php	/^		$groups=$this->ion_auth->groups()->result_array();$/;"	v
+groups	controllers/admin/Users.php	/^		$groups        = $this->ion_auth->groups()->result_array();$/;"	v
+groups	libraries/Ion_auth.php	/^			$groups = (is_string($value)) ? $groups_array : array_keys($groups_array);$/;"	v
+groups	models/Ion_auth_model.php	/^				$groups = Array($groups);$/;"	v
+groups	models/Ion_auth_model.php	/^	public function groups()$/;"	f
+groups_array	libraries/Ion_auth.php	/^			$groups_array = $this->_cache_user_in_group[$id];$/;"	v
+groups_array	libraries/Ion_auth.php	/^			$groups_array = array();$/;"	v
+hash	libraries/Bcrypt.php	/^    $hash = crypt($input, $existingHash);$/;"	v
+hash	libraries/Bcrypt.php	/^    $hash = crypt($input, $this->getSalt());$/;"	v
+hash	libraries/Bcrypt.php	/^    return $hash === $existingHash;$/;"	v
+hash	libraries/Bcrypt.php	/^  public function hash($input) {$/;"	f
+hash_code	models/Ion_auth_model.php	/^	public function hash_code($password)$/;"	f
+hash_method	models/Ion_auth_model.php	/^		$this->hash_method = $this->config->item('hash_method', 'ion_auth');$/;"	v
+hash_method	models/Ion_auth_model.php	/^		if ($use_sha1_override === FALSE && $this->hash_method == 'bcrypt')$/;"	v
+hash_password	models/Ion_auth_model.php	/^	public function hash_password($password, $salt=false, $use_sha1_override=FALSE)$/;"	f
+hash_password_db	models/Ion_auth_model.php	/^		$hash_password_db = $query->row();$/;"	v
+hash_password_db	models/Ion_auth_model.php	/^	public function hash_password_db($id, $password, $use_sha1_override=FALSE)$/;"	f
+hashed_new_password	models/Ion_auth_model.php	/^			$hashed_new_password  = $this->hash_password($new, $user->salt);$/;"	v
+header	libraries/common/Mobile_detect.php	/^            $header = str_replace('-', '_', $header);$/;"	v
+header	libraries/common/Mobile_detect.php	/^            $header = strtoupper($header);$/;"	v
+headers	helpers/MY_url_helper.php	/^                $headers = @get_headers($url);$/;"	v
+headers	libraries/common/Mobile_detect.php	/^        array $headers = null,$/;"	v
+hook	models/Ion_auth_model.php	/^			$hook = $this->_ion_hooks->{$event}[$name];$/;"	v
+httpHeaders	libraries/common/Mobile_detect.php	/^            $httpHeaders = $_SERVER;$/;"	v
+httpHeaders	libraries/common/Mobile_detect.php	/^        $this->httpHeaders = array();$/;"	v
+httpHeaders	libraries/common/Mobile_detect.php	/^    protected $httpHeaders = array();$/;"	v
+httpHeaders	libraries/common/Mobile_detect.php	/^    public function isMobile($userAgent = null, $httpHeaders = null)$/;"	v
+httpHeaders	libraries/common/Mobile_detect.php	/^    public function isTablet($userAgent = null, $httpHeaders = null)$/;"	v
+i	libraries/Bcrypt.php	/^    $i = 0;$/;"	v
+id	controllers/Auth_original.php	/^		$id = (int) $id;$/;"	v
+id	controllers/admin/Users.php	/^		$id = (int) $id;$/;"	v
+id	controllers/admin/Users.php	/^        $id = (int) $id;$/;"	v
+id	libraries/Ion_auth.php	/^		$id = $this->ion_auth_model->register($identity, $password, $email, $additional_data, $group_ids);$/;"	v
+id	libraries/Ion_auth.php	/^		$id || $id = $this->session->userdata('user_id');$/;"	v
+id	libraries/Ion_auth.php	/^	public function in_group($check_group, $id=false, $check_all = false)$/;"	v
+id	models/Ion_auth_model.php	/^		$id = $this->db->insert_id();$/;"	v
+id	models/Ion_auth_model.php	/^		$id || $id = $this->session->userdata('user_id');$/;"	v
+identifier	libraries/Ion_auth.php	/^      $identifier = $this->ion_auth_model->identity_column; \/\/ use model identity column, so it can be overridden in a controller$/;"	v
+identity	controllers/Auth_original.php	/^					$identity = $user->{$this->config->item('identity', 'ion_auth')};$/;"	v
+identity	controllers/Auth_original.php	/^			$identity = $this->ion_auth->where($identity_column, $this->input->post('email'))->users()->row();$/;"	v
+identity	controllers/Auth_original.php	/^			$identity = $this->session->userdata('identity');$/;"	v
+identity	libraries/Ion_auth.php	/^			$identity        = $this->config->item('identity', 'ion_auth');$/;"	v
+identity	libraries/Ion_auth.php	/^		$identity = $this->config->item('identity', 'ion_auth');$/;"	v
+identity	models/Ion_auth_model.php	/^	public $identity;$/;"	v
+identity_check	models/Ion_auth_model.php	/^	public function identity_check($identity = '')$/;"	f
+identity_column	controllers/Auth_original.php	/^			$identity_column = $this->config->item('identity','ion_auth');$/;"	v
+identity_column	models/Ion_auth_model.php	/^		    $this->identity_column             => $user->{$this->identity_column},$/;"	v
+identity_column	models/Ion_auth_model.php	/^		    $this->identity_column   => $identity,$/;"	v
+identity_column	models/Ion_auth_model.php	/^		$this->identity_column = $this->config->item('identity', 'ion_auth');$/;"	v
+if	models/Ion_auth_model.php	/^		\/\/ load the bcrypt class if needed$/;"	c
+in_group	libraries/Ion_auth.php	/^	public function in_group($check_group, $id=false, $check_all = false)$/;"	f
+increase_login_attempts	models/Ion_auth_model.php	/^	public function increase_login_attempts($identity) {$/;"	f
+index	controllers/Auth.php	/^	function index()$/;"	f
+index	controllers/Auth_original.php	/^	function index()$/;"	f
+index	controllers/Home.php	/^    public function index($type=0,$page=1)$/;"	f
+index	controllers/Test.php	/^    public function index($question_id)$/;"	f
+index	controllers/admin/Dashboard.php	/^	public function index()$/;"	f
+index	controllers/admin/Database.php	/^	public function index()$/;"	f
+index	controllers/admin/Files.php	/^	public function index()$/;"	f
+index	controllers/admin/Groups.php	/^	public function index()$/;"	f
+index	controllers/admin/License.php	/^	public function index()$/;"	f
+index	controllers/admin/Prefs.php	/^	public function index()$/;"	f
+index	controllers/admin/Resources.php	/^	public function index()$/;"	f
+index	controllers/admin/Users.php	/^	public function index()$/;"	f
+index	controllers/admin/_Original.php	/^	public function index()$/;"	f
+insert_result	models/Result_model.php	/^<?php$/;"	f
+insert_tag	models/Question_tag_model.php	/^<?php$/;"	f
+interfaces	controllers/admin/Prefs.php	/^	public function interfaces($type = NULL)$/;"	f
+ios	views/admin/_templates/header.php	/^<?php if ($mobile == TRUE && $ios == TRUE): ?>$/;"	v
+ip_address	models/Ion_auth_model.php	/^			$ip_address = $this->_prepare_ip($this->input->ip_address());$/;"	v
+ip_address	models/Ion_auth_model.php	/^		$ip_address = $this->_prepare_ip($this->input->ip_address());$/;"	v
+ip_address	models/Ion_auth_model.php	/^            $ip_address = $this->_prepare_ip($this->input->ip_address());$/;"	v
+is	libraries/common/Mobile_detect.php	/^    public function is($key, $userAgent = null, $httpHeaders = null)$/;"	f
+isMobile	libraries/common/Mobile_detect.php	/^        $isMobile = $this->isMobile();$/;"	v
+isMobile	libraries/common/Mobile_detect.php	/^    public function isMobile($userAgent = null, $httpHeaders = null)$/;"	f
+isTablet	libraries/common/Mobile_detect.php	/^    public function isTablet($userAgent = null, $httpHeaders = null)$/;"	f
+is_admin	libraries/Ion_auth.php	/^	public function is_admin($id=false)$/;"	f
+is_max_login_attempts_exceeded	models/Ion_auth_model.php	/^	public function is_max_login_attempts_exceeded($identity) {$/;"	f
+is_time_locked_out	models/Ion_auth_model.php	/^	public function is_time_locked_out($identity) {$/;"	f
+is_url_exist	helpers/MY_url_helper.php	/^    function is_url_exist($url = NULL)$/;"	f
+item	views/admin/files/upload.php	/^<?php foreach ($upload_data as $item => $value):?>$/;"	v
+item	views/admin/users/edit.php	/^    $item    = NULL;$/;"	v
+item	views/auth/_Original/edit_user.php	/^                  $item = null;$/;"	v
+itoa64	libraries/Bcrypt.php	/^    $itoa64 = '.\/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';$/;"	v
+join	models/Ion_auth_model.php	/^		$this->join			   = $this->config->item('join', 'ion_auth');$/;"	v
+jump	controllers/admin/Question.php	/^    public function jump($question_id=-1)$/;"	f
+k	controllers/Auth_original.php	/^			foreach ($this->data['users'] as $k => $user)$/;"	v
+k	controllers/admin/Users.php	/^            foreach ($this->data['users'] as $k => $user)$/;"	v
+k	controllers/admin/Users.php	/^        foreach ($this->data['user_info'] as $k => $user)$/;"	v
+key	controllers/Auth_original.php	/^		$key   = random_string('alnum', 8);$/;"	v
+key	controllers/admin/Users.php	/^		$key   = random_string('alnum', 8);$/;"	v
+key	libraries/Ion_auth.php	/^		foreach ($check_group as $key => $value)$/;"	v
+key	libraries/admin/Breadcrumbs.php	/^			foreach ($this->breadcrumbs as $key => $value)$/;"	v
+key	libraries/admin/Page_title.php	/^			foreach ($this->page_title as $key => $value)$/;"	v
+key	libraries/common/Mobile_detect.php	/^        $key = strtolower($key);$/;"	v
+key	libraries/common/Mobile_detect.php	/^        $key = substr($name, 2);$/;"	v
+key	libraries/common/Mobile_detect.php	/^        foreach ($cfHeaders as $key => $value) {$/;"	v
+key	libraries/common/Mobile_detect.php	/^        foreach ($httpHeaders as $key => $value) {$/;"	v
+key	models/Ion_auth_model.php	/^				$key = preg_replace("\/[^".$this->config->item('permitted_uri_chars')."]+\/i", "-", $key);$/;"	v
+key	models/Ion_auth_model.php	/^		$key = $this->hash_code($activation_code_part.$identity);$/;"	v
+keys	libraries/admin/Breadcrumbs.php	/^				$keys = array_keys($this->breadcrumbs);$/;"	v
+like	models/Ion_auth_model.php	/^			$like = array($like => array($/;"	v
+like	models/Ion_auth_model.php	/^	public function like($like, $value = NULL, $position = 'both')$/;"	f
+limit	models/Ion_auth_model.php	/^	public function limit($limit)$/;"	f
+loadList	views/test/result.php	/^function loadList()$/;"	f
+logged_in	libraries/Ion_auth.php	/^	public function logged_in()$/;"	f
+login	controllers/Auth.php	/^    function login()$/;"	f
+login	controllers/Auth_original.php	/^	function login()$/;"	f
+login	models/Ion_auth_model.php	/^	public function login($identity, $password, $remember=FALSE)$/;"	f
+login_remembered_user	models/Ion_auth_model.php	/^	public function login_remembered_user()$/;"	f
+logout	controllers/Auth.php	/^        $logout = $this->ion_auth->logout();$/;"	v
+logout	controllers/Auth.php	/^    function logout($src = NULL)$/;"	f
+logout	controllers/Auth_original.php	/^		$logout = $this->ion_auth->logout();$/;"	v
+logout	controllers/Auth_original.php	/^	function logout()$/;"	f
+logout	libraries/Ion_auth.php	/^	public function logout()$/;"	f
+manual_activation	models/Ion_auth_model.php	/^		$manual_activation = $this->config->item('manual_activation', 'ion_auth');$/;"	v
+match	libraries/common/Mobile_detect.php	/^        $match = (bool) preg_match(sprintf('#%s#is', $regex), (false === empty($userAgent) ? $userAgent : $this->userAgent), $matches);$/;"	v
+match	libraries/common/Mobile_detect.php	/^    public function match($regex, $userAgent = null)$/;"	f
+matchDetectionRulesAgainstUA	libraries/common/Mobile_detect.php	/^    protected function matchDetectionRulesAgainstUA($userAgent = null)$/;"	f
+matchUAAgainstKey	libraries/common/Mobile_detect.php	/^    protected function matchUAAgainstKey($key)$/;"	f
+matchesArray	libraries/common/Mobile_detect.php	/^            $this->matchesArray = $matches;$/;"	v
+matchesArray	libraries/common/Mobile_detect.php	/^    protected $matchesArray = null;$/;"	v
+matchingRegex	libraries/common/Mobile_detect.php	/^            $this->matchingRegex = $regex;$/;"	v
+matchingRegex	libraries/common/Mobile_detect.php	/^    protected $matchingRegex = null;$/;"	v
+max_attempts	models/Ion_auth_model.php	/^			$max_attempts = $this->config->item('maximum_login_attempts', 'ion_auth');$/;"	v
+max_rounds	models/Ion_auth_model.php	/^		$this->max_rounds = $this->config->item('max_rounds', 'ion_auth');$/;"	v
+member	config/constants.php	/^defined('EXIT_UNKNOWN_METHOD') OR define('EXIT_UNKNOWN_METHOD', 6); \/\/ unknown class member$/;"	c
+memory_peak_usage	models/admin/Dashboard_model.php	/^    public function memory_peak_usage($real = TRUE)$/;"	f
+memory_usage	models/admin/Dashboard_model.php	/^    public function memory_usage()$/;"	f
+memory_usepercent	models/admin/Dashboard_model.php	/^    public function memory_usepercent($real = TRUE, $display_unit = FALSE)$/;"	f
+message	libraries/Ion_auth.php	/^					$message = $this->load->view($this->config->item('email_templates', 'ion_auth').$this->config->item('email_forgot_password', 'ion_auth'), $data, true);$/;"	v
+message	libraries/Ion_auth.php	/^				$message = $this->load->view($this->config->item('email_templates', 'ion_auth').$this->config->item('email_activate', 'ion_auth'), $data, true);$/;"	v
+message	libraries/Ion_auth.php	/^				$message = $this->load->view($this->config->item('email_templates', 'ion_auth').$this->config->item('email_forgot_password_complete', 'ion_auth'), $data, true);$/;"	v
+messageLang	models/Ion_auth_model.php	/^				$messageLang = $this->lang->line($message) ? $this->lang->line($message) : '##' . $message . '##';$/;"	v
+messageLang	models/Ion_auth_model.php	/^			$messageLang = $this->lang->line($message) ? $this->lang->line($message) : '##' . $message . '##';$/;"	v
+message_end_delimiter	models/Ion_auth_model.php	/^			$this->message_end_delimiter   = $this->config->item('message_end_delimiter', 'ion_auth');$/;"	v
+message_end_delimiter	models/Ion_auth_model.php	/^			$this->message_end_delimiter = $this->error_end_delimiter;$/;"	v
+message_end_delimiter	models/Ion_auth_model.php	/^		$this->message_end_delimiter   = $end_delimiter;$/;"	v
+message_start_delimiter	models/Ion_auth_model.php	/^			$this->message_start_delimiter = $this->config->item('message_start_delimiter', 'ion_auth');$/;"	v
+message_start_delimiter	models/Ion_auth_model.php	/^			$this->message_start_delimiter = $this->error_start_delimiter;$/;"	v
+message_start_delimiter	models/Ion_auth_model.php	/^		$this->message_start_delimiter = $start_delimiter;$/;"	v
+messages	models/Ion_auth_model.php	/^		$this->messages    = array();$/;"	v
+messages	models/Ion_auth_model.php	/^		$this->messages = array();$/;"	v
+messages	models/Ion_auth_model.php	/^	protected $messages;$/;"	v
+messages	models/Ion_auth_model.php	/^	public function messages()$/;"	f
+messages_array	models/Ion_auth_model.php	/^	public function messages_array($langify = TRUE)$/;"	f
+meta_id	controllers/admin/Question.php	/^            $meta_id =  $this->meta_model->insert_meta($/;"	v
+min_rounds	models/Ion_auth_model.php	/^		$this->min_rounds = $this->config->item('min_rounds', 'ion_auth');$/;"	v
+mobileGrade	libraries/common/Mobile_detect.php	/^    public function mobileGrade()$/;"	f
+mobileHeader	libraries/common/Mobile_detect.php	/^        foreach ($this->getMobileHeaders() as $mobileHeader => $matchType) {$/;"	v
+mobileHeaders	libraries/common/Mobile_detect.php	/^    protected static $mobileHeaders = array($/;"	v
+mobile_ie	views/admin/_templates/header.php	/^<?php if ($mobile == TRUE && $mobile_ie == TRUE): ?>$/;"	v
+mobile_ie	views/public/home.php	/^<?php if ($mobile == TRUE && $mobile_ie == TRUE): ?>$/;"	v
+mobiles	config/user_agents.php	/^$mobiles = array($/;"	v
+msg	libraries/Response.php	/^    public $msg;$/;"	v
+name	models/Ion_auth_model.php	/^				foreach ($this->_ion_hooks->$events as $name => $hook)$/;"	v
+new	models/Ion_auth_model.php	/^		$new = $this->hash_password($new, $result->salt);$/;"	v
+new_group_id	controllers/Auth_original.php	/^			$new_group_id = $this->ion_auth->create_group($this->input->post('group_name'), $this->input->post('description'));$/;"	v
+new_group_id	controllers/admin/Groups.php	/^			$new_group_id = $this->ion_auth->create_group($this->input->post('group_name'), $this->input->post('description'));$/;"	v
+new_password	libraries/Ion_auth.php	/^		$new_password = $this->ion_auth_model->forgotten_password_complete($code, $profile->salt);$/;"	v
+new_password	models/Ion_auth_model.php	/^	public $new_password;$/;"	v
+num	controllers/admin/Question.php	/^    public function page($page=1, $num=50,$category_id=1)$/;"	v
+num_rows	models/Ion_auth_model.php	/^	public function num_rows()$/;"	f
+offset	models/Ion_auth_model.php	/^	public function offset($offset)$/;"	f
+old_password_matches	models/Ion_auth_model.php	/^		$old_password_matches = $this->hash_password_db($user->id, $old);$/;"	v
+operatingSystems	libraries/common/Mobile_detect.php	/^    protected static $operatingSystems = array($/;"	v
+or	config/routes.php	/^| class or method name character, so it requires translation.$/;"	c
+or_where_in	models/Ion_auth_model.php	/^			$or_where_in = (!empty($group_ids) && !empty($group_names)) ? 'or_where_in' : 'where_in';$/;"	v
+order	models/Ion_auth_model.php	/^	public function order_by($by, $order='desc')$/;"	v
+order_by	models/Ion_auth_model.php	/^	public function order_by($by, $order='desc')$/;"	f
+output	libraries/Bcrypt.php	/^    $output = '';$/;"	v
+output	libraries/admin/Breadcrumbs.php	/^			$output = $this->breadcrumb_open ."\\n";$/;"	v
+output	libraries/admin/Page_title.php	/^			$output = $this->pagetitle_open;$/;"	v
+page	controllers/Home.php	/^        $page = max($page,1);$/;"	v
+page	controllers/admin/Question.php	/^    public function page($page=1, $num=50,$category_id=1)$/;"	f
+page_num	controllers/Home.php	/^        $page_num = 10;$/;"	v
+page_num	controllers/Question.php	/^<?php$/;"	v
+page_title	libraries/admin/Page_title.php	/^    private $page_title = array();$/;"	v
+pagetitle_close	libraries/admin/Page_title.php	/^		$this->pagetitle_close    = $this->CI->config->item('pagetitle_close');$/;"	v
+pagetitle_el_close	libraries/admin/Page_title.php	/^		$this->pagetitle_el_close = $this->CI->config->item('pagetitle_el_close');$/;"	v
+pagetitle_el_open	libraries/admin/Page_title.php	/^		$this->pagetitle_el_open  = $this->CI->config->item('pagetitle_el_open');$/;"	v
+pagetitle_open	libraries/admin/Page_title.php	/^        $this->pagetitle_open     = $this->CI->config->item('pagetitle_open');$/;"	v
+params	models/Ion_auth_model.php	/^				$params = array('rounds' => $rand);$/;"	v
+params	models/Ion_auth_model.php	/^				$params = array('rounds' => $this->default_rounds);$/;"	v
+password	controllers/Auth_original.php	/^			$password = $this->input->post('password');$/;"	v
+password	controllers/admin/Users.php	/^			$password = $this->input->post('password');$/;"	v
+password	models/Ion_auth_model.php	/^			$password = $this->hash_password_db($user->id, $password);$/;"	v
+password	models/Ion_auth_model.php	/^			$password = $this->salt();$/;"	v
+password	models/Ion_auth_model.php	/^		$password   = $this->hash_password($password, $salt);$/;"	v
+phoneDevices	libraries/common/Mobile_detect.php	/^    protected static $phoneDevices = array($/;"	v
+platforms	config/user_agents.php	/^$platforms = array($/;"	v
+prepareVersionNo	libraries/common/Mobile_detect.php	/^    public function prepareVersionNo($ver)$/;"	f
+profile	controllers/admin/Users.php	/^	public function profile($id)$/;"	f
+profile	libraries/Ion_auth.php	/^		$profile  = $this->where('forgotten_password_code', $code)->users()->row(); \/\/pass the code to profile$/;"	v
+profile	libraries/Ion_auth.php	/^		$profile = $this->where('forgotten_password_code', $code)->users()->row(); \/\/pass the code to profile$/;"	v
+profile	models/Ion_auth_model.php	/^		$profile = $this->where('forgotten_password_code', $code)->users()->row(); \/\/pass the code to profile$/;"	v
+properties	libraries/common/Mobile_detect.php	/^        $properties = self::getProperties();$/;"	v
+properties	libraries/common/Mobile_detect.php	/^    protected static $properties = array($/;"	v
+propertyPattern	libraries/common/Mobile_detect.php	/^                $propertyPattern = str_replace('[VER]', self::VER, $propertyMatchString);$/;"	v
+push	libraries/admin/Breadcrumbs.php	/^    function push($id, $page, $url)$/;"	f
+push	libraries/admin/Page_title.php	/^    function push($title, $subtitle = '')$/;"	f
+qres	models/Ion_auth_model.php	/^			$qres = $this->db->get($this->tables['login_attempts'], 1);$/;"	v
+qres	models/Ion_auth_model.php	/^            $qres = $this->db->get($this->tables['login_attempts']);$/;"	v
+query	models/Ion_auth_model.php	/^			$query = $this->db->select($this->identity_column)$/;"	v
+query	models/Ion_auth_model.php	/^		$query = $this->db->get_where($this->tables['groups'],array('name' => $this->config->item('default_group', 'ion_auth')),1)->row();$/;"	v
+query	models/Ion_auth_model.php	/^		$query = $this->db->select($this->identity_column . ', email, id, password, active, last_login')$/;"	v
+query	models/Ion_auth_model.php	/^		$query = $this->db->select($this->identity_column.', id, email, last_login')$/;"	v
+query	models/Ion_auth_model.php	/^		$query = $this->db->select('id, password, salt')$/;"	v
+query	models/Ion_auth_model.php	/^		$query = $this->db->select('password, salt')$/;"	v
+query	models/admin/Dashboard_model.php	/^        $query = $this->db->count_all($table);$/;"	v
+query	models/admin/Preferences_model.php	/^        $query = $this->db->get($table);$/;"	v
+query	models/common/Prefs_model.php	/^        $query = $this->db->get('admin_preferences');$/;"	v
+query_builder	config/database.php	/^$query_builder = TRUE;$/;"	v
+question_id	controllers/admin/Question.php	/^            $question_id = $this->question_model->insert_question(array($/;"	v
+rand	models/Ion_auth_model.php	/^				$rand = rand($this->min_rounds,$this->max_rounds);$/;"	v
+randomState	libraries/Bcrypt.php	/^        $this->randomState = md5(microtime() . $this->randomState);$/;"	v
+randomState	libraries/Bcrypt.php	/^        $this->randomState = microtime();$/;"	v
+randomState	libraries/Bcrypt.php	/^  private $randomState;$/;"	v
+random_rounds	models/Ion_auth_model.php	/^		$this->random_rounds = $this->config->item('random_rounds', 'ion_auth');$/;"	v
+raw_salt_len	models/Ion_auth_model.php	/^		$raw_salt_len = 16;$/;"	v
+read	models/Ion_auth_model.php	/^                $read = strlen($buffer);$/;"	v
+read	models/Ion_auth_model.php	/^            $read = strlen($buffer);$/;"	v
+readonly	controllers/Auth_original.php	/^			$readonly => $readonly,$/;"	v
+readonly	controllers/Auth_original.php	/^		$readonly = $this->config->item('admin_group', 'ion_auth') === $group->name ? 'readonly' : '';$/;"	v
+readonly	controllers/admin/Groups.php	/^			$readonly => $readonly$/;"	v
+readonly	controllers/admin/Groups.php	/^		$readonly = $this->config->item('admin_group', 'ion_auth') === $group->name ? 'readonly' : '';$/;"	v
+register	libraries/Ion_auth.php	/^	public function register($identity, $password, $email, $additional_data = array(), $group_ids = array()) \/\/need to test email activation$/;"	f
+register	models/Ion_auth_model.php	/^	public function register($identity, $password, $email, $additional_data = array(), $groups = array())$/;"	f
+remember	controllers/Auth.php	/^                $remember = (bool) $this->input->post('remember');$/;"	v
+remember	controllers/Auth_original.php	/^			$remember = (bool) $this->input->post('remember');$/;"	v
+remember	models/Ion_auth_model.php	/^	public function login($identity, $password, $remember=FALSE)$/;"	v
+remember_user	models/Ion_auth_model.php	/^	public function remember_user($id)$/;"	f
+remove_from_group	models/Ion_auth_model.php	/^	public function remove_from_group($group_ids=false, $user_id=false)$/;"	f
+remove_hook	models/Ion_auth_model.php	/^	public function remove_hook($event, $name)$/;"	f
+remove_hooks	models/Ion_auth_model.php	/^	public function remove_hooks($event)$/;"	f
+res	libraries/Response.php	/^        $res = new Response();$/;"	v
+reset_interfaces_admin	controllers/admin/Prefs.php	/^	public function reset_interfaces_admin()$/;"	f
+reset_interfaces_public	controllers/admin/Prefs.php	/^	public function reset_interfaces_public()$/;"	f
+reset_password	controllers/Auth_original.php	/^	public function reset_password($code = NULL)$/;"	f
+reset_password	models/Ion_auth_model.php	/^	public function reset_password($identity, $new) {$/;"	f
+response	libraries/common/Mobile_detect.php	/^                $response = true;$/;"	v
+response	libraries/common/Mobile_detect.php	/^        $response = false;$/;"	v
+response	models/Ion_auth_model.php	/^		$this->response = $this->db->get($this->tables['groups']);$/;"	v
+response	models/Ion_auth_model.php	/^		$this->response = $this->db->get($this->tables['users']);$/;"	v
+response	models/Ion_auth_model.php	/^	protected $response = NULL;$/;"	v
+result	controllers/Test.php	/^    public function result($question_id,$result_label)$/;"	f
+result	models/Ion_auth_model.php	/^			$result = $query->row();$/;"	v
+result	models/Ion_auth_model.php	/^		$result = $query->row();$/;"	v
+result	models/Ion_auth_model.php	/^		$result = $this->response->num_rows();$/;"	v
+result	models/Ion_auth_model.php	/^		$result = $this->response->result();$/;"	v
+result	models/Ion_auth_model.php	/^		$result = $this->response->result_array();$/;"	v
+result	models/Ion_auth_model.php	/^	public function result()$/;"	f
+result_array	models/Ion_auth_model.php	/^	public function result_array()$/;"	f
+ret	controllers/admin/Answer.php	/^<?php$/;"	v
+ret	controllers/admin/Question.php	/^            $ret = $this->question_model->delete_question($this->input->post('question_id'));$/;"	v
+ret	controllers/admin/Result.php	/^<?php$/;"	v
+return	models/Ion_auth_model.php	/^			$return = TRUE;$/;"	v
+return	models/Ion_auth_model.php	/^		$return = $this->db->affected_rows() == 1;$/;"	v
+return	models/Ion_auth_model.php	/^		$return = 0;$/;"	v
+robots	config/user_agents.php	/^$robots = array($/;"	v
+rounds	libraries/Bcrypt.php	/^    $this->rounds = $params['rounds'];$/;"	v
+rounds	libraries/Bcrypt.php	/^  private $rounds;$/;"	v
+row	models/Ion_auth_model.php	/^		$row = $this->response->row();$/;"	v
+row	models/Ion_auth_model.php	/^		$row = $this->response->row_array();$/;"	v
+row	models/Ion_auth_model.php	/^	public function row()$/;"	f
+row_array	models/Ion_auth_model.php	/^	public function row_array()$/;"	f
+rules	libraries/common/Mobile_detect.php	/^            $rules = array_merge($/;"	v
+rules	libraries/common/Mobile_detect.php	/^        static $rules;$/;"	v
+salt	libraries/Bcrypt.php	/^    $salt = sprintf($this->salt_prefix.'%02d$', $this->rounds);$/;"	v
+salt	models/Ion_auth_model.php	/^			$salt = $this->salt();$/;"	v
+salt	models/Ion_auth_model.php	/^			$salt = substr($hash_password_db->password, 0, $this->salt_length);$/;"	v
+salt	models/Ion_auth_model.php	/^		$salt       = $this->store_salt ? $this->salt() : FALSE;$/;"	v
+salt	models/Ion_auth_model.php	/^		$salt = $this->salt();$/;"	v
+salt	models/Ion_auth_model.php	/^	    $salt = substr($salt, 0, $this->salt_length);$/;"	v
+salt	models/Ion_auth_model.php	/^	public function forgotten_password_complete($code, $salt=FALSE)$/;"	v
+salt	models/Ion_auth_model.php	/^	public function hash_password($password, $salt=false, $use_sha1_override=FALSE)$/;"	v
+salt	models/Ion_auth_model.php	/^	public function salt()$/;"	f
+salt	models/Ion_auth_model.php	/^        $salt = $buffer;$/;"	v
+salt	models/Ion_auth_model.php	/^        $salt = strtr(rtrim($base64_string, '='), $base64_digits, $bcrypt64_digits);$/;"	v
+salt_length	models/Ion_auth_model.php	/^		$this->salt_length     = $this->config->item('salt_length', 'ion_auth');$/;"	v
+salt_prefix	libraries/Bcrypt.php	/^    $this->salt_prefix = $params['salt_prefix'];$/;"	v
+salt_prefix	libraries/Bcrypt.php	/^  private $salt_prefix;$/;"	v
+score	controllers/admin/Question.php	/^    public function score($question_id=-1)$/;"	f
+select	models/Ion_auth_model.php	/^	public function select($select)$/;"	f
+seo_description	controllers/admin/Question.php	/^                $seo_description = $this->input->post('description');$/;"	v
+seo_description	controllers/admin/Question.php	/^            $seo_description = $this->input->post('seo_description');$/;"	v
+seo_title	controllers/admin/Question.php	/^                $seo_title = $this->input->post('title');$/;"	v
+seo_title	controllers/admin/Question.php	/^            $seo_title = $this->input->post('seo_title');$/;"	v
+session_data	models/Ion_auth_model.php	/^		$session_data = array($/;"	v
+setCfHeaders	libraries/common/Mobile_detect.php	/^    public function setCfHeaders($cfHeaders = null) {$/;"	f
+setDetectionType	libraries/common/Mobile_detect.php	/^    public function setDetectionType($type = null)$/;"	f
+setHttpHeaders	libraries/common/Mobile_detect.php	/^    public function setHttpHeaders($httpHeaders = null)$/;"	f
+setUserAgent	libraries/common/Mobile_detect.php	/^    public function setUserAgent($userAgent = null)$/;"	f
+set_error	models/Ion_auth_model.php	/^	public function set_error($error)$/;"	f
+set_error_delimiters	models/Ion_auth_model.php	/^	public function set_error_delimiters($start_delimiter, $end_delimiter)$/;"	f
+set_hook	models/Ion_auth_model.php	/^	public function set_hook($event, $name, $class, $method, $arguments)$/;"	f
+set_lang	models/Ion_auth_model.php	/^	public function set_lang($lang = 'en')$/;"	f
+set_message	models/Ion_auth_model.php	/^	public function set_message($message)$/;"	f
+set_message_delimiters	models/Ion_auth_model.php	/^	public function set_message_delimiters($start_delimiter, $end_delimiter)$/;"	f
+set_session	models/Ion_auth_model.php	/^	public function set_session($user)$/;"	f
+should	config/routes.php	/^| This route indicates which controller class should be loaded if the$/;"	c
+show	libraries/Response.php	/^    public function show()$/;"	f
+show	libraries/admin/Breadcrumbs.php	/^	function show()$/;"	f
+show	libraries/admin/Page_title.php	/^	function show()$/;"	f
+single	controllers/admin/Question.php	/^    public function single($question_id=-1)$/;"	f
+smileys	config/smileys.php	/^$smileys = array($/;"	v
+start	controllers/Test.php	/^    public function start($question_id,$index=0)$/;"	f
+status	helpers/MY_url_helper.php	/^                    $status = FALSE;$/;"	v
+status	helpers/MY_url_helper.php	/^                    $status = TRUE;$/;"	v
+status	libraries/Ion_auth.php	/^	protected $status;$/;"	v
+store_salt	models/Ion_auth_model.php	/^		$this->store_salt      = $this->config->item('store_salt', 'ion_auth');$/;"	v
+subtitle	libraries/admin/Page_title.php	/^                    $subtitle = ' ' . $this->pagetitle_el_open .  $value['subtitle'] . $this->pagetitle_el_close;$/;"	v
+subtitle	libraries/admin/Page_title.php	/^                    $subtitle = NULL;$/;"	v
+subtitle	libraries/admin/Page_title.php	/^    function push($title, $subtitle = '')$/;"	v
+successfully_changed_password_in_db	models/Ion_auth_model.php	/^			$successfully_changed_password_in_db = $this->db->update($this->tables['users'], $data, array($this->identity_column => $identity));$/;"	v
+tables	controllers/Auth_original.php	/^		$tables = $this->config->item('tables','ion_auth');$/;"	v
+tables	controllers/admin/Users.php	/^		$tables = $this->config->item('tables', 'ion_auth');$/;"	v
+tables	models/Ion_auth_model.php	/^		$this->tables  = $this->config->item('tables', 'ion_auth');$/;"	v
+tables	models/Ion_auth_model.php	/^	public $tables = array();$/;"	v
+tabletDevices	libraries/common/Mobile_detect.php	/^    protected static $tabletDevices = array($/;"	v
+takes	models/Ion_auth_model.php	/^	 * Hash password db : This function takes a password and validates it$/;"	f
+takes	models/Ion_auth_model.php	/^	 * This function takes a password and validates it$/;"	f
+to	config/mimes.php	/^| Upload class to help identify allowed file types.$/;"	c
+top	controllers/Home.php	/^    public function top($category_id=1,$type=0,$page=1)$/;"	f
+trigger_events	models/Ion_auth_model.php	/^	public function trigger_events($events)$/;"	f
+type	libraries/common/Mobile_detect.php	/^            $type = self::DETECTION_TYPE_MOBILE;$/;"	v
+type	libraries/common/Mobile_detect.php	/^            $type = self::VERSION_TYPE_STRING;$/;"	v
+type	libraries/common/Mobile_detect.php	/^    public function version($propertyName, $type = self::VERSION_TYPE_STRING)$/;"	v
+uaHttpHeaders	libraries/common/Mobile_detect.php	/^    protected static $uaHttpHeaders = array($/;"	v
+unit	models/admin/Dashboard_model.php	/^            $unit = ' %';$/;"	v
+unit	models/admin/Dashboard_model.php	/^            $unit = NULL;$/;"	v
+unshift	libraries/admin/Breadcrumbs.php	/^	function unshift($id, $page, $url)$/;"	f
+update	models/Ion_auth_model.php	/^		$update = array($/;"	v
+update	models/Ion_auth_model.php	/^	public function update($id, array $data)$/;"	f
+update_group	models/Ion_auth_model.php	/^	public function update_group($group_id = FALSE, $group_name = FALSE, $additional_data = array())$/;"	f
+update_interfaces	models/admin/Preferences_model.php	/^    public function update_interfaces($table, $data)$/;"	f
+update_last_login	models/Ion_auth_model.php	/^	public function update_last_login($id)$/;"	f
+upload_data	controllers/admin/Question.php	/^        $upload_data = $this->do_upload('question');$/;"	v
+url	libraries/admin/Breadcrumbs.php	/^		$url = site_url($url);$/;"	v
+use_sha1_override	models/Ion_auth_model.php	/^	public function hash_password_db($id, $password, $use_sha1_override=FALSE)$/;"	v
+user	controllers/Auth_original.php	/^		$user = $this->ion_auth->forgotten_password_check($code);$/;"	v
+user	controllers/Auth_original.php	/^		$user = $this->ion_auth->user($id)->row();$/;"	v
+user	controllers/Auth_original.php	/^		$user = $this->ion_auth->user()->row();$/;"	v
+user	controllers/admin/Users.php	/^			$user = $this->ion_auth->user($id)->row();$/;"	v
+user	controllers/admin/Users.php	/^		$user          = $this->ion_auth->user($id)->row();$/;"	v
+user	libraries/Ion_auth.php	/^			$user            = $this->ion_auth_model->user($id)->row();$/;"	v
+user	libraries/Ion_auth.php	/^      $user = $this->where($identifier, $identity)->where('active', 1)->users()->row();  \/\/ changed to get_user_by_identity from email$/;"	v
+user	models/Ion_auth_model.php	/^			$user = $query->row();$/;"	v
+user	models/Ion_auth_model.php	/^		$user = $query->row();$/;"	v
+user	models/Ion_auth_model.php	/^		$user = $this->user($id)->row();$/;"	v
+user	models/Ion_auth_model.php	/^	public function user($id = NULL)$/;"	f
+user	models/common/Prefs_model.php	/^        $user = $this->ion_auth->user($id)->row();$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^                return $this->userAgent = trim($this->userAgent);$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^            $this->userAgent = null;$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^            return $this->userAgent = $userAgent;$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^            return $this->userAgent = 'Amazon CloudFront';$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^        $userAgent = null$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^        return $this->userAgent = null;$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^    protected $userAgent = null;$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^    public function is($key, $userAgent = null, $httpHeaders = null)$/;"	v
+userAgent	libraries/common/Mobile_detect.php	/^    public function match($regex, $userAgent = null)$/;"	v
+user_data	models/Ion_auth_model.php	/^		$user_data = array_merge($this->_filter_data($this->tables['users'], $additional_data), $data);$/;"	v
+user_id	libraries/Ion_auth.php	/^		$user_id = $this->session->userdata('user_id');$/;"	v
+user_id	models/Ion_auth_model.php	/^		$user_id || $user_id = $this->session->userdata('user_id');$/;"	v
+user_id	models/Ion_auth_model.php	/^	public function add_to_group($group_ids, $user_id=false)$/;"	v
+user_id	models/Ion_auth_model.php	/^	public function remove_from_group($group_ids=false, $user_id=false)$/;"	v
+user_info_login	models/common/Prefs_model.php	/^    public function user_info_login($id)$/;"	f
+username	controllers/Auth_original.php	/^			$username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));$/;"	v
+username	controllers/admin/Users.php	/^			$username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));$/;"	v
+username_check	models/Ion_auth_model.php	/^	public function username_check($username = '')$/;"	f
+users	models/Ion_auth_model.php	/^	public function users($groups = NULL)$/;"	f
+users_groups	libraries/Ion_auth.php	/^			$users_groups = $this->ion_auth_model->get_users_groups($id)->result();$/;"	v
+utilities	libraries/common/Mobile_detect.php	/^    protected static $utilities = array($/;"	v
+val	models/admin/Core_model.php	/^            $val = '<div class="row">';$/;"	v
+value	controllers/Auth_original.php	/^		$value = random_string('alnum', 20);$/;"	v
+value	controllers/admin/Users.php	/^		$value = random_string('alnum', 20);$/;"	v
+value	models/Ion_auth_model.php	/^	public function like($like, $value = NULL, $position = 'both')$/;"	v
+value	models/Ion_auth_model.php	/^	public function where($where, $value = NULL)$/;"	v
+ver	libraries/common/Mobile_detect.php	/^        $ver = str_replace(array('_', ' ', '\/'), '.', $ver);$/;"	v
+verify	libraries/Bcrypt.php	/^  public function verify($input, $existingHash) {$/;"	f
+version	libraries/common/Mobile_detect.php	/^                    $version = ($type == self::VERSION_TYPE_FLOAT ? $this->prepareVersionNo($match[1]) : $match[1]);$/;"	v
+version	libraries/common/Mobile_detect.php	/^    public function version($propertyName, $type = self::VERSION_TYPE_STRING)$/;"	f
+view_html	controllers/Auth_original.php	/^		$view_html = $this->load->view($view, $this->viewdata, $returnhtml);$/;"	v
+viewdata	controllers/Auth_original.php	/^		$this->viewdata = (empty($data)) ? $this->data: $data;$/;"	v
+where	models/Ion_auth_model.php	/^			$where = array($where => $value);$/;"	v
+where	models/Ion_auth_model.php	/^	public function where($where, $value = NULL)$/;"	f
+where	models/admin/Preferences_model.php	/^        $where = "id = 1";$/;"	v
+will	config/config.php	/^| the output class will test whether your server supports Gzip.$/;"	c

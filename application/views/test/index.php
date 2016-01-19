@@ -6,6 +6,7 @@
 <title>test</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/ceshi.css" type="text/css">
+<script type="text/javascript" charset="utf-8" src="<?php echo base_url($front_dir);?>/js/zepto.min.js"></script>
 </head>
 
 <body>
@@ -19,5 +20,13 @@
     <div class="pad"><?php echo $question['description'];  ?></div>
     <div class="invitation"><a class="friend" href="<?php echo base_url('test/start/'.$question['id']);?>">开始测试</a></div>	
 </section>
+<script type="text/javascript">
+$(function(){
+    $(".retn").click(function(){
+        history.go(-1);
+    });
+});
+</script>
+
 </body>
 </html>
