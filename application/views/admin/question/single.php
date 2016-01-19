@@ -152,10 +152,10 @@
                     <div class="col-sm-10">
                         <div class="row">
                             <div class="col-xs-9 col-sm-9">
-                                <input type="text" class="form-control" name="answer" label="<?php echo $item['label']; ?>">
+                                <input type="text" class="form-control" name="answer" label="<?php echo $item['label']; ?>" answer_id="<?php echo $item['id']; ?>" value="<?php echo $item['answer_text']; ?>">
                             </div>
                             <div class="col-xs-3 col-sm-3">
-                                <input type="text" class="form-control" placeholder="对应结果" name="result_label">
+                                <input type="text" class="form-control" placeholder="对应结果" name="result_label" value="<?php echo $item['result_label']; ?>">
                             </div>
 
                         </div>
@@ -169,7 +169,7 @@
                     <div class="col-sm-10">
                         <div class="row">
                             <div class="col-xs-9 col-sm-9">
-                                <input type="text" class="form-control" name="answer" label="a">
+                                <input type="text" class="form-control" name="answer" label="a" answer_id="-1">
                             </div>
                             <div class="col-xs-3 col-sm-3">
                                 <input type="text" class="form-control" placeholder="对应结果" name="result_label">
@@ -187,7 +187,7 @@
                                 <input type="text" class="form-control" name="answer" label="b">
                             </div>
                             <div class="col-xs-3 col-sm-3">
-                                <input type="text" class="form-control" placeholder="对应结果" name="result_label">
+                                <input type="text" class="form-control" placeholder="对应结果" name="result_label" answer_id="-1" >
                             </div>
                         </div>
                     </div>
@@ -209,18 +209,84 @@
         <!-- /.box-body -->
     </div>
 
-    <div class="box box-default" id="results">
+    <div class="box box-default" >
         <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
             <h3 class="box-title" >测试结果</h3>
         </div>
-        <div class="box-body">
+        <?php if(isset($results) && $results!=false): ?>
+        <?php foreach($results as $result):?>
+        <div class="box-body" name="result_group" label="<?php echo $result['label']; ?>">
             <div class="box box-default box-solid">
                 <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
-                    <h3 class="box-title">结果A</h3>
+                    <h3 class="box-title"><span>结果<?php echo $result['result']; ?></span></h3>
 
                 </div>
                 <!-- /.box-header -->
-                <form class="form-horizontal" name="result" label="a">
+                <form class="form-horizontal" name="result">
+                    <div class="box-body">
+
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 分值区间</label>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-xs-5 col-sm-2">
+                                        <input type="text" class="form-control" placeholder="最小值" value="<?php echo $result['score_start']; ?>">
+                                    </div>
+                                    <div class="col-xs-5 col-sm-2">
+                                        <input type="text" class="form-control" placeholder="最大值" value="<?php echo $result['score_end']; ?>">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 简单结论</label>
+
+                            <div class="col-sm-10">
+                                <input type="title" class="form-control" id="inputTitle" name="show_text_result" value="<?php echo $result['show_text_result']; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="详细解释" class="col-sm-2 control-label">详细解释</label>
+
+                            <div class="col-sm-10">
+                                <script type="text/plain" id="<?php echo 'result_'.$result['label']; ?>" name="editor" style="width:100%;height:100px;"></script>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">封面图</label>
+
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seo" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+
+                                <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                </form>
+                <!-- /.box-body -->
+            </div>
+        <?php endforeach;?>
+        <?php else: ?>
+        <div class="box-body" name="result_group" label="a">
+            <div class="box box-default box-solid">
+                <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
+                    <h3 class="box-title">结果<span>a</span></h3>
+
+                </div>
+                <!-- /.box-header -->
+                <form class="form-horizontal" name="result">
                     <div class="box-body">
 
                         <div class="form-group">
@@ -249,7 +315,7 @@
                             <label for="详细解释" class="col-sm-2 control-label">详细解释</label>
 
                             <div class="col-sm-10">
-                                <script type="text/plain" id="myEditor2" style="width:100%;height:100px;"></script>
+                                <script type="text/plain" id="result_a" style="width:100%;height:100px;" name="editor"></script>
                             </div>
                         </div>
 
@@ -275,15 +341,16 @@
                 </form>
                 <!-- /.box-body -->
             </div>
+            <?php endif; ?>
 
-            <button type="button" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;"><i class="fa fa-plus"></i>  增加下一个结果</button>
 
 
         </div>
+            <button type="button" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;" name="add_result"><i class="fa fa-plus"></i>  增加下一个结果</button>
         <!-- /.box-body -->
     </div>
 
-    <button type="button" class="btn btn-lg btn-block btn-success"  style="margin:20px 0;"><i class="fa fa-rocket"></i>  提交</button>
+    <button type="button" class="btn btn-lg btn-block btn-success"  style="margin:20px 0;"><i class="fa fa-rocket"></i>  增加另一个问题</button>
     </section>
     <!-- /.content -->
 </div>
@@ -292,9 +359,6 @@
     var questionId =  <?php echo isset($question)?$question['id']:-1; ?>;
     $(function(){
             var um = UM.getEditor('description');
-            var um1 = UM.getEditor('myEditor1');
-            var um2 = UM.getEditor('myEditor2');
-            var um3 = UM.getEditor('myEditor3');
             <?php if(isset($question)):?>
             um.setContent('<?php echo $question['description']; ?>',false,false);
             <?php endif;?>
@@ -327,17 +391,33 @@
                     });
                     return false;
             });
+
+            $("button[name=add_answer]").click(function(){
+                var lastGroup =  $("div[name=answer_group]").last();
+                var copyGroup = lastGroup.clone();
+                var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
+                copyGroup.find("input[name=answer]").attr("label",label);
+                copyGroup.find("span").html(label);
+                copyGroup.insertAfter(lastGroup);
+            });
+
             //保存答案
             $("form[name=answer]").submit(function(){
                 var answerData = [];
                 answerData.push({question_id:questionId,label:'a',answer_text:'answer1',result_label:'a'});
-                $("input[name=answer]").each(function(){});
+                $("div[name=answer_group]").each(function(index,obj){
+                    var label = $(obj).find("input[name=answer]").attr("label");
+                    var answer_id  = $(obj).find("input[name=answer]").attr("answer_id");
+                    var answer_text = $(obj).find("input[name=answer]").val();
+                    var result_label = $(obj).find("input[name=result_label]").val();
+                    answerData.push({question_id:questionId,label:label,answer_text:answer_text,result_label:result_label,id:answer_id});
+                });
                 $.post("<?php echo site_url('admin/answer/create');?>",
-                        {answer:answerData},
+                        {answers:answerData},
                     function(data,status){
                         if(status === "success")
                         {
-                            alert('操作成功');
+                            alert('操作成功'+data);
                         }
                         else
                         {
@@ -346,6 +426,22 @@
 
                 });
                 return false;
+            });
+            //动态增加结点
+            $("button[name=add_result]").click(function(){
+                var lastGroup =  $("div[name=result_group]").last();
+                var copyGroup = lastGroup.clone();
+                var label = String.fromCharCode(lastGroup.attr("label").charCodeAt(0)+1);
+                copyGroup.attr("label",label);
+                copyGroup.find("span").html(label);
+                copyGroup.find("script[name=editor]").attr("id","result_"+label);
+                copyGroup.insertAfter(lastGroup);
+            });
+
+
+            $("div[name=result_group]").each(function(index,obj){
+                var label = $(obj).attr("label");
+                var um = UM.getEditor('result_'+label);
             });
 
             //保存结论
@@ -405,13 +501,5 @@
                         } 
                     }); 
                 }); 
-                $("button[name=add_answer]").click(function(){
-                    var lastGroup =  $("div[name=answer_group]").last();
-                    var copyGroup = lastGroup.clone();
-                    var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
-                    copyGroup.find("input[name=answer]").attr("label",label);
-                    copyGroup.find("span").html(label);
-                    copyGroup.insertAfter(lastGroup);
-                });
         });
 </script>
