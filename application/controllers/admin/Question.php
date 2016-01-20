@@ -15,6 +15,58 @@ class Question extends Admin_Controller {
         $this->load->model('answer_model');
         $this->load->model('result_model');
         $this->load->model('question_category_model');
+        $this->data['question_type'] = array(array("id"=>1,"description"=>"单选题"),
+                                    array("id"=>"2","description"=>"多选评分"),
+                                     array("id"=>"3","description"=>"多选跳转"));
+        $this->data['publish_status'] = array(array("id"=>-1,"description"=>"未发布"),
+                                    array("id"=>0,"description"=>"发布"),
+                                     array("id"=>1,"description"=>"删除"));
+
+    }
+
+    /*
+     * 添加问题
+     */
+    public function main($question_id = -1)
+    {
+        if($question_id>0)
+        {
+            $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+            $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
+            $this->data['answer'] = $this->answer_model->get_answer(array('question_id'=>$question_id));
+            $this->data['results'] = $this->result_model->get_result(array('question_id'=>$question_id));
+        }
+
+        $this->data['category'] = $this->question_category_model->get_all();
+        /* Load Template */
+        $this->template->admin_render('admin/question/main', $this->data);
+
+    }
+
+    /*
+     * 添加子问题
+     */
+    public function sub($question_id = -1)
+    {
+        if($question_id>0)
+        {
+            $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+            $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
+            $this->data['answer'] = $this->answer_model->get_answer(array('question_id'=>$question_id));
+            $this->data['results'] = $this->result_model->get_result(array('question_id'=>$question_id));
+        }
+
+        $this->data['category'] = $this->question_category_model->get_all();
+        /* Load Template */
+        $this->template->admin_render('admin/question/single', $this->data);
+
+    }
+
+    /*
+     * 编辑答案
+     */
+    public function result($result_id)
+    {
     }
 
     public function single($question_id=-1)
