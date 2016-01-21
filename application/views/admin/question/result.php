@@ -62,8 +62,8 @@
                             <label for="title" class="col-sm-2 control-label">封面图</label>
 
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" name="userfile" id = "question_img">
-                                <input type="hidden"  name="img" value="<?php echo isset($question)?$question['img']:''; ?>">
+                                <input type="file" class="form-control" name="userfile" id = "result_img">
+                                <input type="hidden"  name="show_img_result" value="<?php echo isset($result)?$result['show_img_result']:''; ?>">
                             </div>
                             <div class="progress"> 
                                 <span class="bar"></span><span class="percent">0%</span > 
@@ -76,7 +76,7 @@
                             <label for="seo" class="col-sm-2 control-label"></label>
                             <div class="col-sm-10">
 
-                                <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
+                                <button type="submit" class="btn btn-success" name="save_result" ><i class="fa fa-save"></i>  保存</button>
 
                             </div>
                         </div>
@@ -101,63 +101,26 @@
 <!-- /.content-wrapper -->
 <script type="text/javascript">
     var questionId =  <?php echo isset($question)?$question['id']:-1; ?>;
+    var resultId = <?php echo isset($result)?$result['id']:-1;?>;
     $(function(){
-            var um = UM.getEditor('description');
-            <?php if(isset($question)):?>
-            um.setContent('<?php echo $question['description']; ?>',false,false);
+            var um = UM.getEditor('show_html_result');
+            <?php if(isset($result)):?>
+            um.setContent('<?php echo $result['show_html_result']; ?>',false,false);
             <?php endif;?>
-            //创建问题
-            $("form[name=create_question]").submit(function(){
-                $.post("<?php echo site_url('admin/question/create'); ?>",
-                    {
-                        title:$("#title").val(),
-                        description:um.getContent(),
-                        question_category_id:$("#question_category_id").val(),
-                        img:$("input[name=img]").val(),
-                        seo_title : $("#seo_title").val(),
-                        seo_keywords:$("#seo_keywords").val(),
-                        seo_description:$("#seo_description").val(),
-                        question_type:1,
-                        question_tag:$("#question_tag").val(),
-                        id:questionId
-                    },
-                    function(data,status){
-                        if(status==="success")
-                        {
-                            var res = eval("("+data+")");
-                            questionId = res.data;
-                            window.location.href =  "<?php echo site_url('admin/question/single');?>" + "/"+res.data;
-                        }
-                        else
-                        {
-                            alert("error");
-                        }
-                    });
-                    return false;
-            });
 
-            $("button[name=add_answer]").click(function(){
-                var lastGroup =  $("div[name=answer_group]").last();
-                var copyGroup = lastGroup.clone();
-                var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
-                copyGroup.find("input[name=answer]").attr("label",label);
-                copyGroup.find("span").html(label);
-                copyGroup.insertAfter(lastGroup);
-            });
-
-            //保存答案
-            $("form[name=answer]").submit(function(){
-                var answerData = [];
-                answerData.push({question_id:questionId,label:'a',answer_text:'answer1',result_label:'a'});
-                $("div[name=answer_group]").each(function(index,obj){
-                    var label = $(obj).find("input[name=answer]").attr("label");
-                    var answer_id  = $(obj).find("input[name=answer]").attr("answer_id");
-                    var answer_text = $(obj).find("input[name=answer]").val();
-                    var result_label = $(obj).find("input[name=result_label]").val();
-                    answerData.push({question_id:questionId,label:label,answer_text:answer_text,result_label:result_label,id:answer_id});
-                });
-                $.post("<?php echo site_url('admin/answer/create');?>",
-                        {answers:answerData},
+            //保存结论
+            $("form[name=result]").submit(function(){
+                
+                var result = {
+                    id:resultId,
+                    question_id:questionId,
+                    label:"<?php echo $result['label'];?>",
+                    show_text_result:$('input[name=show_text_result]').val(),
+                    show_html_result:um.getContent(),
+                    show_img_result:$("input[name=show_img_result]").val()
+                };
+                $.post("<?php echo site_url('admin/result/create');?>",
+                        {results:[result]},
                     function(data,status){
                         if(status === "success")
                         {
@@ -167,19 +130,8 @@
                         {
                             alert('操作失败');
                         }
-
                 });
                 return false;
-            });
-            //动态增加结点
-            $("button[name=add_result]").click(function(){
-                var lastGroup =  $("div[name=result_group]").last();
-                var copyGroup = lastGroup.clone();
-                var label = String.fromCharCode(lastGroup.attr("label").charCodeAt(0)+1);
-                copyGroup.attr("label",label);
-                copyGroup.find("span").html(label);
-                copyGroup.find("script[name=editor]").attr("id","result_"+label);
-                copyGroup.insertAfter(lastGroup);
             });
 
 
@@ -189,11 +141,11 @@
                 var progress = $(".progress"); 
                 var files = $(".files"); 
                 <?php if(isset($result) && $result['show_img_result']!=''): ?>
-                showimg.html("<img src='"+<?php echo $result['show_img_result']; ?>+"'>"); 
+                showimg.html("<img src='"+"<?php echo site_url('upload').'/'.$result['show_img_result']; ?>"+"'>"); 
                 <?php endif; ?>
                 //var btn = $(".btn span"); 
-                $("#question_img").change(function(){ //选择文件 
-                    $("#question_img").wrap("<form id='myupload' action='"+"<?php echo site_url('admin/question/do_upload/question');?>"+"'  method='post' enctype='multipart/form-data'></form>"); 
+                $("#result_img").change(function(){ //选择文件 
+                    $("#result_img").wrap("<form id='myupload' action='"+"<?php echo site_url('admin/question/do_upload/result');?>"+"'  method='post' enctype='multipart/form-data'></form>"); 
                     $("#myupload").ajaxSubmit({ 
                         dataType:  'json', //数据格式为json 
                         beforeSend: function() { //开始上传 
@@ -214,7 +166,7 @@
                             var img = "http://www.xiaojiaoluo.com/upload/question/"+data.data.file_name; 
                             showimg.html("<img src='"+img+"'>"); 
                             $("input[name=img]").val('question/'+data.data.file_name);
-                            $("#question_img").unwrap();
+                            $("#result_img").unwrap();
                   //          btn.html("添加附件"); //上传按钮还原 
                         }, 
                         error:function(xhr){ //上传失败 
