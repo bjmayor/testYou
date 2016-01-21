@@ -22,7 +22,7 @@
         <div class="box-body" name="result_group" >
             <div class="box box-default box-solid">
                 <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
-                    <h3 class="box-title"><span>结果<?php echo $result['label']; ?></span></h3>
+                    <h3 class="box-title"><span>结果<?php echo isset($result)?$result['label']:''; ?></span></h3>
 
                 </div>
                 <!-- /.box-header -->
@@ -94,7 +94,7 @@
         <!-- /.box-body -->
     </div>
 
-    <button type="button" class="btn btn-lg btn-block btn-success"  style="margin:20px 0;"><i class="fa fa-rocket"></i> 返回 </button>
+    <button type="button" class="btn btn-lg btn-block btn-success"  style="margin:20px 0;" name="return"><i class="fa fa-rocket"></i> 返回 </button>
     </section>
     <!-- /.content -->
 </div>
@@ -103,6 +103,12 @@
     var questionId =  <?php echo isset($question)?$question['id']:-1; ?>;
     var resultId = <?php echo isset($result)?$result['id']:-1;?>;
     $(function(){
+        $("input[name=add_result]").click(function(){
+            window.location.href = "<?php echo site_url('admin/result/index') ?>"+'/'+questionId;
+        });
+        $("input[name=return]").click(function(){
+            history.go(-1);
+        });
             var um = UM.getEditor('show_html_result');
             <?php if(isset($result)):?>
             um.setContent('<?php echo $result['show_html_result']; ?>',false,false);
@@ -114,17 +120,18 @@
                 var result = {
                     id:resultId,
                     question_id:questionId,
-                    label:"<?php echo $result['label'];?>",
                     show_text_result:$('input[name=show_text_result]').val(),
                     show_html_result:um.getContent(),
                     show_img_result:$("input[name=show_img_result]").val()
                 };
                 $.post("<?php echo site_url('admin/result/create');?>",
-                        {results:[result]},
+                        {result:result},
                     function(data,status){
                         if(status === "success")
                         {
+                            var res = eval("("+data+")");
                             alert('操作成功'+data);
+                            window.location.href = "<?php echo site_url('admin/result/index') ?>"+'/'+questionId+'/'+res.data;
                         }
                         else
                         {

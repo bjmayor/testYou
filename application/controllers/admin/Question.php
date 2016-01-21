@@ -62,22 +62,6 @@ class Question extends Admin_Controller {
 
     }
 
-    /*
-     * 编辑答案
-     */
-    public function result($result_id)
-    {
-        if($result_id>0)
-        {
-            $this->data['result'] = $this->result_model->get_result(array('id'=>$result_id));
-            $this->data['question'] = $this->question_model->get_question(array('id'=>$this->data['result']['question_id']));
-        }
-
-        /* Load Template */
-        $this->template->admin_render('admin/question/result', $this->data);
-
-    }
-
     public function single($question_id=-1)
     {
         if($question_id>0)

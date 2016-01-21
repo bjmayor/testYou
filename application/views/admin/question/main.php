@@ -131,21 +131,21 @@
                                         <label for="title" class="col-sm-2 control-label">Title</label>
 
                                         <div class="col-sm-10">
-                                            <input type="title" class="form-control" id="seo_title">
+                                        <input type="title" class="form-control" id="seo_title" value="<?php echo isset($meta)?$meta['seo_title']:'' ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="title" class="col-sm-2 control-label">Keywords</label>
 
                                         <div class="col-sm-10">
-                                            <input type="title" class="form-control" id="seo_keywords">
+                                            <input type="title" class="form-control" id="seo_keywords" value="<?php echo isset($meta)?$meta['seo_keywords']:'' ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="title" class="col-sm-2 control-label">Description</label>
 
                                         <div class="col-sm-10">
-                                            <input type="title" class="form-control" id="seo_description">
+                                            <input type="title" class="form-control" id="seo_description" value="<?php echo isset($meta)?$meta['seo_description']:'' ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -237,6 +237,77 @@
                 <!-- /.box-body -->
             </div>
         <?php endforeach;?>
+        <?php else:?>
+        <div class="box-body" name="result_group" >
+            <div class="box box-default box-solid">
+                <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
+                    <h3 class="box-title"><span>结果a</span></h3>
+
+                </div>
+                <!-- /.box-header -->
+                <form class="form-horizontal" name="result">
+                    <div class="box-body">
+
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 分值区间</label>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-xs-5 col-sm-2">
+                                        <input type="text" class="form-control" placeholder="最小值" >
+                                    </div>
+                                    <div class="col-xs-5 col-sm-2">
+                                        <input type="text" class="form-control" placeholder="最大值">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 简单结论</label>
+
+                            <div class="col-sm-10">
+                                <input type="title" class="form-control" id="inputTitle" name="show_text_result" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="详细解释" class="col-sm-2 control-label">详细解释</label>
+
+                            <div class="col-sm-10">
+                                <script type="text/plain" id="show_html_result" name="editor" style="width:100%;height:100px;"></script>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="title" class="col-sm-2 control-label">封面图</label>
+
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" name="userfile" id = "result_img">
+                                <input type="hidden"  name="show_img_result" >
+                            </div>
+                            <div class="progress"> 
+                                <span class="bar"></span><span class="percent">0%</span > 
+                            </div> 
+                            <div class="result_files"></div> 
+                            <div id="show_result_img"></div> 
+                        </div>
+
+                        <div class="form-group">
+                            <label for="seo" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+
+                                <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                </form>
+                <!-- /.box-body -->
+            </div>
+
         <?php endif; ?>
 
 
@@ -254,8 +325,13 @@
     var questionId =  <?php echo isset($question)?$question['id']:-1; ?>;
     $(function(){
             var um = UM.getEditor('description');
+            var resultUM;
             <?php if(isset($question)):?>
             um.setContent('<?php echo $question['description']; ?>',false,false);
+            <?php endif;?>
+
+            <?php if(isset($results) && $results!=false):?>
+            resultUM  = UM.getEditor('show_html_result');
             <?php endif;?>
             //创建问题
             $("form[name=create_question]").submit(function(){
@@ -277,7 +353,7 @@
                         {
                             var res = eval("("+data+")");
                             questionId = res.data;
-                            window.location.href =  "<?php echo site_url('admin/question/single');?>" + "/"+res.data;
+                            window.location.href =  "<?php echo site_url('admin/question/main');?>" + "/"+res.data;
                         }
                         else
                         {
@@ -289,10 +365,7 @@
 
             //动态增加结点
             $("button[name=add_result]").click(function(){
-                copyGroup.attr("label",label);
-                copyGroup.find("span").html(label);
-                copyGroup.find("script[name=editor]").attr("id","result_"+label);
-                copyGroup.insertAfter(lastGroup);
+                window.location.href = "<?php echo site_url('admin/result/index').'/'; ?>"+questionId;
             });
 
 
@@ -302,7 +375,7 @@
                 var progress = $(".progress"); 
                 var files = $(".files"); 
                 <?php if(isset($question) && $question['img']!=''): ?>
-                showimg.html("<img src='"+<?php echo $question['img']; ?>+"'>"); 
+                showimg.html("<img src='"+"<?php echo base_url().'/upload/'.$question['img']; ?>"+"'>"); 
                 <?php endif; ?>
 
                 //var btn = $(".btn span"); 
@@ -338,5 +411,32 @@
                         } 
                     }); 
                 }); 
+
+
+                //结果图片
+                var showimgResult = $('#show_result_img'); 
+                var filesResult = $(".result_files"); 
+
+                $("#result_img").change(function(){ //选择文件 
+                    $("#result_img").wrap("<form id='upload_result_img' action='"+"<?php echo site_url('admin/question/do_upload/result');?>"+"'  method='post' enctype='multipart/form-data'></form>"); 
+                    $("#upload_result_img").ajaxSubmit({ 
+                        dataType:  'json', //数据格式为json 
+                        beforeSend: function() { //开始上传 
+                            showimgResult.empty(); //清空显示的图片 
+                        }, 
+                        uploadProgress: function(event, position, total, percentComplete) { 
+                        }, 
+                        success: function(data) { //成功 
+                            //显示上传后的图片 
+                            var img = "http://www.xiaojiaoluo.com/upload/result/"+data.data.file_name; 
+                            showimgResult.html("<img src='"+img+"'>"); 
+                            $("#result_img").unwrap();
+                        }, 
+                        error:function(xhr){ //上传失败 
+                            filesResult.html(xhr.responseText); //返回失败信息 
+                        } 
+                    }); 
+                }); 
+
         });
 </script>

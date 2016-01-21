@@ -186,6 +186,10 @@ auth_render	libraries/Template.php	/^    public function auth_render($content, $
 base64_digits	models/Ion_auth_model.php	/^        $base64_digits   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+\/';$/;"	v
 base64_string	models/Ion_auth_model.php	/^        $base64_string   = base64_encode($salt);$/;"	v
 bcrypt64_digits	models/Ion_auth_model.php	/^        $bcrypt64_digits = '.\/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';$/;"	v
+beforeSend	views/admin/question/main.php	/^                        beforeSend: function() { \/\/开始上传 $/;"	j
+beforeSend	views/admin/question/result.php	/^                        beforeSend: function() { \/\/开始上传 $/;"	j
+beforeSend	views/admin/question/single.php	/^                        beforeSend: function() { \/\/开始上传 $/;"	j
+beforeSend	views/admin/question/sub.php	/^                        beforeSend: function() { \/\/开始上传 $/;"	j
 bl	models/Ion_auth_model.php	/^            $bl = strlen($buffer);$/;"	v
 breadcrumb_close	libraries/admin/Breadcrumbs.php	/^		$this->breadcrumb_close        = $this->CI->config->item('breadcrumb_close');$/;"	v
 breadcrumb_el_close	libraries/admin/Breadcrumbs.php	/^		$this->breadcrumb_el_close     = $this->CI->config->item('breadcrumb_el_close');$/;"	v
@@ -214,6 +218,8 @@ c1	libraries/Bcrypt.php	/^      $c1 = ord($input[$i++]);$/;"	v
 c2	libraries/Bcrypt.php	/^      $c2 = ord($input[$i++]);$/;"	v
 cache	libraries/common/Mobile_detect.php	/^        $this->cache = array();$/;"	v
 cache	libraries/common/Mobile_detect.php	/^    protected $cache = array();$/;"	v
+cancel	views/test/result.php	/^        cancel: function () { $/;"	j
+cancel	views/test/result.php	/^        cancel: function () {$/;"	j
 cfHeaders	libraries/common/Mobile_detect.php	/^            $cfHeaders = $_SERVER;$/;"	v
 cfHeaders	libraries/common/Mobile_detect.php	/^            $cfHeaders = $this->getCfHeaders();$/;"	v
 ch	helpers/MY_url_helper.php	/^                $ch = curl_init($url);    $/;"	v
@@ -293,7 +299,7 @@ display_unit	models/admin/Dashboard_model.php	/^    public function disk_freeper
 display_unit	models/admin/Dashboard_model.php	/^    public function disk_usepercent($dir = DIRECTORY_SEPARATOR, $display_unit = FALSE)$/;"	v
 display_unit	models/admin/Dashboard_model.php	/^    public function memory_usepercent($real = TRUE, $display_unit = FALSE)$/;"	v
 do_upload	controllers/admin/Files.php	/^	public function do_upload($dir='',$filename='userfile',$is_ajax = false)$/;"	f
-do_upload	controllers/admin/Question.php	/^    private function do_upload($dir='',$filename='userfile')$/;"	f
+do_upload	controllers/admin/Question.php	/^    public function do_upload($dir='',$filename='userfile')$/;"	f
 edit	controllers/admin/Groups.php	/^	public function edit($id)$/;"	f
 edit	controllers/admin/Users.php	/^	public function edit($id)$/;"	f
 edit_group	controllers/Auth_original.php	/^	function edit_group($id)$/;"	f
@@ -304,6 +310,10 @@ email_activation	libraries/Ion_auth.php	/^		$email_activation = $this->config->i
 email_check	models/Ion_auth_model.php	/^	public function email_check($email = '')$/;"	f
 email_config	libraries/Ion_auth.php	/^		$email_config = $this->config->item('email_config', 'ion_auth');$/;"	v
 encodeBytes	libraries/Bcrypt.php	/^  private function encodeBytes($input) {$/;"	f
+error	views/admin/question/main.php	/^                        error:function(xhr){ \/\/上传失败 $/;"	j
+error	views/admin/question/result.php	/^                        error:function(xhr){ \/\/上传失败 $/;"	j
+error	views/admin/question/single.php	/^                        error:function(xhr){ \/\/上传失败 $/;"	j
+error	views/admin/question/sub.php	/^                        error:function(xhr){ \/\/上传失败 $/;"	j
 errorLang	models/Ion_auth_model.php	/^				$errorLang = $this->lang->line($error) ? $this->lang->line($error) : '##' . $error . '##';$/;"	v
 errorLang	models/Ion_auth_model.php	/^			$errorLang = $this->lang->line($error) ? $this->lang->line($error) : '##' . $error . '##';$/;"	v
 error_end_delimiter	models/Ion_auth_model.php	/^			$this->error_end_delimiter     = $this->config->item('error_end_delimiter', 'ion_auth');$/;"	v
@@ -470,6 +480,8 @@ isMobile	libraries/common/Mobile_detect.php	/^        $isMobile = $this->isMobil
 isMobile	libraries/common/Mobile_detect.php	/^    public function isMobile($userAgent = null, $httpHeaders = null)$/;"	f
 isTablet	libraries/common/Mobile_detect.php	/^    public function isTablet($userAgent = null, $httpHeaders = null)$/;"	f
 is_admin	libraries/Ion_auth.php	/^	public function is_admin($id=false)$/;"	f
+is_main_question	controllers/Test.php	/^            $is_main_question = true;$/;"	v
+is_main_question	controllers/Test.php	/^        $is_main_question = false;$/;"	v
 is_max_login_attempts_exceeded	models/Ion_auth_model.php	/^	public function is_max_login_attempts_exceeded($identity) {$/;"	f
 is_time_locked_out	models/Ion_auth_model.php	/^	public function is_time_locked_out($identity) {$/;"	f
 is_url_exist	helpers/MY_url_helper.php	/^    function is_url_exist($url = NULL)$/;"	f
@@ -508,6 +520,7 @@ logout	controllers/Auth.php	/^    function logout($src = NULL)$/;"	f
 logout	controllers/Auth_original.php	/^		$logout = $this->ion_auth->logout();$/;"	v
 logout	controllers/Auth_original.php	/^	function logout()$/;"	f
 logout	libraries/Ion_auth.php	/^	public function logout()$/;"	f
+main	controllers/admin/Question.php	/^    public function main($question_id = -1)$/;"	f
 manual_activation	models/Ion_auth_model.php	/^		$manual_activation = $this->config->item('manual_activation', 'ion_auth');$/;"	v
 match	libraries/common/Mobile_detect.php	/^        $match = (bool) preg_match(sprintf('#%s#is', $regex), (false === empty($userAgent) ? $userAgent : $this->userAgent), $matches);$/;"	v
 match	libraries/common/Mobile_detect.php	/^    public function match($regex, $userAgent = null)$/;"	f
@@ -606,6 +619,7 @@ query	models/admin/Dashboard_model.php	/^        $query = $this->db->count_all($
 query	models/admin/Preferences_model.php	/^        $query = $this->db->get($table);$/;"	v
 query	models/common/Prefs_model.php	/^        $query = $this->db->get('admin_preferences');$/;"	v
 query_builder	config/database.php	/^$query_builder = TRUE;$/;"	v
+question	controllers/admin/Question.php	/^            $question = $this->question_model->get_question(array('id'=>$this->input->post('id')));$/;"	v
 question_id	controllers/admin/Question.php	/^            $question_id = $this->question_model->insert_question(array($/;"	v
 rand	models/Ion_auth_model.php	/^				$rand = rand($this->min_rounds,$this->max_rounds);$/;"	v
 randomState	libraries/Bcrypt.php	/^        $this->randomState = md5(microtime() . $this->randomState);$/;"	v
@@ -639,6 +653,7 @@ response	models/Ion_auth_model.php	/^		$this->response = $this->db->get($this->t
 response	models/Ion_auth_model.php	/^		$this->response = $this->db->get($this->tables['users']);$/;"	v
 response	models/Ion_auth_model.php	/^	protected $response = NULL;$/;"	v
 result	controllers/Test.php	/^    public function result($question_id,$result_label)$/;"	f
+result	controllers/admin/Question.php	/^    public function result($result_id)$/;"	f
 result	models/Ion_auth_model.php	/^			$result = $query->row();$/;"	v
 result	models/Ion_auth_model.php	/^		$result = $query->row();$/;"	v
 result	models/Ion_auth_model.php	/^		$result = $this->response->num_rows();$/;"	v
@@ -647,7 +662,7 @@ result	models/Ion_auth_model.php	/^		$result = $this->response->result_array();$
 result	models/Ion_auth_model.php	/^	public function result()$/;"	f
 result_array	models/Ion_auth_model.php	/^	public function result_array()$/;"	f
 ret	controllers/admin/Answer.php	/^<?php$/;"	v
-ret	controllers/admin/Question.php	/^            $ret = $this->question_model->delete_question($this->input->post('question_id'));$/;"	v
+ret	controllers/admin/Question.php	/^        $ret = $this->question_model->delete_question($this->input->post('question_id'));$/;"	v
 ret	controllers/admin/Result.php	/^<?php$/;"	v
 return	models/Ion_auth_model.php	/^			$return = TRUE;$/;"	v
 return	models/Ion_auth_model.php	/^		$return = $this->db->affected_rows() == 1;$/;"	v
@@ -677,10 +692,10 @@ salt_prefix	libraries/Bcrypt.php	/^    $this->salt_prefix = $params['salt_prefix
 salt_prefix	libraries/Bcrypt.php	/^  private $salt_prefix;$/;"	v
 score	controllers/admin/Question.php	/^    public function score($question_id=-1)$/;"	f
 select	models/Ion_auth_model.php	/^	public function select($select)$/;"	f
-seo_description	controllers/admin/Question.php	/^                $seo_description = $this->input->post('description');$/;"	v
-seo_description	controllers/admin/Question.php	/^            $seo_description = $this->input->post('seo_description');$/;"	v
-seo_title	controllers/admin/Question.php	/^                $seo_title = $this->input->post('title');$/;"	v
-seo_title	controllers/admin/Question.php	/^            $seo_title = $this->input->post('seo_title');$/;"	v
+seo_description	controllers/admin/Question.php	/^            $seo_description = $this->input->post('description');$/;"	v
+seo_description	controllers/admin/Question.php	/^        $seo_description = $this->input->post('seo_description');$/;"	v
+seo_title	controllers/admin/Question.php	/^            $seo_title = $this->input->post('title');$/;"	v
+seo_title	controllers/admin/Question.php	/^        $seo_title = $this->input->post('seo_title');$/;"	v
 session_data	models/Ion_auth_model.php	/^		$session_data = array($/;"	v
 setCfHeaders	libraries/common/Mobile_detect.php	/^    public function setCfHeaders($cfHeaders = null) {$/;"	f
 setDetectionType	libraries/common/Mobile_detect.php	/^    public function setDetectionType($type = null)$/;"	f
@@ -704,9 +719,16 @@ status	helpers/MY_url_helper.php	/^                    $status = FALSE;$/;"	v
 status	helpers/MY_url_helper.php	/^                    $status = TRUE;$/;"	v
 status	libraries/Ion_auth.php	/^	protected $status;$/;"	v
 store_salt	models/Ion_auth_model.php	/^		$this->store_salt      = $this->config->item('store_salt', 'ion_auth');$/;"	v
+sub	controllers/admin/Question.php	/^    public function sub($question_id = -1)$/;"	f
 subtitle	libraries/admin/Page_title.php	/^                    $subtitle = ' ' . $this->pagetitle_el_open .  $value['subtitle'] . $this->pagetitle_el_close;$/;"	v
 subtitle	libraries/admin/Page_title.php	/^                    $subtitle = NULL;$/;"	v
 subtitle	libraries/admin/Page_title.php	/^    function push($title, $subtitle = '')$/;"	v
+success	views/admin/question/main.php	/^                        success: function(data) { \/\/成功 $/;"	j
+success	views/admin/question/result.php	/^                        success: function(data) { \/\/成功 $/;"	j
+success	views/admin/question/single.php	/^                        success: function(data) { \/\/成功 $/;"	j
+success	views/admin/question/sub.php	/^                        success: function(data) { \/\/成功 $/;"	j
+success	views/test/result.php	/^        success: function () { $/;"	j
+success	views/test/result.php	/^        success: function (res) {$/;"	j
 successfully_changed_password_in_db	models/Ion_auth_model.php	/^			$successfully_changed_password_in_db = $this->db->update($this->tables['users'], $data, array($this->identity_column => $identity));$/;"	v
 tables	controllers/Auth_original.php	/^		$tables = $this->config->item('tables','ion_auth');$/;"	v
 tables	controllers/admin/Users.php	/^		$tables = $this->config->item('tables', 'ion_auth');$/;"	v
@@ -730,7 +752,10 @@ update	models/Ion_auth_model.php	/^	public function update($id, array $data)$/;"
 update_group	models/Ion_auth_model.php	/^	public function update_group($group_id = FALSE, $group_name = FALSE, $additional_data = array())$/;"	f
 update_interfaces	models/admin/Preferences_model.php	/^    public function update_interfaces($table, $data)$/;"	f
 update_last_login	models/Ion_auth_model.php	/^	public function update_last_login($id)$/;"	f
-upload_data	controllers/admin/Question.php	/^        $upload_data = $this->do_upload('question');$/;"	v
+uploadProgress	views/admin/question/main.php	/^                        uploadProgress: function(event, position, total, percentComplete) { $/;"	j
+uploadProgress	views/admin/question/result.php	/^                        uploadProgress: function(event, position, total, percentComplete) { $/;"	j
+uploadProgress	views/admin/question/single.php	/^                        uploadProgress: function(event, position, total, percentComplete) { $/;"	j
+uploadProgress	views/admin/question/sub.php	/^                        uploadProgress: function(event, position, total, percentComplete) { $/;"	j
 url	libraries/admin/Breadcrumbs.php	/^		$url = site_url($url);$/;"	v
 use_sha1_override	models/Ion_auth_model.php	/^	public function hash_password_db($id, $password, $use_sha1_override=FALSE)$/;"	v
 user	controllers/Auth_original.php	/^		$user = $this->ion_auth->forgotten_password_check($code);$/;"	v
