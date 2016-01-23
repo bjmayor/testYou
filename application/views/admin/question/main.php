@@ -167,6 +167,67 @@
         <!-- /.box-body -->
     </div>
 
+    <div class="box box-default" id="options">
+          <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
+            <h3 class="box-title" >问题选项</h3>
+          </div>
+
+          <div class="box-body">
+        <?php if (isset($sub_questions) && $sub_questions!=false): ?>
+        <?php foreach($sub_questions as $sub_question):?>
+          <div class="box box-default box-solid">
+            <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
+              <h3 class="box-title">问题Q<?php echo $sub_question['sub_label_id']; ?></h3>
+
+            </div>
+            <!-- /.box-header -->
+              <form class="form-horizontal">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 题目</label>
+
+                  <div class="col-sm-10">
+                  <input type="title" class="form-control" id="inputTitle" value="<?php echo $sub_question['title']; ?>">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="简介" class="col-sm-2 control-label">简介</label>
+
+                  <div class="col-sm-10">
+                    <script type="text/plain" id="sub_question_<?php echo $sub_question['sub_label_id'] ?>" style="width:100%;height:100px;"></script>
+                  </div>
+                </div>
+                <?php foreach($sub_question['answers'] as $answer): ?>
+                <div class="form-group">
+                <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项<?php echo $answer['label']; ?></label>
+                  <div class="col-sm-10">
+                    <div class="row">
+                      <div class="col-xs-9 col-sm-9">
+                      <input type="text" class="form-control" value="<?php echo $answer['answer_text']; ?>">
+                      </div>
+                      <div class="col-xs-3 col-sm-3">
+                      <input type="text" class="form-control" placeholder="分值" value="<?php echo $answer['score']; ?>">
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <?php endforeach;?>
+              </div>
+              <!-- /.box-body -->
+            </form>
+            <!-- /.box-body -->
+          </div>
+        <?php endforeach;?>
+        <?php endif; ?>
+           <button type="button" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;"><i class="fa fa-plus"></i>  增加下一个问题</button>
+
+        
+          </div>
+          <!-- /.box-body -->
+      </div>
+
+                   
 
     <div class="box box-default" >
         <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -177,7 +238,7 @@
         <div class="box-body" name="result_group" label="<?php echo $result['label']; ?>">
             <div class="box box-default box-solid">
                 <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
-                    <h3 class="box-title"><span>结果<?php echo $result['result']; ?></span></h3>
+                    <h3 class="box-title"><span>结果<?php echo $result['label']; ?></span></h3>
 
                 </div>
                 <!-- /.box-header -->
