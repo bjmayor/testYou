@@ -13,6 +13,7 @@ class Test extends MY_Controller {
     public function index($question_id)
     {
         $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+        $this->question_model->update_question(array("visit_count"=>$this->data['question']['visit_count']+1, 'id'=>$question_id));
         $this->load->view('test/index',$this->data);
     }
 

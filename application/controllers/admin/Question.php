@@ -51,17 +51,21 @@ class Question extends Admin_Controller {
     /*
      * 添加子问题
      */
-    public function sub($question_id = -1)
+    public function sub($question_id, $sub_question_id = -1)
     {
-        if($question_id>0)
+        if(!is_numeric($question_id))
         {
-            $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
-            $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
-            $this->data['answer'] = $this->answer_model->get_answer(array('question_id'=>$question_id));
-            $this->data['results'] = $this->result_model->get_result(array('question_id'=>$this->data['question']['pid']));
+            echo "bad segment";
+            return;
         }
+        $this->data['main_question'] = $this->question_model->get_question(array("id"=>$question_id));
+        if($sub_question_id != -1 && is_numeric($sub_question_id))
+        {
+            $this->data['question'] = $this->question_model->get_question(array('id'=>$sub_question_id));
+            $this->data['answers'] = $this->answer_model->get_answer(array('question_id'=>$sub_question_id));
+        }
+        $this->data['results'] = $this->result_model->get_result(array('question_id'=>$question_id));
 
-        $this->data['category'] = $this->question_category_model->get_all();
         /* Load Template */
         $this->template->admin_render('admin/question/sub', $this->data);
 
@@ -163,7 +167,7 @@ class Question extends Admin_Controller {
         $seo_description = $this->input->post('seo_description');
         if(strlen($seo_description) == 0)
         {
-            $seo_description = $this->input->post('description');
+            $seo_description = $this->input->post('title');
         }
 
         //编辑功能
@@ -176,8 +180,8 @@ class Question extends Admin_Controller {
                 'description'=>$this->input->post('description'),
                 'img'=>$this->input->post('img'),
                 'question_category_id'=>$this->input->post('question_category_id'),
-                'meta_id'=>$question['meta_id'],
-                'id'=>$question['id']
+                'id'=>$question['id'],
+                'publish_status'=>$this->input->post('publish_status'),
             ));
 
             Response::build(0,"ok",$this->input->post('id'))->show();
@@ -195,6 +199,8 @@ class Question extends Admin_Controller {
                 'description'=>$this->input->post('description'),
                 'img'=>$this->input->post('img'),
                 'question_category_id'=>$this->input->post('question_category_id'),
+                'question_type'=>$this->input->post('question_type'),
+                'publish_status'=>$this->input->post('publish_status'),
                 'meta_id'=>$meta_id
             ));
             if ($question_id > 0)
@@ -210,6 +216,55 @@ class Question extends Admin_Controller {
 
     }
 
+ /*
+     * 创建一个问题
+     */
+    public function create_sub()
+    {
+        if (strlen($this->input->post('title'))==0)
+        {
+            Response::build(2,"标题不能为空")->show();
+            return;
+        }
+        if (strlen($this->input->post('description'))==0)
+        {
+            Response::build(2,"描述不能为空")->show();
+            return;
+        }
+
+        //编辑功能
+        if($this->input->post('id')!='-1')
+        {
+            $question = $this->question_model->get_question(array('id'=>$this->input->post('id')));
+            if ($question['title'] != $this->input->post['title'] || $question['description'] != $this->input->post['description'])
+            {
+                $this->question_model->update_question(array(
+                    'title'=>$this->input->post('title'),
+                    'description'=>$this->input->post('description'),
+                ));
+            }
+
+            Response::build(0,"ok",$this->input->post('id'))->show();
+        }
+        else//新建
+        {
+            $question_id = $this->question_model->insert_question(array(
+                'title'=>$this->input->post('title'),
+                'description'=>$this->input->post('description'),
+                'pid'=>$this->input->post('pid')
+            ));
+            if ($question_id > 0)
+            {
+                Response::build(0,"ok",$question_id)->show();
+            }
+            else
+            {
+                Response::build(1,"error","问题创建失败")->show();
+            }
+        }
+
+
+    }
 
 
     public function del()

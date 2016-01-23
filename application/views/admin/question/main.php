@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">题目类型</label>
                         <div class="col-sm-10">
-                            <select class="form-control" style="width: 100%;" id = "question_category_id">
+                            <select class="form-control" style="width: 100%;" id = "question_type">
                                 <?php foreach($question_type as $item): ?>
                                 <option value='<?php echo $item['id'];?>'
                                 <?php if(isset($question) && $item['id'] == $question['question_type']): ?>
@@ -70,7 +70,7 @@
                     <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">发布状态</label>
                         <div class="col-sm-10">
-                            <select class="form-control" style="width: 100%;" id = "question_category_id">
+                            <select class="form-control" style="width: 100%;" id = "publish_status">
                                 <?php foreach($publish_status as $item): ?>
                                 <option value='<?php echo $item['id'];?>'
                                 <?php if(isset($question) && $item['id'] == $question['publish_status']): ?>
@@ -177,9 +177,11 @@
         <?php foreach($sub_questions as $sub_question):?>
           <div class="box box-default box-solid">
             <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
-              <h3 class="box-title">问题Q<?php echo $sub_question['sub_label_id']; ?></h3>
+            <h3 class="box-title">问题Q<?php echo $sub_question['sub_label_id']; ?> </h3>
 
             </div>
+            <a href="<?php echo site_url('admin/question/sub/'.$question['id'].'/'.$sub_question['id']);?>
+            ">编辑</a><a >删除</a>
             <!-- /.box-header -->
               <form class="form-horizontal">
               <div class="box-body">
@@ -197,6 +199,7 @@
                     <script type="text/plain" id="sub_question_<?php echo $sub_question['sub_label_id'] ?>" style="width:100%;height:100px;"></script>
                   </div>
                 </div>
+                <?php if($sub_question['answers']):?>
                 <?php foreach($sub_question['answers'] as $answer): ?>
                 <div class="form-group">
                 <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项<?php echo $answer['label']; ?></label>
@@ -213,6 +216,7 @@
                   </div>
                 </div>
                 <?php endforeach;?>
+                <?php endif;?>
               </div>
               <!-- /.box-body -->
             </form>
@@ -220,7 +224,7 @@
           </div>
         <?php endforeach;?>
         <?php endif; ?>
-           <button type="button" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;"><i class="fa fa-plus"></i>  增加下一个问题</button>
+           <button type="button" id = "add_question" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;"><i class="fa fa-plus"></i>  增加下一个问题</button>
 
         
           </div>
@@ -394,6 +398,17 @@
             <?php if(isset($results) && $results!=false):?>
             resultUM  = UM.getEditor('show_html_result');
             <?php endif;?>
+        <?php if (isset($sub_questions) && $sub_questions!=false): ?>
+        <?php foreach($sub_questions as $sub_question):?>
+            var temp= UM.getEditor("sub_question_<?php echo $sub_question['sub_label_id']; ?>");
+            temp.setContent("<?php echo $sub_question['description']; ?>",false,false);
+        <?php endforeach;?>
+        <?php endif;?>
+
+            $("#add_question").click(function(){
+                window.location.href = "<?php echo site_url('admin/question/sub'); ?>"+"/"+questionId;
+            });
+
             //创建问题
             $("form[name=create_question]").submit(function(){
                 $.post("<?php echo site_url('admin/question/create'); ?>",
@@ -405,8 +420,9 @@
                         seo_title : $("#seo_title").val(),
                         seo_keywords:$("#seo_keywords").val(),
                         seo_description:$("#seo_description").val(),
-                        question_type:1,
+                        question_type:$("#question_type").val(),
                         question_tag:$("#question_tag").val(),
+                        publish_status:$("#publish_status").val(),
                         id:questionId
                     },
                     function(data,status){
