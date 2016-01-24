@@ -35,9 +35,12 @@ class Question extends Admin_Controller {
             $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
             $this->data['results'] = $this->result_model->get_result(array('question_id'=>$question_id));
             $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$question_id));
-            foreach($this->data['sub_questions'] as $key => $sub_question)
+            if($this->data['sub_questions']!=false)
             {
-                $this->data["sub_questions"][$key]['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$sub_question['id']));
+                foreach($this->data['sub_questions'] as $key => $sub_question)
+                {
+                    $this->data["sub_questions"][$key]['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$sub_question['id']));
+                }
             }
 
         }
@@ -63,6 +66,10 @@ class Question extends Admin_Controller {
         {
             $this->data['question'] = $this->question_model->get_question(array('id'=>$sub_question_id));
             $this->data['answers'] = $this->answer_model->get_answer(array('question_id'=>$sub_question_id));
+            if($this->data['main_question']['question_type'] == '3')
+            {
+                $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$question_id));
+            }
         }
         $this->data['results'] = $this->result_model->get_result(array('question_id'=>$question_id));
 
@@ -180,6 +187,7 @@ class Question extends Admin_Controller {
                 'description'=>$this->input->post('description'),
                 'img'=>$this->input->post('img'),
                 'question_category_id'=>$this->input->post('question_category_id'),
+                'question_type'=>$this->input->post('question_type'),
                 'id'=>$question['id'],
                 'publish_status'=>$this->input->post('publish_status'),
             ));

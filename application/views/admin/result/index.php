@@ -94,7 +94,7 @@
         <!-- /.box-body -->
     </div>
 
-    <a  href = "<?php echo site_url('admin/question/main/'.$question['id']); ?>" class="btn btn-lg btn-block btn-success"  style="margin:20px 0;" ><i class="fa fa-rocket"></i> 返回 </a>
+    <a  href = "<?php echo site_url('admin/question/main/'.$question['id']); ?>" class="btn btn-lg btn-block btn-success"  style="margin:20px 0;" ><i class="fa fa-rocket"></i> 回到主问题 </a>
     </section>
     <!-- /.content -->
 </div>
@@ -126,8 +126,7 @@
                             var res = eval("("+data+")");
                             if(res.code==0)
                             {
-                                alert(data);
-//                                window.location.href = "<?php echo site_url('admin/result/index') ?>"+'/'+questionId+'/'+res.data;
+                                window.location.href = "<?php echo site_url('admin/result/index') ?>"+'/'+questionId+'/'+res.data;
                             }
                             else
                             {
@@ -171,9 +170,9 @@
                         }, 
                         success: function(data) { //成功 
                             //显示上传后的图片 
-                            var img = "http://www.xiaojiaoluo.com/upload/question/"+data.data.file_name; 
+                            var img = "http://www.xiaojiaoluo.com/upload/result/"+data.data.file_name; 
                             showimg.html("<img src='"+img+"'>"); 
-                            $("input[name=img]").val('question/'+data.data.file_name);
+                            $("input[name=show_img_result]").val('result/'+data.data.file_name);
                             $("#result_img").unwrap();
                   //          btn.html("添加附件"); //上传按钮还原 
                         }, 

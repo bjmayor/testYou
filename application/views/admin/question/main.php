@@ -3,8 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <h1>
-        添加单选题
-        <small>根据用户选择直接出结果</small>
+        添加问题
     </h1>
     <!--  <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 后台首页</a></li>
@@ -186,14 +185,18 @@
                   <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 题目</label>
 
                   <div class="col-sm-10">
-                  <input type="title" class="form-control" id="inputTitle" value="<?php echo $sub_question['title']; ?>">
+                    <pre>
+                    <?php echo $sub_question['title']; ?>
+                    </pre>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="简介" class="col-sm-2 control-label">简介</label>
 
                   <div class="col-sm-10">
-                    <script type="text/plain" id="sub_question_<?php echo $sub_question['sub_label_id'] ?>" style="width:100%;height:100px;"></script>
+                    <pre>
+                    <?php echo $sub_question['description']; ?>
+                    </pre>
                   </div>
 
                 </div>
@@ -316,81 +319,7 @@
             </div>
         </div>
         <?php endforeach;?>
-        <?php else:?>
-        <div class="box-body" name="result_group" >
-            <div class="box box-default box-solid">
-                <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
-                    <h3 class="box-title"><span>结果a</span></h3>
-
-                </div>
-                <!-- /.box-header -->
-                <form class="form-horizontal" name="result">
-                    <div class="box-body">
-
-                        <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 分值区间</label>
-                            <div class="col-sm-10">
-                                <div class="row">
-                                    <div class="col-xs-5 col-sm-2">
-                                        <input type="text" class="form-control" placeholder="最小值" >
-                                    </div>
-                                    <div class="col-xs-5 col-sm-2">
-                                        <input type="text" class="form-control" placeholder="最大值">
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 简单结论</label>
-
-                            <div class="col-sm-10">
-                                <input type="title" class="form-control" id="inputTitle" name="show_text_result" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="详细解释" class="col-sm-2 control-label">详细解释</label>
-
-                            <div class="col-sm-10">
-                                <script type="text/plain" id="show_html_result" name="editor" style="width:100%;height:100px;"></script>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">封面图</label>
-
-                            <div class="col-sm-10">
-                                <input type="file" class="form-control" name="userfile" id = "result_img">
-                                <input type="hidden"  name="show_img_result" >
-                            </div>
-                            <div class="progress"> 
-                                <span class="bar"></span><span class="percent">0%</span > 
-                            </div> 
-                            <div class="result_files"></div> 
-                            <div id="show_result_img"></div> 
-                        </div>
-
-                        <div class="form-group">
-                            <label for="seo" class="col-sm-2 control-label"></label>
-                            <div class="col-sm-10">
-
-                                <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- /.box-body -->
-                </form>
-                <!-- /.box-body -->
-            </div>
-
         <?php endif; ?>
-
-
-
         </div>
             <button type="button" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;" name="add_result"><i class="fa fa-plus"></i>增加结果</button>
         <!-- /.box-body -->
@@ -412,12 +341,6 @@
             <?php if(isset($results) && $results!=false):?>
             resultUM  = UM.getEditor('show_html_result');
             <?php endif;?>
-        <?php if (isset($sub_questions) && $sub_questions!=false): ?>
-        <?php foreach($sub_questions as $sub_question):?>
-            var temp= UM.getEditor("sub_question_<?php echo $sub_question['sub_label_id']; ?>");
-            temp.setContent("<?php echo $sub_question['description']; ?>",false,false);
-        <?php endforeach;?>
-        <?php endif;?>
 
             $("#add_question").click(function(){
                 window.location.href = "<?php echo site_url('admin/question/sub'); ?>"+"/"+questionId;

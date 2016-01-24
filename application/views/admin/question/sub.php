@@ -10,7 +10,6 @@
         <li class="active">添加多选评分题</li>
     </ol> -->
     </section>
-
     <!-- Main content -->
     <section class="content">
 
@@ -55,10 +54,10 @@
             <h3 class="box-title" >问题选项</h3>
         </div>
         <form class="form-horizontal" name="answer">
-            <?php if(isset($answer) && $answer!=false):?>
-            <?php foreach($answer as $item): ?>
+            <?php if(isset($answers) && $answers!=false):?>
+            <?php foreach($answers as $item): ?>
 
-            <div class="box-body" name="answer_group">
+            <div class="box-body" name="answer_group" id="answer_<?php echo $item['id']?>">
                 <div class="form-group" >
                 <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项<span><?php echo $item['label']; ?></span></label>
                     <div class="col-sm-10">
@@ -66,13 +65,55 @@
                             <div class="col-xs-9 col-sm-9">
                                 <input type="text" class="form-control" name="answer" label="<?php echo $item['label']; ?>" answer_id="<?php echo $item['id']; ?>" value="<?php echo $item['answer_text']; ?>">
                             </div>
-                            <div class="col-xs-3 col-sm-3">
-                                <input type="text" class="form-control" placeholder="对应结果" name="result_label" value="<?php echo $item['result_label']; ?>">
+                            <div class="col-sm-2 btn">
+                             <button type="button" name="delete_answer" class="btn btn-default" answer_id="<?php echo $item['id']; ?>"  ><i class="fa fa-trash"></i>  删除</button>
                             </div>
-
                         </div>
                     </div>
                 </div>
+
+                <?php if($main_question['question_type']==1): ?>
+                <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">结论</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" style="width: 100%;" id = "result_select">
+                                <?php foreach($results as $item): ?>
+                                <option value='<?php echo $item['id'];?>'
+                                ><?php echo $item['show_text_result'];?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
+                    </div>
+                <?php elseif($main_question['question_type']==2):?>
+                <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">分数</label>
+                        <div class="col-xs-9 col-sm-9">
+                            <input type="text" class="form-control sm" placeholder="分数" name="result_label" value="<?php echo $item['score']; ?>">
+                        </div>
+                </div>
+                <?php elseif($main_question['question_type']==3):?>
+                      <label for="title" class="col-sm-2 control-label">跳转</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" style="width: 100%;" id = "result_select">
+                                <?php foreach($results as $result): ?>
+                                <option value='<?php echo $result['label'];?>' type="result"
+                                <?php if($item['result_label']==$result['label']):?>selected<?php endif?>
+                                ><?php echo '结论:'.$item['show_text_result'];?></option>
+                                <?php endforeach;?>
+
+                                <?php if($sub_questions!=false):?>
+                                <?php foreach($sub_questions as $question): ?>
+                                <option value='<?php echo $question['sub_label_id'];?>' type="question"
+                                <?php if($item['next_question_label']==$question['sub_label_id']):?>selected<?php endif?>
+                                 ><?php echo '问题:'.$question['title'];?></option>
+                                <?php endforeach;?>
+                                <?php endif;?>
+
+                            </select>
+                        </div>
+
+                <?php endif;?>
+
 </div>
                 <?php endforeach;?>
 
@@ -91,10 +132,11 @@
                     </div>
                     
                 </div>
+            <?php if($main_question['question_type']==1): ?>
                 <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">结论</label>
                         <div class="col-sm-10">
-                            <select class="form-control" style="width: 100%;" id = "question_category_id">
+                            <select class="form-control" style="width: 100%;" id = "result_select">
                                 <?php foreach($results as $item): ?>
                                 <option value='<?php echo $item['id'];?>'
                                 ><?php echo $item['show_text_result'];?></option>
@@ -102,6 +144,32 @@
                             </select>
                         </div>
                     </div>
+                <?php elseif($main_question['question_type']==2):?>
+                <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">分数</label>
+                        <div class="col-xs-9 col-sm-9">
+                            <input type="text" class="form-control sm" placeholder="分数" name="result_label" value="<?php echo $item['score']; ?>">
+                        </div>
+                </div>
+                <?php elseif($main_question['question_type']==3):?>
+                      <label for="title" class="col-sm-2 control-label">跳转</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" style="width: 100%;" id = "result_select">
+                                <?php foreach($results as $item): ?>
+                                <option value='<?php echo $item['label'];?>' type="result"
+                                ><?php echo '结论:'.$item['show_text_result'];?></option>
+                                <?php endforeach;?>
+
+                                <?php if($sub_questions!=false):?>
+                                <?php foreach($sub_questions as $item): ?>
+                                <option value='<?php echo $item['sub_label_id'];?>' type="question" ><?php echo '问题:'.$item['title'];?></option>
+                                <?php endforeach;?>
+                                <?php endif;?>
+
+                            </select>
+                        </div>
+
+                <?php endif;?>
 
 
                 
@@ -173,6 +241,32 @@
                 copyGroup.find("input[name=answer]").attr("label",label);
                 copyGroup.find("span").html(label);
                 copyGroup.insertAfter(lastGroup);
+            });
+
+            $("button[name=delete_answer]").click(function(){
+                var id = $(this).attr("answer_id");
+                $.post("<?php echo site_url('admin/answer/del');?>",
+                        {id:id},
+                    function(data,status){
+                        if(status === "success")
+                        {
+                            var res = eval("("+data+")");
+                            if(res.code==0)
+                            {
+                                $("#answer_"+id).remove();
+                            }
+                            else
+                            {
+                                alert('操作失败'+data);
+                            }
+                        }
+                        else
+                        {
+                            alert('操作失败');
+                        }
+
+                });
+
             });
 
             //保存答案
