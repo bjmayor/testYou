@@ -90,11 +90,11 @@
 
 
         </div>
-            <button type="button" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;" name="add_result"><i class="fa fa-plus"></i>  增加下一个结果</button>
+            <a href="<?php echo site_url('admin/result/index/'.$question['id']); ?>" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;" ><i class="fa fa-plus"></i>增加下一个</a>
         <!-- /.box-body -->
     </div>
 
-    <button type="button" class="btn btn-lg btn-block btn-success"  style="margin:20px 0;" name="return"><i class="fa fa-rocket"></i> 返回 </button>
+    <a  href = "<?php echo site_url('admin/question/main/'.$question['id']); ?>" class="btn btn-lg btn-block btn-success"  style="margin:20px 0;" ><i class="fa fa-rocket"></i> 返回 </a>
     </section>
     <!-- /.content -->
 </div>
@@ -103,12 +103,6 @@
     var questionId =  <?php echo isset($question)?$question['id']:-1; ?>;
     var resultId = <?php echo isset($result)?$result['id']:-1;?>;
     $(function(){
-        $("input[name=add_result]").click(function(){
-            window.location.href = "<?php echo site_url('admin/result/index') ?>"+'/'+questionId;
-        });
-        $("input[name=return]").click(function(){
-            history.go(-1);
-        });
             var um = UM.getEditor('show_html_result');
             <?php if(isset($result)):?>
             um.setContent('<?php echo $result['show_html_result']; ?>',false,false);
@@ -130,8 +124,15 @@
                         if(status === "success")
                         {
                             var res = eval("("+data+")");
-                            alert('操作成功'+data);
-                            window.location.href = "<?php echo site_url('admin/result/index') ?>"+'/'+questionId+'/'+res.data;
+                            if(res.code==0)
+                            {
+                                alert(data);
+//                                window.location.href = "<?php echo site_url('admin/result/index') ?>"+'/'+questionId+'/'+res.data;
+                            }
+                            else
+                            {
+                                alert('failed'+data);
+                            }
                         }
                         else
                         {

@@ -11,7 +11,6 @@
         <li class="active">添加多选评分题</li>
     </ol> -->
     </section>
-
     <!-- Main content -->
     <section class="content">
 
@@ -180,8 +179,6 @@
             <h3 class="box-title">问题Q<?php echo $sub_question['sub_label_id']; ?> </h3>
 
             </div>
-            <a href="<?php echo site_url('admin/question/sub/'.$question['id'].'/'.$sub_question['id']);?>
-            ">编辑</a><a >删除</a>
             <!-- /.box-header -->
               <form class="form-horizontal">
               <div class="box-body">
@@ -198,7 +195,18 @@
                   <div class="col-sm-10">
                     <script type="text/plain" id="sub_question_<?php echo $sub_question['sub_label_id'] ?>" style="width:100%;height:100px;"></script>
                   </div>
+
                 </div>
+                <div class="form-group">
+                            <label for="seo" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+
+                                <a href="<?php echo site_url('admin/question/sub/'.$question['id'].'/'.$sub_question['id']);?>" class="btn btn-default" ><i class="fa fa-edit"></i>  编辑</a>
+                                <button type="submit" class="btn btn-default" ><i class="fa fa-trash"></i>  删除</button>
+
+                            </div>
+                        </div>
+
                 <?php if($sub_question['answers']):?>
                 <?php foreach($sub_question['answers'] as $answer): ?>
                 <div class="form-group">
@@ -248,8 +256,9 @@
                 <!-- /.box-header -->
                 <form class="form-horizontal" name="result">
                     <div class="box-body">
-
+                        <?php if($question['question_type']==2): ?>
                         <div class="form-group">
+                            
                             <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 分值区间</label>
                             <div class="col-sm-10">
                                 <div class="row">
@@ -263,19 +272,22 @@
                                 </div>
                             </div>
                         </div>
+                        <?php endif;?>
 
                         <div class="form-group">
                             <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 简单结论</label>
 
                             <div class="col-sm-10">
-                                <input type="title" class="form-control" id="inputTitle" name="show_text_result" value="<?php echo $result['show_text_result']; ?>">
+                            <pre>
+                                <?php echo $result['show_text_result']; ?>
+                            </pre>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="详细解释" class="col-sm-2 control-label">详细解释</label>
 
                             <div class="col-sm-10">
-                                <script type="text/plain" id="<?php echo 'result_'.$result['label']; ?>" name="editor" style="width:100%;height:100px;"></script>
+                                <pre> <?php echo $result['show_html_result']; ?></pre>
                             </div>
                         </div>
 
@@ -283,7 +295,7 @@
                             <label for="title" class="col-sm-2 control-label">封面图</label>
 
                             <div class="col-sm-10">
-                                <input type="file" class="form-control">
+                                <img src="<?php echo site_url('upload/'.$result['show_img_result']); ?>" />
                             </div>
                         </div>
 
@@ -291,7 +303,8 @@
                             <label for="seo" class="col-sm-2 control-label"></label>
                             <div class="col-sm-10">
 
-                                <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
+                                <a  href ="<?php echo site_url('admin/result/index/'.$question['id'].'/'.$result['id']); ?>" type="submit" class="btn btn-default" ><i class="fa fa-edit"></i>  编辑</a>
+                                <button type="submit" class="btn btn-default" ><i class="fa fa-trash"></i>  删除</button>
 
                             </div>
                         </div>
@@ -301,6 +314,7 @@
                 </form>
                 <!-- /.box-body -->
             </div>
+        </div>
         <?php endforeach;?>
         <?php else:?>
         <div class="box-body" name="result_group" >
