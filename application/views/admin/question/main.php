@@ -250,7 +250,7 @@
         </div>
         <?php if(isset($results) && $results!=false): ?>
         <?php foreach($results as $result):?>
-        <div class="box-body" name="result_group" label="<?php echo $result['label']; ?>">
+        <div class="box-body" name="result_group" label="<?php echo $result['label']; ?>" id="result_group_<?php echo $result['id'];?>">
             <div class="box box-default box-solid">
                 <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
                     <h3 class="box-title"><span>结果<?php echo $result['label']; ?></span></h3>
@@ -307,7 +307,7 @@
                             <div class="col-sm-10">
 
                                 <a  href ="<?php echo site_url('admin/result/index/'.$question['id'].'/'.$result['id']); ?>" type="submit" class="btn btn-default" ><i class="fa fa-edit"></i>  编辑</a>
-                                <button type="submit" class="btn btn-default" ><i class="fa fa-trash"></i>  删除</button>
+                                <button type="button" class="btn btn-default" name="del_result" result_id="<?php echo $result['id']; ?>" ><i class="fa fa-trash"></i>  删除</button>
 
                             </div>
                         </div>
@@ -382,6 +382,34 @@
                 window.location.href = "<?php echo site_url('admin/result/index').'/'; ?>"+questionId;
             });
 
+            $("button[name=del_result]").click(function(){
+                var id = $(this).attr("result_id");
+                $.post("<?php echo site_url('admin/result/del'); ?>",
+                    {
+                        id:id
+                    },
+                    function(data,status){
+                        if(status==="success")
+                        {
+                            var res = eval("("+data+")");
+                            if(res.code == 0)
+                            {
+                                $("#result_group_"+id).remove();
+                            }
+                            else
+                            {
+                                alert("fail"+data);
+                            }
+                        }
+                        else
+                        {
+                            alert("error");
+                        }
+                    });
+
+                return false;
+            });
+
 
             var bar = $('.bar'); 
                 var percent = $('.percent'); 
@@ -426,7 +454,7 @@
                     }); 
                 }); 
 
-
+            
                 //结果图片
                 var showimgResult = $('#show_result_img'); 
                 var filesResult = $(".result_files"); 
