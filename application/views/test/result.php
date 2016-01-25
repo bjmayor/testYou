@@ -53,7 +53,7 @@ $(function(){
         history.go(-1);
     });
 });
-
+/*
 //微信分享
 var imgUrl = 'http://static.huangjinqianbao.com/static/img/weixin/giftThumb.png';
 var lineLink = location.href;
@@ -99,6 +99,7 @@ wx.ready(function() {
         }
     });
 });
+*/
 </script>
     </body>
 </html>
