@@ -76,9 +76,9 @@
                 <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">结论</label>
                         <div class="col-sm-10">
-                            <select class="form-control" style="width: 100%;" id = "result_select">
+                            <select class="form-control" style="width: 100%;">
                                 <?php foreach($results as $item): ?>
-                                <option value='<?php echo $item['id'];?>'
+                                <option value='<?php echo $item['label'];?>'
                                 ><?php echo $item['show_text_result'];?></option>
                                 <?php endforeach;?>
                             </select>
@@ -88,13 +88,13 @@
                 <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">分数</label>
                         <div class="col-xs-9 col-sm-9">
-                            <input type="text" class="form-control sm" placeholder="分数" name="result_label" value="<?php echo $item['score']; ?>">
+                            <input type="text" class="form-control sm" placeholder="分数" name="score" value="<?php echo $item['score']; ?>">
                         </div>
                 </div>
                 <?php elseif($main_question['question_type']==3):?>
                       <label for="title" class="col-sm-2 control-label">跳转</label>
                         <div class="col-sm-10">
-                            <select class="form-control" style="width: 100%;" id = "result_select">
+                            <select class="form-control" style="width: 100%;" >
                                 <?php foreach($results as $result): ?>
                                 <option value='<?php echo $result['label'];?>' type="result"
                                 <?php if($item['result_label']==$result['label']):?>selected<?php endif?>
@@ -136,9 +136,9 @@
                 <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">结论</label>
                         <div class="col-sm-10">
-                            <select class="form-control" style="width: 100%;" id = "result_select">
+                            <select class="form-control" style="width: 100%;">
                                 <?php foreach($results as $item): ?>
-                                <option value='<?php echo $item['id'];?>'
+                                <option value='<?php echo $item['label'];?>'
                                 ><?php echo $item['show_text_result'];?></option>
                                 <?php endforeach;?>
                             </select>
@@ -148,7 +148,7 @@
                 <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">分数</label>
                         <div class="col-xs-9 col-sm-9">
-                            <input type="text" class="form-control sm" placeholder="分数" name="result_label" value="<?php echo $item['score']; ?>">
+                            <input type="text" class="form-control sm" placeholder="分数" name="score" value="<?php echo $item['score']; ?>">
                         </div>
                 </div>
                 <?php elseif($main_question['question_type']==3):?>
@@ -272,13 +272,28 @@
             //保存答案
             $("form[name=answer]").submit(function(){
                 var answerData = [];
-                answerData.push({question_id:questionId,label:'a',answer_text:'answer1',result_label:'a'});
                 $("div[name=answer_group]").each(function(index,obj){
                     var label = $(obj).find("input[name=answer]").attr("label");
                     var answer_id  = $(obj).find("input[name=answer]").attr("answer_id");
                     var answer_text = $(obj).find("input[name=answer]").val();
-                    var result_label = $(obj).find("input[name=result_label]").val();
-                    answerData.push({question_id:questionId,label:label,answer_text:answer_text,result_label:result_label,id:answer_id});
+<?php if ($main_question['question_type'] == 1):?>
+                    var option = $(obj).find("option:selected");
+                    answerData.push({question_id:questionId,label:label,answer_text:answer_text,result_label:option.val(),id:answer_id,pid:pid});
+<?php elseif ($main_question['question_type'] == 2):?>
+                   var score = $(obj).find("input[name=score]").val();
+                    answerData.push({question_id:questionId,label:label,answer_text:answer_text,score:score,id:answer_id,pid:pid});
+<?php elseif ($main_question['question_type'] == 3):?>
+
+                    var option = $(obj).find("option:selected");
+                    if(option.attr("type")=="result")
+                    {
+                        answerData.push({question_id:questionId,label:label,answer_text:answer_text,result_label:option.val(),id:answer_id,pid:pid});
+                    }
+                    else
+                    {
+                        answerData.push({question_id:questionId,label:label,answer_text:answer_text,next_question_label:option.val(),id:answer_id,pid:pid});
+                    }
+<?php endif;?>
                 });
                 $.post("<?php echo site_url('admin/answer/create');?>",
                         {answers:answerData},

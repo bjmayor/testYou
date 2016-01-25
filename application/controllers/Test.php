@@ -48,7 +48,8 @@ class Test extends MY_Controller {
         switch($this->data['main_question']['question_type'])
         {
         case 1:
-            $this->data['answers'] = $this->answer_model->get_answer(array('question_id'=>$question_id));
+            $this->data['question'] = $this->data['sub_questions'][0];
+            $this->data['answers'] = $this->answer_model->get_answer(array('question_id'=>$this->data['question']['id']));
             break;
         case 2:
             //如果是最后一次点击，需要计算分数
