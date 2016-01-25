@@ -277,14 +277,15 @@ class Question extends Admin_Controller {
 
     public function del()
     {
-        $ret = $this->question_model->delete_question($this->input->post('question_id'));
+        $ret = $this->question_model->delete_question(array("id"=>$this->input->post('id')));
         if( $ret>0)
         {
+            $this->answer_model->delete_answer(array("sub_question_id"=>$this->input->post('id')));
             Response::build(0,"ok","删除成功")->show();
         }
         else
         {
-            Response::build(0,"删除失败")->show();
+            Response::build(-1,"删除失败")->show();
         }
     }
 }

@@ -173,7 +173,7 @@
           <div class="box-body">
         <?php if (isset($sub_questions) && $sub_questions!=false): ?>
         <?php foreach($sub_questions as $sub_question):?>
-          <div class="box box-default box-solid">
+          <div class="box box-default box-solid" id="question_group_<?php echo $sub_question['id']; ?>">
             <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
             <h3 class="box-title">问题Q<?php echo $sub_question['sub_label_id']; ?> </h3>
 
@@ -205,10 +205,10 @@
                             <div class="col-sm-10">
 
                                 <a href="<?php echo site_url('admin/question/sub/'.$question['id'].'/'.$sub_question['id']);?>" class="btn btn-default" ><i class="fa fa-edit"></i>  编辑</a>
-                                <button type="submit" class="btn btn-default" ><i class="fa fa-trash"></i>  删除</button>
+                                <button type="button" class="btn btn-default" name="del_question" question_id="<?php echo $sub_question['id']; ?>" ><i class="fa fa-trash"></i>  删除</button>
 
                             </div>
-                        </div>
+                </div>
 
                 <?php if($sub_question['answers']):?>
                 <?php foreach($sub_question['answers'] as $answer): ?>
@@ -380,6 +380,33 @@
             //动态增加结点
             $("button[name=add_result]").click(function(){
                 window.location.href = "<?php echo site_url('admin/result/index').'/'; ?>"+questionId;
+            });
+            $("button[name=del_question]").click(function(){
+                var id = $(this).attr("question_id");
+                $.post("<?php echo site_url('admin/question/del'); ?>",
+                    {
+                        id:id
+                    },
+                    function(data,status){
+                        if(status==="success")
+                        {
+                            var res = eval("("+data+")");
+                            if(res.code == 0)
+                            {
+                                $("#question_group_"+id).remove();
+                            }
+                            else
+                            {
+                                alert("fail"+data);
+                            }
+                        }
+                        else
+                        {
+                            alert("error");
+                        }
+                    });
+
+                return false;
             });
 
             $("button[name=del_result]").click(function(){
