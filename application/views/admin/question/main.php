@@ -161,88 +161,8 @@
                 </div>
                 <!-- /.box-body -->
             </form>
-        </div>
         <!-- /.box-body -->
-    </div>
 
-    <div class="box box-default" id="options">
-          <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
-            <h3 class="box-title" >问题选项</h3>
-          </div>
-
-          <div class="box-body">
-        <?php if (isset($sub_questions) && $sub_questions!=false): ?>
-        <?php foreach($sub_questions as $sub_question):?>
-          <div class="box box-default box-solid" id="question_group_<?php echo $sub_question['id']; ?>">
-            <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
-            <h3 class="box-title">问题Q<?php echo $sub_question['sub_label_id']; ?> </h3>
-
-            </div>
-            <!-- /.box-header -->
-              <form class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 题目</label>
-
-                  <div class="col-sm-10">
-                    <pre>
-                    <?php echo $sub_question['title']; ?>
-                    </pre>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="简介" class="col-sm-2 control-label">简介</label>
-
-                  <div class="col-sm-10">
-                    <pre>
-                    <?php echo $sub_question['description']; ?>
-                    </pre>
-                  </div>
-
-                </div>
-                <div class="form-group">
-                            <label for="seo" class="col-sm-2 control-label"></label>
-                            <div class="col-sm-10">
-
-                                <a href="<?php echo site_url('admin/question/sub/'.$question['id'].'/'.$sub_question['id']);?>" class="btn btn-default" ><i class="fa fa-edit"></i>  编辑</a>
-                                <button type="button" class="btn btn-default" name="del_question" question_id="<?php echo $sub_question['id']; ?>" ><i class="fa fa-trash"></i>  删除</button>
-
-                            </div>
-                </div>
-
-                <?php if($sub_question['answers']):?>
-                <?php foreach($sub_question['answers'] as $answer): ?>
-                <div class="form-group">
-                <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项<?php echo $answer['label']; ?></label>
-                  <div class="col-sm-10">
-                    <div class="row">
-                      <div class="col-xs-9 col-sm-9">
-                      <input type="text" class="form-control" value="<?php echo $answer['answer_text']; ?>">
-                      </div>
-                      <div class="col-xs-3 col-sm-3">
-                      <input type="text" class="form-control" placeholder="分值" value="<?php echo $answer['score']; ?>">
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-                <?php endforeach;?>
-                <?php endif;?>
-              </div>
-              <!-- /.box-body -->
-            </form>
-            <!-- /.box-body -->
-          </div>
-        <?php endforeach;?>
-        <?php endif; ?>
-           <button type="button" id = "add_question" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;"><i class="fa fa-plus"></i>  增加下一个问题</button>
-
-        
-          </div>
-          <!-- /.box-body -->
-      </div>
-
-                   
 
     <div class="box box-default" >
         <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -325,6 +245,84 @@
         <!-- /.box-body -->
     </div>
 
+ <div class="box box-default" id="options">
+          <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
+            <h3 class="box-title" >问题选项</h3>
+          </div>
+
+          <div class="box-body">
+        <?php if (isset($sub_questions) && $sub_questions!=false): ?>
+        <?php foreach($sub_questions as $sub_question):?>
+          <div class="box box-default box-solid" id="question_group_<?php echo $sub_question['id']; ?>">
+            <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
+            <h3 class="box-title">问题Q<?php echo $sub_question['sub_label_id']; ?> </h3>
+
+            </div>
+            <!-- /.box-header -->
+              <form class="form-horizontal">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 题目</label>
+
+                  <div class="col-sm-10">
+                    <pre>
+                    <?php echo $sub_question['title']; ?>
+                    </pre>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="简介" class="col-sm-2 control-label">简介</label>
+
+                  <div class="col-sm-10">
+                    <pre>
+                    <?php echo $sub_question['description']; ?>
+                    </pre>
+                  </div>
+
+                </div>
+                <div class="form-group">
+                            <label for="seo" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+
+                                <a href="<?php echo site_url('admin/question/sub/'.$question['id'].'/'.$sub_question['id']);?>" class="btn btn-default" ><i class="fa fa-edit"></i>  编辑</a>
+                                <button type="button" class="btn btn-default" name="del_question" question_id="<?php echo $sub_question['id']; ?>" ><i class="fa fa-trash"></i>  删除</button>
+
+                            </div>
+                </div>
+
+                <?php if($sub_question['answers']):?>
+                <?php foreach($sub_question['answers'] as $answer): ?>
+                <div class="form-group">
+                <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 选项<?php echo $answer['label']; ?></label>
+                  <div class="col-sm-10">
+                    <div class="row">
+                      <div class="col-xs-9 col-sm-9">
+                      <input type="text" class="form-control" value="<?php echo $answer['answer_text']; ?>">
+                      </div>
+                      <div class="col-xs-3 col-sm-3">
+                      <input type="text" class="form-control" placeholder="分值" value="<?php echo $answer['score']; ?>">
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <?php endforeach;?>
+                <?php endif;?>
+              </div>
+              <!-- /.box-body -->
+            </form>
+            <!-- /.box-body -->
+          </div>
+        <?php endforeach;?>
+        <?php endif; ?>
+           <button type="button" id = "add_question" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;"><i class="fa fa-plus"></i>  增加问题</button>
+
+        
+          </div>
+          <!-- /.box-body -->
+      </div>
+
+
     </section>
     <!-- /.content -->
 </div>
@@ -352,6 +350,7 @@
                     {
                         title:$("#title").val(),
                         description:um.getContent(),
+                        text_description:um.getContentTxt(),
                         question_category_id:$("#question_category_id").val(),
                         img:$("input[name=img]").val(),
                         seo_title : $("#seo_title").val(),

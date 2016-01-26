@@ -28,8 +28,8 @@
                 <!-- /.box-header -->
                 <form class="form-horizontal" name="result">
                     <div class="box-body">
-
-                        <div class="form-group">
+                    <?php if($question['question_type']==2):?>
+                        <div class="form-group" >
                             <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 分值区间</label>
                             <div class="col-sm-10">
                                 <div class="row">
@@ -43,6 +43,7 @@
                                 </div>
                             </div>
                         </div>
+                    <?php endif;?>
 
                         <div class="form-group">
                             <label for="title" class="col-sm-2 control-label"><i class="text-red">*</i> 简单结论</label>

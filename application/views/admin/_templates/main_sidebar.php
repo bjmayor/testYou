@@ -45,16 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                         </li>
 
-                         <li class="header">功能菜单</li>
-
-                          <li class="treeview">
-                              <a href="#"><i class="fa fa-plus"></i> <span>添加测试题</span> <i class="fa fa-angle-left pull-right"></i></a>
-                                  <ul class="treeview-menu">
-                                  <li><a href="<?php echo site_url('admin/question/score');?>"><i class="fa fa-circle-o text-red"></i>多选评分</a></li>
-                                  <li><a href="<?php echo site_url('admin/question/jump');?>"><i class="fa fa-circle-o text-yellow"></i>多选跳转</a></li>
-                                  <li><a href="<?php echo site_url('admin/question/single');?>"><i class="fa fa-circle-o text-aqua"></i>单选题</a></li>
-                                  </ul>
+                        <li class="<?=active_link_controller('question')?>">
+                            <a href="<?php echo site_url('admin/question/main'); ?>">
+                                <i class="fa fa-file"></i> <span>添加问题</span>
+                            </a>
                         </li>
+
                         <li class="active"><a href="<?php echo site_url('admin/question/page');?>"><i class="fa fa-th"></i> <span>题库管理</span></a></li>
                         <li class="header text-uppercase"><?php echo lang('menu_administration'); ?></li>
                         <li class="<?=active_link_controller('users')?>">

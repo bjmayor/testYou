@@ -65,7 +65,7 @@ class Question extends Admin_Controller {
         if($sub_question_id != -1 && is_numeric($sub_question_id))
         {
             $this->data['question'] = $this->question_model->get_question(array('id'=>$sub_question_id));
-            $this->data['answers'] = $this->answer_model->get_answer(array('question_id'=>$sub_question_id));
+            $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$sub_question_id));
             if($this->data['main_question']['question_type'] == '3')
             {
                 $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$question_id));
@@ -174,7 +174,7 @@ class Question extends Admin_Controller {
         $seo_description = $this->input->post('seo_description');
         if(strlen($seo_description) == 0)
         {
-            $seo_description = $this->input->post('title');
+            $seo_description = $this->input->post('text_description');
         }
 
         //编辑功能

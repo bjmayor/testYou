@@ -240,6 +240,7 @@
                 var copyGroup = lastGroup.clone();
                 var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
                 copyGroup.find("input[name=answer]").attr("label",label);
+                copyGroup.find("input[name=answer]").attr("answer_id","-1");
                 copyGroup.find("span").html(label);
                 copyGroup.insertAfter(lastGroup);
             });
