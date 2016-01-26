@@ -8,6 +8,7 @@ class Test extends MY_Controller {
         parent::__construct();
         $this->load->model('meta_model');
         $this->load->model('answer_model');
+        $this->load->model('result_model');
         $this->load->model('question_model');
     }
     public function index($question_id)
@@ -24,7 +25,7 @@ class Test extends MY_Controller {
      * 如果是跳转题，要么直接跳到答案页，要么有下一题的id| need question_id
      * 如果是计分题,必须给出下一题的id, 如果没有给，直接跳到答案页| need question_id or label
      */
-    public function start($question_id,$index=0)
+    public function start($question_id,$index=0,$answer_id=-1)
     {
 
         $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
@@ -53,16 +54,41 @@ class Test extends MY_Controller {
             break;
         case 2:
             //如果是最后一次点击，需要计算分数
-            //TODO
+            $answer = $this->answer_model->get_answer(array('id'=>$answer_id));
+            $results = $this->result_model->get_result(array("question_id"=>$this->data['main_question']['id']));
+            if($index ==0)
+            {
+                $this->session->set_userdata("score_".$this->data['main_question']['id'],array());
+            }
+            $userdata = $this->session->userdata('score_'.$this->data['main_question']['id']);
+            if($index>0)
+            {
+                $last_question =  $this->data['sub_questions'][$index-1];
+                $userdata[$last_question['id']] = $answer['score'];
+            }
+
             if($index >= $this->data['total'])
             {
-                redirect('test/result/'.$this->data['main_question']['id'].'/a');
+                $total_score = 0;
+                foreach($userdata as $score)
+                {
+                    $total_score += $score;
+                }
+                $result_id = 1;
+                foreach($results as $result)
+                {
+                    if($total_score>$result['score_start'] && $total_score<$result['score_end'])
+                    {
+                        $result_id = $result['label'];
+                    }
+                }
+                $this->session->unset_userdata("score_".$this->data['main_question']['id'],array());
+                redirect('test/result/'.$this->data['main_question']['id'].'/'.$result_id);
             }
             else
             {
                 $this->data['question'] = $this->data['sub_questions'][$index];
                 $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
-                var_dump($this->data['answers']);
             }
             break;
         case 3:

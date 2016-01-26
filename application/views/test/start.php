@@ -26,7 +26,7 @@
         <div class="invitation">
             <?php if($answers != false):?>
             <?php foreach($answers as $answer):?>
-                <a class="answer" href="#" result="<?php echo $answer['result_label']; ?>" next_id="<?php echo isset($answer['next_question_label'])?$answer['next_question_label']:-1; ?>" score="<?php echo $answer['score']; ?>"><?php echo $answer['answer_text'];?></a>
+                <a class="answer" href="#" result="<?php echo $answer['result_label']; ?>" next_id="<?php echo isset($answer['next_question_label'])?$answer['next_question_label']:-1; ?>" answer_id="<?php echo $answer['id']; ?>"><?php echo $answer['answer_text'];?></a>
             <?php endforeach;?>
             <?php endif;?>
         </div> 
@@ -45,7 +45,7 @@ $(function(){
         }
         else
         {
-            window.location.href = "<?php echo site_url('test/start/');?>"+"/"+questionId+"/"+"<?php echo $index+1; ?>"
+            window.location.href = "<?php echo site_url('test/start/');?>"+"/"+questionId+"/"+"<?php echo $index+1; ?>"+"/"+$(this).attr("answer_id");
         }
         return false;
     });
