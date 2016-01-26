@@ -62,6 +62,7 @@ class Test extends MY_Controller {
             {
                 $this->data['question'] = $this->data['sub_questions'][$index];
                 $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
+                var_dump($this->data['answers']);
             }
             break;
         case 3:
