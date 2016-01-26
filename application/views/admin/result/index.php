@@ -34,10 +34,10 @@
                             <div class="col-sm-10">
                                 <div class="row">
                                     <div class="col-xs-5 col-sm-2">
-                                        <input type="text" class="form-control" placeholder="最小值" value="<?php echo isset($result)?$result['score_start']:''; ?>">
+                                        <input type="text" class="form-control" placeholder="最小值" value="<?php echo isset($result)?$result['score_start']:''; ?>" id="score_start">
                                     </div>
                                     <div class="col-xs-5 col-sm-2">
-                                        <input type="text" class="form-control" placeholder="最大值" value="<?php echo isset($result)?$result['score_end']:''; ?>">
+                                        <input type="text" class="form-control" placeholder="最大值" value="<?php echo isset($result)?$result['score_end']:''; ?>" id="score_end">
                                     </div>
 
                                 </div>
@@ -113,6 +113,8 @@
                 
                 var result = {
                     id:resultId,
+                    score_start:$("#score_start").val(),
+                    score_end:$("#score_end").val(),
                     question_id:questionId,
                     show_text_result:$('input[name=show_text_result]').val(),
                     show_html_result:um.getContent(),

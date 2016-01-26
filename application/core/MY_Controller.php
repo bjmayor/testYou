@@ -12,7 +12,7 @@ class MY_Controller extends CI_Controller
         $this->load->database();
         $this->load->config('common/dp_config');
         $this->load->config('common/dp_language');
-        $this->load->library(array('form_validation', 'template', 'common/mobile_detect','response','session'));
+        $this->load->library(array('form_validation', 'template', 'common/mobile_detect','response','session','ion_auth'));
         $this->load->helper(array('array', 'language', 'url'));
         $this->load->model('common/prefs_model');
 
