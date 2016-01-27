@@ -14,6 +14,10 @@ class Test extends MY_Controller {
     public function index($question_id)
     {
         $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+        if($this->data['question']==false)
+        {
+            show_error("很遗憾，页面不存在",404,"页面找不到");
+        }
         $this->question_model->update_question(array("visit_count"=>$this->data['question']['visit_count']+1, 'id'=>$question_id));
         $this->load->view('test/index',$this->data);
     }
@@ -29,9 +33,14 @@ class Test extends MY_Controller {
     {
 
         $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+        if($this->data['question'] == false)
+        {
+            show_error("很遗憾，页面不存在",404,"页面找不到");
+            return;
+        }
         $is_main_question = false;
         //当前是某个测试题 子问题
-        if($this->data['question']['pid'] !=0  &&is_int($this->data['question']['pid']))
+        if($this->data['question']['pid'] !=0  && $this->data['question']['pid']>0)
         {
             $this->data['main_question'] = $this->question_model->get_question(array('id'=>$this->data['question']['pid']));
         }
@@ -45,7 +54,6 @@ class Test extends MY_Controller {
         $this->data['total'] = count($this->data['sub_questions']);
         $this->data['index'] = $index;
         $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
-
         switch($this->data['main_question']['question_type'])
         {
         case 1:
@@ -106,6 +114,10 @@ class Test extends MY_Controller {
     {
         $this->load->model('result_model');
         $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
+        if($this->data['question']==false)
+        {
+            show_error("很遗憾，页面不存在",404,"页面找不到");
+        }
         $this->data['result'] = $this->result_model->get_result(array('question_id'=>$question_id,'label'=>$result_label));
         $this->load->view('test/result',$this->data);
     }
