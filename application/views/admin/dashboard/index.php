@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="info-box">
                                 <span class="info-box-icon bg-maroon"><i class="fa fa-legal"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Licence</span>
+                                    <span class="info-box-text">哈哈哈</span>
                                     <span class="info-box-number">Free</span>
                                 </div>
                             </div>

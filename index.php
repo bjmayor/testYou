@@ -219,6 +219,7 @@ switch (ENVIRONMENT)
  *  Now that we know the path, set the main path constants
  * -------------------------------------------------------------------
  */
+	date_default_timezone_set("Asia/Chongqing");
     // The name of THIS file
     define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
