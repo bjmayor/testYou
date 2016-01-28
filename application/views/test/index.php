@@ -15,7 +15,7 @@
 </header>
 <section class="main-suc">
 	<div class="test-pic">
-    <img src="<?php echo base_url('upload').'/'.$question['img'];?>">
+    <img src="<?php echo base_url('upload').'/'.($question['img']!=''?$question['img']:'question_default.png');?>">
     </div>
     <div class="pad"><?php echo $question['description'];  ?></div>
     <div class="invitation"><a class="friend" href="<?php echo base_url('test/start/'.$question['id']);?>">开始测试</a></div>	

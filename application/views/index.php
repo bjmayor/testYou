@@ -22,14 +22,14 @@
         <div class="navevery"><i class="icon navicon colligate"></i><a href="<?php echo site_url("home/top/9");?>">综合</a></div>
     </nav>
     <ul class="screen">
-            <li class="current-l"><a href="<?php echo site_url('home/index/0');?>">最新<i class="icon icon-b"></i></a></li>
-            <li><a href="<?php echo site_url('home/index/1');?>">排行<i class="icon icon-b"></i></a></li>
-            <li class="none"><a href="<?php echo site_url('home/index/2');?>">精品<i class="icon icon-b"></i></a></li>
+            <li class="<?php if($type==0):?>current-l<?php else:?>none<?php endif;?>"><a href="<?php echo site_url('home/index/0');?>">最新<i class="icon icon-b"></i></a></li>
+            <li <?php if($type==1):?>class="current-c"<?php endif;?>><a href="<?php echo site_url('home/index/1');?>">排行<i class="icon icon-b"></i></a></li>
+            <li class="<?php if($type==2):?>current-r<?php else:?>none<?php endif;?>"><a href="<?php echo site_url('home/index/2');?>">精品<i class="icon icon-b"></i></a></li>
     </ul>
     <ul class="cont">
 <?php if($questions!=false):?>
 <?php foreach($questions as $question):?>
-<li><a href="<?php echo site_url('test/index/'.$question['id']);?>"><div class="pros"><div class="pic"><img src="<?php echo $question['img']!=''?site_url('upload/'.$question['img']):base_url($front_dir.'/images/pro.jpg');?>"></div><div class="b_cont"><div class="texts"><?php echo $question['title'];?></div><div class="star-popu"><span class="star"><i class="icon star-s"></i><i class="icon star-s"></i><i class="icon star-s"></i><i class="icon star-s"></i><i class="icon star-s"></i></span><span class="popu">人气：<?php echo $question['visit_count']; ?></span><span class="getinto"><i class="icon into"></i></span></div></div></div></a></li>
+<li><a href="<?php echo site_url('test/index/'.$question['id']);?>"><div class="pros"><div class="pic"><img src="<?php echo $question['img']!=''?site_url('upload/'.$question['img']):site_url('upload/question_default.png');?>"></div><div class="b_cont"><div class="texts"><?php echo $question['title'];?></div><div class="star-popu"><span class="star"><i class="icon star-s"></i><i class="icon star-s"></i><i class="icon star-s"></i><i class="icon star-s"></i><i class="icon star-s"></i></span><span class="popu">人气：<?php echo $question['visit_count']; ?></span><span class="getinto"><i class="icon into"></i></span></div></div></div></a></li>
 <?php endforeach;?>
 <?php endif;?>
 

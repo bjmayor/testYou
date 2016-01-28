@@ -62,6 +62,7 @@ class Home extends MY_Controller {
         $page = max($page,1);
         $this->data['category'] = $this->question_category_model->get_category($category_id);
         $this->data['page'] = $page;
+        $this->data['type']=$type;
         switch ($type)
         {
         case 0:
