@@ -26,12 +26,10 @@
         <div class="current-title text-c"><div class="cut-title"><?php echo $main_question['title']; ?></div></div>
         </header>
         <section class="main-suc">
-        <?php if ($main_question['question_type']==2):?>
         <div class="test-two">
             <div class="number"><div class="num-bj"><?php echo $index+1; ?>/<?php echo $total; ?></div></div>
             <div class="questions"><?php echo $index+1; ?>、<?php echo $question['title']; ?></div>
         </div>
-        <?php endif;?>
         <div class="invitation">
             <?php if($answers != false):?>
             <?php foreach($answers as $answer):?>
