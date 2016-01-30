@@ -80,9 +80,10 @@
                         <label for="title" class="col-sm-2 control-label">结论</label>
                         <div class="col-sm-10">
                             <select class="form-control" style="width: 100%;">
-                                <?php foreach($results as $item): ?>
-                                <option value='<?php echo $item['label'];?>'
-                                ><?php echo $item['show_text_result'];?></option>
+                                <?php foreach($results as $result): ?>
+                                <option value='<?php echo $result['label'];?>'
+                                <?php if($item['result_label']==$result['label']):?>selected<?php endif?>
+                                ><?php echo $result['show_text_result'];?></option>
                                 <?php endforeach;?>
                             </select>
                         </div>
