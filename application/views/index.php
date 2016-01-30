@@ -21,6 +21,7 @@
           s.parentNode.insertBefore(hm, s);
         })();
         </script>
+        
     </head>
 
     <body>
@@ -53,4 +54,7 @@
         <div class="pages"><a class="buts-last" href="<?php echo site_url('home/index/'.$type.'/'.($page-1));?>">上一页</a><a class="buts-next" href="<?php echo site_url('home/index/'.$type.'/'.($page+1));?>">下一页</a></div>
         </section>
     </body>
+    <script type="text/javascript">
+        document.body.addEventListener('touchstart',function(){});  
+    </script>
 </html>

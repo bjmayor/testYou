@@ -7,19 +7,24 @@ input,textarea{outline:0;}
 input[type="text"],input[type="text"],textarea{-webkit-appearance:none;}
 textarea{border:1px solid #ccc;}
 ul,ol,li{list-style:none;}
+ul li:active{background-color: #ccc}
+ul li a:active{background-color: #ccc}
 
 .headcity{ background:#2a87bd;  height:48px; line-height:48px; font-size:18px; width:100%; top:0; left:0; position:relative;}
 .current-list{ padding:0 44px; text-align:center; overflow:hidden; color:#fff;}
 span.retn{ width:44px; height:60px; display:inline-block; position:absolute; top:0; left:0;}
 i.return{ width:22px; height:38px; background-position:-50px -88px; background-size:180px auto; position:relative; top:12px; left:10px; cursor:pointer;}
-.current-title{padding:0 44px; overflow:hidden; color:#fff;}
+.current-title{width:100%;overflow:hidden; color:#fff;height:48px;}
+.cut-title{margin:0 20px;overflow: hidden;clear:both;color:#fff;}
 .text-l{text-align:left;}
 .text-c{text-align:center;}
 
 .main{ padding:0 10px; overflow:hidden;}
-.navmeun{ width:100%;text-align:center;}
+.navmeun{ width:100%;text-align:center;margin-top:6px;}
 .navmeun .navevery{ width:30%; border:1px solid #ddd; margin:5px 0.8%; height:50px; background:#fff; text-align:center; display:inline-block;color:#000; line-height:50px; font-size:14px; cursor:pointer;}
 .navevery a{text-decoration: none;}
+.navevery:active{background-color: #ccc;}
+.navevery a:active{background-color: #ccc;}
 .icon{ background-image:url(../images/icon.png);content:'';background-repeat:no-repeat; display:inline-block;}
 i.navicon{width:30px; height:30px;background-size:160px auto; position:relative; top:10px; right:10px;}
 i.chara{background-position:0px -5px;}
@@ -31,8 +36,7 @@ i.interest{background-position:0px -187px;}
 i.ability{background-position:0px -220px;}
 i.iq{background-position:0px -254px;}
 i.colligate{ background-position:0px -287px;}
-
-ul.screen{ width:100%;height:44px; background:#fff; border-radius:50px; margin:10px 0; border:1px solid #eee;}
+ul.screen{ width:100%;height:44px; background:#fff; border-radius:50px; margin:5px 0 10px 0; border:1px solid #eee;}
 ul.screen li{ width:33%; border-right:1px solid #eee; line-height:44px; color:#333; text-align:center; font-size:14px; cursor:pointer;float:left;}
 ul.screen li.current-l{ background:#2a87bd; color:#fff; border-top-left-radius:50px;border-bottom-left-radius:50px;}
 ul.screen li.current-l a{color: #fff}
@@ -45,8 +49,10 @@ ul.screen li a{text-decoration: none;}
 
 ul.cont{ width:100%; display:inline-block;}
 ul.cont li{ margin-bottom:10px; padding:10px; background:#fff; border:1px solid #ececec;}
+ul.cont li:active{background:#ccc;}
 ul.cont li a{ text-decoration:none;}
 ul.cont li .pros{overflow:hidden;}
+ul.cont li .pros:active{background:#ccc;}
 ul.cont li .pros:last-of-type{ border:0 none;}
 ul.cont li .pros .pic{ width:84px; height:84px; float:left; margin-right:15px; position:relative;}
 ul.cont li .pros .pic img{ width:100%; max-width:120px;}

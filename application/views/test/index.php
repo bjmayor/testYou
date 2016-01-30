@@ -17,6 +17,9 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<script type="text/javascript">
+    document.body.addEventListener('touchstart', function (){});  
+</script>
 </head>
 
 <body>

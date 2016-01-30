@@ -23,7 +23,7 @@
 
     <body>
         <header class="headcity">
-        <div class="current-title text-c"><?php echo $question['title']; ?></div>
+        <div class="current-title text-c"><div class="cut-title"><?php echo $main_question['title']; ?></div></div>
         </header>
         <section class="main-suc">
         <?php if ($main_question['question_type']==2):?>
