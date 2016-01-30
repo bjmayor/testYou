@@ -11,6 +11,9 @@
         <meta name="keywords" content="<?php echo $keywords; ?>" />
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="<?php echo base_url($front_dir . '/css/ceshi.css'); ?>">
+        <script src="http://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+        <script src="<?php echo base_url($front_dir . '/js/imgLiquid-min.js'); ?>"></script>
+
         <link rel="shortcut icon" href="favicon.ico">
         <script>
         var _hmt = _hmt || [];
@@ -20,6 +23,11 @@
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
+        </script>
+        <script type="text/javascript">
+        $(function() {
+            $(".pic").imgLiquid({fill:true});
+        });
         </script>
         
     </head>

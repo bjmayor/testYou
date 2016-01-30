@@ -11,6 +11,8 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/ceshi.css" type="text/css">
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url($front_dir);?>/js/zepto.min.js"></script>
+        <script src="http://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+        <script src="<?php echo base_url($front_dir . '/js/imgLiquid-min.js'); ?>"></script>
         <script>
         var _hmt = _hmt || [];
         (function() {
@@ -19,6 +21,11 @@
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
+        </script>
+        <script type="text/javascript">
+        $(function() {
+            $(".pic").imgLiquid({fill:true});
+        });
         </script>
     </head>
 
@@ -49,6 +56,7 @@ $(function(){
         history.go(-1);
     });
 });
+document.body.addEventListener('touchstart', function (){});  
 </script>
     </body>
 </html>

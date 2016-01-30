@@ -7,8 +7,8 @@ input,textarea{outline:0;}
 input[type="text"],input[type="text"],textarea{-webkit-appearance:none;}
 textarea{border:1px solid #ccc;}
 ul,ol,li{list-style:none;}
-ul li:active{background-color: #ccc}
-ul li a:active{background-color: #ccc}
+ul li:active{background-color: #EFEFEF}
+ul li a:active{background-color: #EFEFEF}
 
 .headcity{ background:#2a87bd;  height:48px; line-height:48px; font-size:18px; width:100%; top:0; left:0; position:relative;}
 .current-list{ padding:0 44px; text-align:center; overflow:hidden; color:#fff;}
@@ -23,8 +23,8 @@ i.return{ width:22px; height:38px; background-position:-50px -88px; background-s
 .navmeun{ width:100%;text-align:center;margin-top:6px;}
 .navmeun .navevery{ width:30%; border:1px solid #ddd; margin:5px 0.8%; height:50px; background:#fff; text-align:center; display:inline-block;color:#000; line-height:50px; font-size:14px; cursor:pointer;}
 .navevery a{text-decoration: none;}
-.navevery:active{background-color: #ccc;}
-.navevery a:active{background-color: #ccc;}
+.navevery:active{background-color: #EFEFEF;}
+.navevery a:active{background-color: #EFEFEF;}
 .icon{ background-image:url(../images/icon.png);content:'';background-repeat:no-repeat; display:inline-block;}
 i.navicon{width:30px; height:30px;background-size:160px auto; position:relative; top:10px; right:10px;}
 i.chara{background-position:0px -5px;}
@@ -49,10 +49,10 @@ ul.screen li a{text-decoration: none;}
 
 ul.cont{ width:100%; display:inline-block;}
 ul.cont li{ margin-bottom:10px; padding:10px; background:#fff; border:1px solid #ececec;}
-ul.cont li:active{background:#ccc;}
+ul.cont li:active{background:#EFEFEF;}
 ul.cont li a{ text-decoration:none;}
 ul.cont li .pros{overflow:hidden;}
-ul.cont li .pros:active{background:#ccc;}
+ul.cont li .pros:active{background:#EFEFEF;}
 ul.cont li .pros:last-of-type{ border:0 none;}
 ul.cont li .pros .pic{ width:84px; height:84px; float:left; margin-right:15px; position:relative;}
 ul.cont li .pros .pic img{ width:100%; max-width:120px;}
@@ -68,6 +68,15 @@ i.into{ width:30px; height:30px; background-position:-35px -35px; background-siz
 .pages .buts{ width:100%; text-align:center; height:48px; line-height:48px; background:#4f9dcf;color:#fff; font-size:1.2em; display:inline-block; text-decoration:none; border-radius:6px;}
 .pages .buts-last{ width:48%;text-align:center; height:48px; line-height:48px; background:#4f9dcf;color:#fff; font-size:1.2em; display:inline-block; text-decoration:none; border-radius:6px; margin-right:2%;}
 .pages .buts-next{ width:48%;text-align:center; height:48px; line-height:48px; background:#4f9dcf;color:#fff; font-size:1.2em; display:inline-block; text-decoration:none; border-radius:6px;margin-left:2%;}
+.buts:active{
+    background:#065d94;
+}
+.buts-last:active{
+    background:#065d94;
+}
+.buts-next:active{
+    background:#065d94;
+}
 
 .main-suc{overflow:hidden;}
 .succes-pic{ width:70%; padding:20px 15%; text-align:center; background:#fff; margin:0 auto; margin-bottom:10px;}
@@ -130,10 +139,10 @@ i.enter{ width:9px; height:18px; background-position:-73px -199px; float:right; 
 .test-two{ width:80%; margin:0 auto; overflow:hidden;}
 .number{height: 35px;overflow: hidden;margin-top:20px;position: relative;z-index: 10;}
 .num-bj{margin: 0px auto;font-size: 20px;line-height: 40px;text-align: center;border-radius: 40px;height: 70px;width: 70px;background: #3678a2; color:#fff;}
-.questions{width: 80%;font-size: 18px;background-color: #3678a2;padding: 10px;border-radius: 15px;margin: -5px auto 0px;text-align: left;line-height: 1.5em; color:#fff;}
+.questions{width: 85%;font-size: 18px;background-color: #3678a2;padding: 10px;border-radius: 15px;margin: -5px auto 0px;text-align: left;line-height: 1.5em; color:#fff;}
 .answer{ width:90%; text-decoration:none; line-height:48px; background:#fff; border:1px solid #ccc; color:#333; font-size:16px; display:inline-block; border-radius:6px; margin:15px auto;}
 .answer:active{
-    background-color: #ccc;
+    background-color: #EFEFEF;
 }
 .vcenter {position:absolute;top:10px;width:100%;}
 .vcenter h1 {
