@@ -17,9 +17,6 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-<script type="text/javascript">
-    document.body.addEventListener('touchstart', function (){});  
-</script>
 </head>
 
 <body>
@@ -30,7 +27,7 @@ var _hmt = _hmt || [];
 	<div class="test-pic">
 	    <img src="<?php echo base_url('upload').'/'.($question['img']!=''?$question['img']:'question_default.png');?>">
 	    <div class="vcenter animated bounce"><h1><?php echo $question['title']; ?></h1></div>
-    </div>
+  </div>
     <div class="pad"><?php echo $question['description'];  ?></div>
     <div class="invitation"><a class="friend" href="<?php echo base_url('test/start/'.$question['id']);?>">开始测试</a></div>	
 </section>
