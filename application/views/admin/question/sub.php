@@ -194,7 +194,7 @@
 <?php endif;?>
 
         </div>
-            <button type="button" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;" name="add_result"><i class="fa fa-plus"></i>  增加子问题</button>
+            <a href="<?php echo site_url('admin/question/sub/'.$main_question['id']);?>" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;" ><i class="fa fa-plus"></i>  增加子问题</a>
         <!-- /.box-body -->
     </div>
 
