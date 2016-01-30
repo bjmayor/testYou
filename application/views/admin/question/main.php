@@ -304,12 +304,12 @@
                         <?php if($question['question_type']==1):?>
                         结论<?php echo $answer['result_label']?>
                         <?php elseif($question['question_type']==2):?>
-                        分数:<?=$answer['score']?>
+                        分数:<?php echo $answer['score'];?>
                         <?php else:?>
                             <?php if($answer['next_question_label']>0):?>
-                            子问题<?=$answer['next_question_label']?>
+                            子问题<?php echo $answer['next_question_label'];?>
                             <?php else: ?>
-                            结论<?=$answer['result_label']?>
+                            结论<?php echo $answer['result_label'];?>
                             <?php endif;?>
                         <?php endif;?>
                         </label>
