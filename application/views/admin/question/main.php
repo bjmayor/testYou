@@ -306,8 +306,8 @@
                         <?php elseif($question['question_type']==2):?>
                         分数:<?=$answer['score']?>
                         <?php else:?>
-                            <?php if($answer['next_question_id']>0):?>
-                            子问题<?=$answer['next_question_id']?>
+                            <?php if($answer['next_question_label']>0):?>
+                            子问题<?=$answer['next_question_label']?>
                             <?php else: ?>
                             结论<?=$answer['result_label']?>
                             <?php endif;?>
