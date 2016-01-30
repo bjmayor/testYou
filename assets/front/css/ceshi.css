@@ -8,7 +8,7 @@ input[type="text"],input[type="text"],textarea{-webkit-appearance:none;}
 textarea{border:1px solid #ccc;}
 ul,ol,li{list-style:none;}
 
-.headcity{ background:#2a87bd;  height:60px; line-height:60px; font-size:18px; width:100%; top:0; left:0; position:relative;}
+.headcity{ background:#2a87bd;  height:48px; line-height:48px; font-size:18px; width:100%; top:0; left:0; position:relative;}
 .current-list{ padding:0 44px; text-align:center; overflow:hidden; color:#fff;}
 span.retn{ width:44px; height:60px; display:inline-block; position:absolute; top:0; left:0;}
 i.return{ width:22px; height:38px; background-position:-50px -88px; background-size:180px auto; position:relative; top:12px; left:10px; cursor:pointer;}
@@ -19,6 +19,7 @@ i.return{ width:22px; height:38px; background-position:-50px -88px; background-s
 .main{ padding:0 10px; overflow:hidden;}
 .navmeun{ width:100%;text-align:center;}
 .navmeun .navevery{ width:30%; border:1px solid #ddd; margin:5px 0.8%; height:50px; background:#fff; text-align:center; display:inline-block;color:#000; line-height:50px; font-size:14px; cursor:pointer;}
+.navevery a{text-decoration: none;}
 .icon{ background-image:url(../images/icon.png);content:'';background-repeat:no-repeat; display:inline-block;}
 i.navicon{width:30px; height:30px;background-size:160px auto; position:relative; top:10px; right:10px;}
 i.chara{background-position:0px -5px;}
@@ -34,9 +35,13 @@ i.colligate{ background-position:0px -287px;}
 ul.screen{ width:100%;height:44px; background:#fff; border-radius:50px; margin:10px 0; border:1px solid #eee;}
 ul.screen li{ width:33%; border-right:1px solid #eee; line-height:44px; color:#333; text-align:center; font-size:14px; cursor:pointer;float:left;}
 ul.screen li.current-l{ background:#2a87bd; color:#fff; border-top-left-radius:50px;border-bottom-left-radius:50px;}
+ul.screen li.current-l a{color: #fff}
+ul.screen li.current-c a{color: #fff}
+ul.screen li.current-r a{color: #fff}
 ul.screen li.current-c{ background:#2a87bd; color:#fff;}
 ul.screen li.current-r{ background:#2a87bd; color:#fff;border-bottom-right-radius:50px;border-top-right-radius:50px;}
 ul.screen li.none{ border-right:none;}
+ul.screen li a{text-decoration: none;}
 
 ul.cont{ width:100%; display:inline-block;}
 ul.cont li{ margin-bottom:10px; padding:10px; background:#fff; border:1px solid #ececec;}
@@ -64,13 +69,42 @@ i.into{ width:30px; height:30px; background-position:-35px -35px; background-siz
 
 .test-pic{ width:100%;text-align:center; margin:0 auto; }
 .test-pic img{max-width:640px; width:100%; height: auto !important;margin-bottom:10px;}
-.pad{ padding:0 10px;}
+.pad{ 
+line-height: 1.8em;
+font-size: 16px;
+padding:0 10px;
+letter-spacing: .7px;
+}
+.pad p{ 
+font-size:16px;
+}
+.pad p span{
+ font-size:16px;   
+}
+.pad span{
+ font-size:16px;  
+}
 
 .cont-text{ padding:0 10%; margin:0 auto; background:#fff;}
-.cont-text .title-s{ height:50px; line-height:50px; text-align:center; border-bottom:3px solid #eee; color:#333; font-size:16px; overflow:hidden;}
-.cont-text .test{ padding:10px 0; line-height:22px; font-size:14px; color:#666;}
+.cont-text .title-s{ height:55px; line-height:55px; text-align:center; border-bottom:3px solid #eee; color:#333; font-size:20px; overflow:hidden;font-weight:700;}
+.cont-text .test{ padding:10px 0; line-height: 1.8em; font-size:16px; color:#666;letter-spacing: .7px;}
 .invitation{padding:30px 0; text-align:center;}
-.invitation .friend{ width:80%; text-align:center; height:48px; line-height:48px; background:#4f9dcf;color:#fff; font-size:1.2em; display:inline-block; text-decoration:none; border-radius:6px;}
+.invitation .friend{ width:94%; text-align:center; height:48px; line-height:48px; background:#137bbd;color:#fff; font-size:1.2em; display:inline-block; text-decoration:none; border-radius:6px;}
+.invitation .share{ width:100%; text-align:center; height:48px; line-height:48px; background:#137bbd;color:#fff; font-size:1.2em; display:inline-block; text-decoration:none; border-radius:6px;}
+
+.invitation .default{ box-sizing:border-box;margin-top:15px;width:100%; text-align:center; height:48px; line-height:48px; border:1px solid #ccc;color:#666; font-size:1.2em; display:inline-block; text-decoration:none; border-radius:6px;}
+
+.invitation .share:active{
+    background:#065d94;
+}
+
+.invitation .friend:active{
+    background:#065d94;
+}
+
+.invitation .default:active{
+    background:#ccc;
+}
 
 
 .everybody{padding:0 10px; border-bottom:1px solid #eee; height:50px;color:#ff6300; margin-top:10px; background:#fff;}
@@ -81,7 +115,7 @@ i.into{ width:30px; height:30px; background-position:-35px -35px; background-siz
 a.rig-i{ color:#4f9dcf; text-decoration:none;}
 i.change{width:28px; height:28px; background-position:-36px -96px; background-size:140px auto;position:absolute; top:9px; right:0; cursor:pointer;}
 ul.news,ul.compy{padding:5px 10px;  overflow:hidden; background:#fff;}
-ul.news li{ border-bottom:1px dashed #eee; overflow:hidden;}
+ul.news li{ border-bottom:1px dashed #eee; overflow:hidden;font-size:16px;}
 ul.news li:last-of-type{ border:0 none;}
 ul.news li .nerong{ width:100%; float:left; height:44px; line-height:44px;overflow:hidden;}
 ul.news li  a{ color:#666; text-decoration:none;}
@@ -92,3 +126,25 @@ i.enter{ width:9px; height:18px; background-position:-73px -199px; float:right; 
 .num-bj{margin: 0px auto;font-size: 20px;line-height: 40px;text-align: center;border-radius: 40px;height: 70px;width: 70px;background: #3678a2; color:#fff;}
 .questions{width: 80%;font-size: 18px;background-color: #3678a2;padding: 10px;border-radius: 15px;margin: -5px auto 0px;text-align: left;line-height: 1.5em; color:#fff;}
 .answer{ width:90%; text-decoration:none; line-height:48px; background:#fff; border:1px solid #ccc; color:#333; font-size:16px; display:inline-block; border-radius:6px; margin:15px auto;}
+.answer:active{
+    background-color: #ccc;
+}
+.vcenter {position:absolute;top:10px;width:100%;}
+.vcenter h1 {
+    max-width: 80%;
+    padding: 10px;
+    line-height: 30px;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: .1em;
+    background-color: rgba(0,0,0,.5);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: 10;
+}
+#cover{display:none;position:absolute;left:0;top:0;z-index:18888;background-color:#000000;opacity:0.7;}
+#guide{display:none;position:absolute;right:18px;top:5px;z-index:19999;}
+#guide img{width:260px;height:180px;}

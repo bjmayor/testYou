@@ -35,10 +35,13 @@
                             <script type="text/plain" id="description" style="width:100%;height:100px;"></script>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="保存" class="col-sm-2 control-label"> </label>
 
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-success" id="create_question"><i class="fa fa-save"></i>  保存</button>
-                            </div>
+                        <div class="col-sm-10">
+                              <button type="submit" class="btn btn-success btn-lg" id="create_question"><i class="fa fa-save" style="margin-right: 5px"></i>  保存</button>
+                        </div>
+                    </div>
 
 
                 </div>
@@ -192,13 +195,15 @@
     </div>
 
 <?php endif;?>
+ <a href="<?php echo site_url('admin/question/sub/'.$main_question['id']);?>" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;" ><i class="fa fa-plus"></i>  增加子问题</a>
 
+<a href="<?php echo site_url('admin/question/main/'.$main_question['id']); ?>"  class="btn btn-lg btn-block btn-success"  style="margin:20px 0;"><i class="fa fa-chevron-left"></i>  返回主问题</a>
         </div>
-            <a href="<?php echo site_url('admin/question/sub/'.$main_question['id']);?>" class="btn btn-lg btn-block btn-info"  style="margin:20px 0;" ><i class="fa fa-plus"></i>  增加子问题</a>
+           
         <!-- /.box-body -->
     </div>
 
-    <a href="<?php echo site_url('admin/question/main/'.$main_question['id']); ?>"  class="btn btn-lg btn-block btn-success"  style="margin:20px 0;"><i class="fa fa-rocket"></i>  回到主问题</a>
+
     </section>
     <!-- /.content -->
 </div>

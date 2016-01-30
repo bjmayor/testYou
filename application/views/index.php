@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="renderer" content="webkit">
         <title><?php echo $title;?></title>
         <?php if(isset($description) && $description!=''):?>
         <meta name="description" content="<?php echo $description; ?>" />
@@ -10,6 +11,16 @@
         <meta name="keywords" content="<?php echo $keywords; ?>" />
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="<?php echo base_url($front_dir . '/css/ceshi.css'); ?>">
+        <link rel="shortcut icon" href="favicon.ico">
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?b15398beb95544617ef34fcf662db27b";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
     </head>
 
     <body>

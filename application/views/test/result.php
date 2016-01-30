@@ -1,34 +1,119 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>test</title>
+        <title><?php echo $question['title']; ?></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/ceshi.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/animate.css" type="text/css">
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url($front_dir);?>/js/zepto.js"></script>
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?b15398beb95544617ef34fcf662db27b";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
     </head>
 
     <body>
         <header class="headcity">
-        <span class="retn"><i class="icon return"></i></span><div class="current-title text-l"><?php echo $question['title']; ?></div>
+        <div class="current-title text-c"><?php echo $question['title']; ?></div>
         </header>
         <section class="main-suc">
         <div class="succes-pic">
-        <img src="<?php echo site_url();?>/upload/<?php echo $result['show_img_result']!=''?$result['show_img_result']:'result_default.png'; ?>">
+        <img class="animated zoomIn" src="<?php echo site_url();?>/upload/<?php echo $result['show_img_result']!=''?$result['show_img_result']:'result_default.png'; ?>">
         </div>
         <div class="cont-text">
             <div class="title-s"><?php echo $result['show_text_result']; ?></div>
             <div class="test">
                 <?php echo $result["show_html_result"];?>
             </div>
-            <div class="invitation"><a class="friend" href="#">邀请好友测试</a></div>   
+
+            <div class="invitation">
+            <a class="share" onClick="_system._guide(true)">邀请好友测试</a>
+            <a class="default" href="<?php echo base_url('test/start/'.$question['id']);?>">再测一次</a>
+            </div> 
         </div>
-        <div class="everybody"><span class="left"><strong>大家都在测试</strong></span><span class="right"><a class="rig-i" href="#" id="refresh">换一批<i class="icon change"></i></a></span></div>  
+        <div class="everybody"><span class="left"><strong>大家都在测试</strong></span><span class="right"><a class="rig-i" href="void(0);" id="refresh">换一批<i class="icon change"></i></a></span></div>  
         <ul class="news" style="display:block;">
         </ul>
 
         </section>
+<div id="cover"></div>
+<div id="guide"><img src="<?php echo base_url($front_dir);?>/images/shareto.png" width="278" height="198"></div> 
+<script type="text/javascript">
+
+    var _system={
+
+        $:function(id){return document.getElementById(id);},
+
+   _client:function(){
+
+      return {w:document.documentElement.scrollWidth,h:document.documentElement.scrollHeight,bw:document.documentElement.clientWidth,bh:document.documentElement.clientHeight};
+
+   },
+
+   _scroll:function(){
+
+      return {x:document.documentElement.scrollLeft?document.documentElement.scrollLeft:document.body.scrollLeft,y:document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop};
+
+   },
+
+   _cover:function(show){
+
+      if(show){
+
+     this.$("cover").style.display="block";
+
+     this.$("cover").style.width=(this._client().bw>this._client().w?this._client().bw:this._client().w)+"px";
+
+     this.$("cover").style.height=(this._client().bh>this._client().h?this._client().bh:this._client().h)+"px";
+
+  }else{
+
+     this.$("cover").style.display="none";
+
+  }
+
+   },
+
+   _guide:function(click){
+
+      this._cover(true);
+
+      this.$("guide").style.display="block";
+
+      this.$("guide").style.top=(_system._scroll().y+5)+"px";
+
+      window.onresize=function(){_system._cover(true);_system.$("guide").style.top=(_system._scroll().y+5)+"px";};
+
+  if(click){_system.$("cover").onclick=function(){
+
+         _system._cover();
+
+         _system.$("guide").style.display="none";
+
+ _system.$("cover").onclick=null;
+
+ window.onresize=null;
+
+  };}
+
+   },
+
+   _zero:function(n){
+
+      return n<0?0:n;
+
+   }
+
+}
+
+</script>
 <script type="text/javascript">
 var categoryId = <?php echo $question['question_category_id']; ?>;
 
