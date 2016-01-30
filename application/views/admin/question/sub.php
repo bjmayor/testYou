@@ -83,7 +83,7 @@
                                 <?php foreach($results as $result): ?>
                                 <option value='<?php echo $result['label'];?>'
                                 <?php if($item['result_label']==$result['label']):?>selected<?php endif?>
-                                ><?php echo $result['show_text_result'];?></option>
+                                ><?php echo '结论'.$result['label'].':'.$result['show_text_result'];?></option>
                                 <?php endforeach;?>
                             </select>
                         </div>
@@ -102,14 +102,14 @@
                                 <?php foreach($results as $result): ?>
                                 <option value='<?php echo $result['label'];?>' type="result"
                                 <?php if($item['result_label']==$result['label']):?>selected<?php endif?>
-                                ><?php echo '结论:'.$result['show_text_result'];?></option>
+                                ><?php echo '结论'.$result['label'].':'.$result['show_text_result'];?></option>
                                 <?php endforeach;?>
 
                                 <?php if($sub_questions!=false):?>
                                 <?php foreach($sub_questions as $question): ?>
                                 <option value='<?php echo $question['sub_label_id'];?>' type="question"
                                 <?php if($item['next_question_label']==$question['sub_label_id']):?>selected<?php endif?>
-                                 ><?php echo '问题:'.$question['title'];?></option>
+                                 ><?php echo '问题'.$question['sub_label_id'].':'.$question['title'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
 
@@ -143,7 +143,7 @@
                             <select class="form-control" style="width: 100%;">
                                 <?php foreach($results as $item): ?>
                                 <option value='<?php echo $item['label'];?>'
-                                ><?php echo $item['show_text_result'];?></option>
+                                ><?php echo '结论'.$item['label'].':'.$item['show_text_result'];?></option>
                                 <?php endforeach;?>
                             </select>
                         </div>
@@ -161,13 +161,13 @@
                                 <?php if($results !=false):?>
                                 <?php foreach($results as $item): ?>
                                 <option value='<?php echo $item['label'];?>' type="result"
-                                ><?php echo '结论:'.$item['show_text_result'];?></option>
+                                ><?php echo '结论'.$item['label'].':'.$item['show_text_result'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
 
                                 <?php if($sub_questions!=false):?>
                                 <?php foreach($sub_questions as $item): ?>
-                                <option value='<?php echo $item['sub_label_id'];?>' type="question" ><?php echo '问题:'.$item['title'];?></option>
+                                <option value='<?php echo $item['sub_label_id'];?>' type="question" ><?php echo '问题'.$item['sub_label_id'].':'.$item['title'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
 
