@@ -106,10 +106,10 @@
                                 <?php endforeach;?>
 
                                 <?php if($sub_questions!=false):?>
-                                <?php foreach($sub_questions as $question): ?>
-                                <option value='<?php echo $question['sub_label_id'];?>' type="question"
-                                <?php if($item['next_question_label']==$question['sub_label_id']):?>selected<?php endif?>
-                                 ><?php echo '问题'.$question['sub_label_id'].':'.$question['title'];?></option>
+                                <?php foreach($sub_questions as $sub_question): ?>
+                                <option value='<?php echo $sub_question['sub_label_id'];?>' type="question"
+                                <?php if($item['next_question_label']==$sub_question['sub_label_id']):?>selected<?php endif?>
+                                 ><?php echo '问题'.$sub_question['sub_label_id'].':'.$sub_question['title'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
 
