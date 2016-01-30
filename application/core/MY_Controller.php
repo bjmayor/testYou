@@ -12,6 +12,8 @@ class MY_Controller extends CI_Controller
         $this->load->database();
         $this->load->config('common/dp_config');
         $this->load->config('common/dp_language');
+        $this->load->config('seo');
+
         $this->load->library(array('form_validation', 'template', 'common/mobile_detect','response','session','ion_auth'));
         $this->load->helper(array('array', 'language', 'url'));
         $this->load->model('common/prefs_model');
@@ -60,6 +62,30 @@ class MY_Controller extends CI_Controller
             $this->data['android']   = FALSE;
             $this->data['mobile_ie'] = FALSE;
         }
+    }
+
+    protected function set_page_title($model='',$title='',$name='')
+    {
+        $ret = $this->config->item('title',$model);
+        $ret = str_replace('{title}',$title,$ret);
+        $ret = str_replace('{name}',$name,$ret);
+        $this->data['title'] = $ret;
+    }
+
+    protected function set_page_description($model='',$title='',$name='')
+    {
+        $ret = $this->config->item('description',$model);
+        $ret = str_replace('{title}',$title,$ret);
+        $ret = str_replace('{name}',$name,$ret);
+        $this->data['description'] = $ret;
+    }
+
+    protected function set_page_keywords($model='',$title='',$name='')
+    {
+        $ret = $this->config->item('keywords',$model);
+        $ret = str_replace('{title}',$title,$ret);
+        $ret = str_replace('{name}',$name,$ret);
+        $this->data['keywords'] = $ret;
     }
 
     protected function is_diff($model,$input)

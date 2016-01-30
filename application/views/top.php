@@ -3,7 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>列表</title>
+        <title><?php echo $title;?></title>
+        <?php if(isset($description) && $description!=''):?>
+        <meta name="description" content="<?php echo $description; ?>" />
+        <?php endif;?>
+        <meta name="keywords" content="<?php echo $keywords; ?>" />
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/ceshi.css" type="text/css">
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url($front_dir);?>/js/zepto.min.js"></script>

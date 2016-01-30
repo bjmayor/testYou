@@ -49,7 +49,9 @@ class Home extends MY_Controller {
            break;
             
         }
-
+        $this->set_page_title('index');
+        $this->set_page_description('index');
+        $this->set_page_keywords('index');
         $this->load->view('index',$this->data);
     }
 
@@ -99,6 +101,9 @@ class Home extends MY_Controller {
            break;
             
         }
+        $this->set_page_title('subtop','',$this->data['category']['description']);
+        $this->set_page_description('subtop','',$this->data['category']['description']);
+        $this->set_page_keywords('subtop','',$this->data['category']['description']);
         $this->load->view('top',$this->data);
     }
 }
