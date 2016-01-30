@@ -35,15 +35,15 @@
     <body>
         <section class="main">
         <nav class="navmeun">
-        <div class="navevery"><i class="icon navicon chara"></i><a href="<?php echo site_url("home/top/1");?>">性格</a></div>
-        <div class="navevery"><i class="icon navicon lover"></i><a href="<?php echo site_url("home/top/2");?>">爱情</a></div>
-        <div class="navevery"><i class="icon navicon social"></i><a href="<?php echo site_url("home/top/3");?>">社交</a></div>
-        <div class="navevery"><i class="icon navicon wealth"></i><a href="<?php echo site_url("home/top/4");?>">财富</a></div>
-        <div class="navevery"><i class="icon navicon job"></i><a href="<?php echo site_url("home/top/5");?>">职场</a></div>
-        <div class="navevery"><i class="icon navicon interest"></i><a href="<?php echo site_url("home/top/6");?>">趣味</a></div>
-        <div class="navevery"><i class="icon navicon ability"></i><a href="<?php echo site_url("home/top/7");?>">能力</a></div>
-        <div class="navevery"><i class="icon navicon iq"></i><a href="<?php echo site_url("home/top/8");?>">智商</a></div>
-        <div class="navevery"><i class="icon navicon colligate"></i><a href="<?php echo site_url("home/top/9");?>">综合</a></div>
+        <div class="navevery" category_id="1"><i class="icon navicon chara"></i><a href="#">">性格</a></div>
+        <div class="navevery" category_id="2"><i class="icon navicon lover"></i><a href="#">">爱情</a></div>
+        <div class="navevery" category_id="3"><i class="icon navicon social"></i><a href="#">">社交</a></div>
+        <div class="navevery" category_id="4"><i class="icon navicon wealth"></i><a href="#">">财富</a></div>
+        <div class="navevery" category_id="5"><i class="icon navicon job"></i><a href="#">">职场</a></div>
+        <div class="navevery" category_id="6"><i class="icon navicon interest"></i><a href="#">">趣味</a></div>
+        <div class="navevery" category_id="7"><i class="icon navicon ability"></i><a href="#">">能力</a></div>
+        <div class="navevery" category_id="8"><i class="icon navicon iq"></i><a href="#">">智商</a></div>
+        <div class="navevery" category_id="9"><i class="icon navicon colligate"></i><a href="#>">综合</a></div>
         </nav>
         <ul class="screen">
             <li class="<?php if($type==0):?>current-l<?php else:?>none<?php endif;?>"><a href="<?php echo site_url('home/index/0');?>">最新<i class="icon icon-b"></i></a></li>
@@ -64,5 +64,12 @@
     </body>
     <script type="text/javascript">
         document.body.addEventListener('touchstart',function(){});  
+        $(function()
+            {
+                $("div.navevery").click(function(){
+                    window.location.href="<?php echo site_url('home/top/'); ?>"+$(this).attr("category_id");
+                });
+            }
+        );
     </script>
 </html>
