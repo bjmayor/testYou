@@ -46,7 +46,7 @@
 var questionId =  <?php echo $main_question['id'];?>;
 $(function(){
     $(".answer").click(function(){
-        if($(this).attr('next_id') != -1)
+        if($(this).attr('next_id') > 0 )
         {
             window.location.href = "<?php echo site_url('test/start/');?>"+"/"+questionId+"/"+$(this).attr('next_id');
         }
