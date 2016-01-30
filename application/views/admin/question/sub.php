@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="简介" class="col-sm-2 control-label"><i class="text-red">*</i> 简介</label>
+                        <label for="简介" class="col-sm-2 control-label"> 简介</label>
 
                         <div class="col-sm-10">
                             <script type="text/plain" id="description" style="width:100%;height:100px;"></script>
@@ -225,6 +225,7 @@
                         {
                             var res = eval("("+data+")");
                             questionId = res.data;
+                            alert(data);
                             window.location.href =  "<?php echo site_url('admin/question/sub');?>" + "/"+pid+"/"+res.data;
                         }
                         else

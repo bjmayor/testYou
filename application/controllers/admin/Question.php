@@ -234,25 +234,29 @@ class Question extends Admin_Controller {
             Response::build(2,"标题不能为空")->show();
             return;
         }
-        if (strlen($this->input->post('description'))==0)
-        {
-            Response::build(2,"描述不能为空")->show();
-            return;
-        }
 
         //编辑功能
         if($this->input->post('id')!='-1')
         {
+            $ret = true;
             $question = $this->question_model->get_question(array('id'=>$this->input->post('id')));
             if ($question['title'] != $this->input->post['title'] || $question['description'] != $this->input->post['description'])
             {
-                $this->question_model->update_question(array(
+                $ret = $this->question_model->update_question(array(
                     'title'=>$this->input->post('title'),
                     'description'=>$this->input->post('description'),
+                    'id'=>$this->input->post('id'),
+                    'pid'=>$this->input->post('pid')
                 ));
             }
-
-            Response::build(0,"ok",$this->input->post('id'))->show();
+            if($ret)
+            {
+                Response::build(0,"ok",$this->input->post('id'))->show();
+            }
+            else
+            {
+                Response::build(-1,"更新错误",$this->input->post('id'))->show();
+            }
         }
         else//新建
         {
