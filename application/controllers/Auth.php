@@ -63,7 +63,7 @@ class Auth extends MY_Controller {
 
                         /* Load Template */
                         //$this->template->auth_render('auth/choice', $this->data);
-                        redirect('admin/question/page', 'refresh');
+                        redirect('admin/page/page', 'refresh');
                     }
                 }
                 else
