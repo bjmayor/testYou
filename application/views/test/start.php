@@ -48,7 +48,7 @@ $(function(){
         }
         else if($(this).attr('next_id') != -1)
         {
-            window.location.href = "<?php echo site_url('test/start/');?>"+"/"+$(this).attr('next_id');
+            window.location.href = "<?php echo site_url('test/start/');?>"+"/"+questionId+$(this).attr('next_id');
         }
         else
         {
