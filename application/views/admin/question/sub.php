@@ -231,7 +231,6 @@
                         {
                             var res = eval("("+data+")");
                             questionId = res.data;
-                            alert(data);
                             window.location.href =  "<?php echo site_url('admin/question/sub');?>" + "/"+pid+"/"+res.data;
                         }
                         else

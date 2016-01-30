@@ -300,7 +300,19 @@
                       <input type="text" class="form-control" value="<?php echo $answer['answer_text']; ?>">
                       </div>
                       <div class="col-xs-3 col-sm-3">
-                      <input type="text" class="form-control" placeholder="分值" value="<?php echo $answer['score']; ?>">
+                        <label>
+                        <?php if($question['question_type']==1):?>
+                        结论<?php echo $answer['result_label']?>
+                        <?php elseif($question['question_type']==2):?>
+                        分数:<?=$answer['score']?>
+                        <?php else:?>
+                            <?php if($answer['next_question_id']>0):?>
+                            子问题<?=$answer['next_question_id']?>
+                            <?php else: ?>
+                            结论<?=$answer['result_label']?>
+                            <?php endif;?>
+                        <?php endif;?>
+                        </label>
                       </div>
                       
                     </div>
