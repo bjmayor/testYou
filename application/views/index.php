@@ -67,7 +67,7 @@
         $(function()
             {
                 $("div.navevery").click(function(){
-                    window.location.href="<?php echo site_url('home/top/'); ?>"+$(this).attr("category_id");
+                    window.location.href="<?php echo site_url('home/top').'/'; ?>"+$(this).attr("category_id");
                 });
             }
         );
