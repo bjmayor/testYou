@@ -3,18 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends MY_Controller {
 
-	function __construct()
-	{
-		parent::__construct();
+    function __construct()
+    {
+        parent::__construct();
 
-		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+        $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
-		$this->lang->load('auth');
-	}
+        $this->lang->load('auth');
+    }
 
 
-	function index()
-	{
+    function index()
+    {
         if ( ! $this->ion_auth->logged_in())
         {
             redirect('auth/login', 'refresh');
@@ -23,11 +23,11 @@ class Auth extends MY_Controller {
         {
             redirect('/', 'refresh');
         }
-	}
+    }
 
 
     function login()
-	{
+    {
         if ( ! $this->ion_auth->logged_in())
         {
             /* Load */
@@ -62,13 +62,14 @@ class Auth extends MY_Controller {
                         $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
                         /* Load Template */
-                        $this->template->auth_render('auth/choice', $this->data);
+                        //$this->template->auth_render('auth/choice', $this->data);
+                        redirect('admin/question/page', 'refresh');
                     }
                 }
                 else
                 {
                     $this->session->set_flashdata('message', $this->ion_auth->errors());
-				    redirect('auth/login', 'refresh');
+                    redirect('auth/login', 'refresh');
                 }
             }
             else
@@ -103,7 +104,7 @@ class Auth extends MY_Controller {
 
 
     function logout($src = NULL)
-	{
+    {
         $logout = $this->ion_auth->logout();
 
         $this->session->set_flashdata('message', $this->ion_auth->messages());
@@ -116,6 +117,6 @@ class Auth extends MY_Controller {
         {
             redirect('/', 'refresh');
         }
-	}
+    }
 
 }
