@@ -98,7 +98,7 @@
                                 <?php foreach($results as $result): ?>
                                 <option value='<?php echo $result['label'];?>' type="result"
                                 <?php if($item['result_label']==$result['label']):?>selected<?php endif?>
-                                ><?php echo '结论:'.$item['show_text_result'];?></option>
+                                ><?php echo '结论:'.$result['show_text_result'];?></option>
                                 <?php endforeach;?>
 
                                 <?php if($sub_questions!=false):?>
