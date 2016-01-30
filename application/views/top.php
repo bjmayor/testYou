@@ -31,10 +31,10 @@
 
     <body>
         <header class="headcity">
-        <div class="current-list text-c"><?php echo $category['description']; ?></div>
+        <div class="current-list text-c"><?php echo $category['description']; ?>测试</div>
         </header>
         <section class="main">
-        <ul class="screen">
+        <ul class="screen" style="margin-top:10px;">
             <li class="<?php if($type==0):?>current-l<?php else: ?>none<?php endif;?>"><a href="<?php echo site_url('home/top/'.$category['id'].'/0/'.$page);?>">最新<i class="icon icon-b"></i></a></li>
             <li <?php if($type==1):?>class="current-c"<?php endif;?>><a href="<?php echo site_url('home/top/'.$category['id'].'/1/'.$page);?>">排行<i class="icon icon-b"></i></a></li>
             <li class="<?php if($type==2):?>current-r<?php else:?>none<?php endif;?>"><a href="<?php echo site_url('home/top/'.$category['id'].'/2/'.$page);?>">精品<i class="icon icon-b"></i></a></li>
