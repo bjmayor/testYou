@@ -65,6 +65,8 @@ class Home extends MY_Controller {
         $this->data['category'] = $this->question_category_model->get_category($category_id);
         $this->data['page'] = $page;
         $this->data['type']=$type;
+        $this->data['total_page'] = 1;
+        $total_count = 0;
         switch ($type)
         {
         case 0:
@@ -76,6 +78,10 @@ class Home extends MY_Controller {
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
             ));
+            $total_count = $this->question_model->get_total(array(
+                "question_category_id"=>$category_id,
+                "pid"=>0
+            ));
             break;
         case 1:
             $this->data['questions'] = $this->question_model->get_question(array(
@@ -85,6 +91,10 @@ class Home extends MY_Controller {
                 "pid"=>0,
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
+            ));
+             $total_count = $this->question_model->get_total(array(
+                "question_category_id"=>$category_id,
+                "pid"=>0
             ));
 
             break;
@@ -98,9 +108,16 @@ class Home extends MY_Controller {
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
             ));
+            $total_count = $this->question_model->get_total(array(
+                "question_category_id"=>$category_id,
+                "is_recommend"=>1,
+                "pid"=>0
+            ));
+
            break;
             
         }
+        $this->data['page_total'] = round(0.5+$total_count/$page_num);
         $this->set_page_title('subtop','',$this->data['category']['description']);
         $this->set_page_description('subtop','',$this->data['category']['description']);
         $this->set_page_keywords('subtop','',$this->data['category']['description']);
