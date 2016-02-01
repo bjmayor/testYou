@@ -16,6 +16,9 @@ class Home extends MY_Controller {
         $page = max($page,1);
         $this->data['page'] = $page;
         $this->data['type'] = $type;
+        $this->data['total_page'] = 1;
+        $total_count = 0;
+
         switch ($type)
         {
         case 0:
@@ -23,17 +26,28 @@ class Home extends MY_Controller {
                 "sort_by"=>'create_time',
                 "pid"=>0,
                 'sort_direction'=>'desc',
+                'publish_status'=>0,
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
             ));
+            $total_count = $this->question_model->get_total(array(
+                'publish_status'=>0,
+                "pid"=>0
+            ));
+
             break;
         case 1:
             $this->data['questions'] = $this->question_model->get_question(array(
                 "sort_by"=>'visit_count',
                 'sort_direction'=>'desc',
                 "pid"=>0,
+                'publish_status'=>0,
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
+            ));
+            $total_count = $this->question_model->get_total(array(
+                'publish_status'=>0,
+                "pid"=>0
             ));
 
             break;
@@ -41,14 +55,23 @@ class Home extends MY_Controller {
              $this->data['questions'] = $this->question_model->get_question(array(
                 "is_recommend"=>1,
                 "pid"=>0,
+                "publish_status"=>0,
                 "sort_by"=>'create_time',
                 'sort_direction'=>'desc',
                 'limit'=>$page_num,
                 'offset'=>($page-1)*$page_num
             ));
+            $total_count = $this->question_model->get_total(array(
+                "publish_status"=>0,
+                "is_recommend"=>1,
+                "pid"=>0
+            ));
+
            break;
             
         }
+
+        $this->data['page_total'] = round(0.5+$total_count/$page_num);
         $this->set_page_title('index');
         $this->set_page_description('index');
         $this->set_page_keywords('index');

@@ -58,8 +58,16 @@
             <?php endif;?>
 
         </ul>
-        <div class="pages"><a class="buts" href="<?php echo site_url('home/index/'.$type.'/'.($page+1));?>">下一页</a></div>    
-        <div class="pages"><a class="buts-last" href="<?php echo site_url('home/index/'.$type.'/'.($page-1));?>">上一页</a><a class="buts-next" href="<?php echo site_url('home/index/'.$type.'/'.($page+1));?>">下一页</a></div>
+        <?php if($page_total>1):?>
+            <?php if($page==1):?>
+                <div class="pages"><a class="buts" href="<?php echo site_url('home/index/'.$type.'/'.($page+1));?>">下一页</a></div>    
+            <?php elseif($page==$page_total):?>
+                    <div class="pages"><a class="buts" href="<?php echo site_url('home/index/'.$type.'/'.($page-1));?>">上一页</a></div>    
+            <?php else:?>
+                    <div class="pages"><a class="buts-last" href="<?php echo site_url('home/index/'.$type.'/'.($page-1));?>">上一页</a><a class="buts-next" href="<?php echo site_url('home/index/'.$type.'/'.($page+1));?>">下一页</a></div>
+            <?php endif;?>
+        <?php endif;?>
+
         </section>
     </body>
     <script type="text/javascript">
