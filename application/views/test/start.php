@@ -48,7 +48,7 @@ $(function(){
     $(".answer").click(function(){
         if($(this).attr('next_id') > 0 )
         {
-            window.location.href = "<?php echo site_url('test/start/');?>"+"/"+questionId+"/"+$(this).attr('next_id');
+            window.location.href = "<?php echo site_url('test/jump/');?>"+"/"+questionId+"/"+$(this).attr('next_id');
         }
         else if($(this).attr('result')!=='')
         {
@@ -56,7 +56,7 @@ $(function(){
         }
         else
         {
-            window.location.href = "<?php echo site_url('test/start/');?>"+"/"+questionId+"/"+"<?php echo $index+1; ?>"+"/"+$(this).attr("answer_id");
+            window.location.href = "<?php echo site_url('test/score/');?>"+"/"+questionId+"/"+"<?php echo $index+1; ?>"+"/"+$(this).attr("answer_id");
         }
         return false;
     });
