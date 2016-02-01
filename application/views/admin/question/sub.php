@@ -107,9 +107,9 @@
 
                                 <?php if($sub_questions!=false):?>
                                 <?php foreach($sub_questions as $sub_question): ?>
-                                <option value='<?php echo $sub_question['sub_label_id'];?>' type="question"
-                                <?php if($item['next_question_label']==$sub_question['sub_label_id']):?>selected<?php endif?>
-                                 ><?php echo '问题'.$sub_question['sub_label_id'].':'.$sub_question['title'];?></option>
+                                <option value='<?php echo $sub_question['label'];?>' type="question"
+                                <?php if($item['next_question_label']==$sub_question['label']):?>selected<?php endif?>
+                                 ><?php echo '问题'.$sub_question['label'].':'.$sub_question['title'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
 
@@ -167,7 +167,7 @@
 
                                 <?php if($sub_questions!=false):?>
                                 <?php foreach($sub_questions as $item): ?>
-                                <option value='<?php echo $item['sub_label_id'];?>' type="question" ><?php echo '问题'.$item['sub_label_id'].':'.$item['title'];?></option>
+                                <option value='<?php echo $item['label'];?>' type="question" ><?php echo '问题'.$item['label'].':'.$item['title'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
 

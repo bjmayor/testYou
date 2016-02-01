@@ -69,7 +69,7 @@ CREATE TABLE `Question` (
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP,
   `publish_status` int(11) DEFAULT '0',
   `visit_count` int(11) DEFAULT '1',
-  `sub_label_id` int(11) DEFAULT NULL,
+  `label` int(11) DEFAULT NULL,
   `is_recommend` int(11) DEFAULT '0',
   `update_time` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)

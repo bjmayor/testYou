@@ -261,16 +261,16 @@ class Question extends Admin_Controller {
         else//新建
         {
             
-            $last_question = $this->question_model->get_question(array("pid"=>$this->input->post('pid'),"sort_direction"=>"desc","sort_by"=>"sub_label_id","limit"=>1));
-            $sub_label_id = 1;
-            if($last_question && $last_question['sub_label_id']>0)
+            $last_question = $this->question_model->get_question(array("pid"=>$this->input->post('pid'),"sort_direction"=>"desc","sort_by"=>"label","limit"=>1));
+            $label = 1;
+            if($last_question && $last_question[0]['label']>0)
             {
-                $sub_label_id = $last_question['sub_label_id']+1;
+                $label = $last_question[0]['label']+1;
             }
             $question_id = $this->question_model->insert_question(array(
                 'title'=>$this->input->post('title'),
                 'description'=>$this->input->post('description'),
-                'sub_label_id'=>$sub_label_id,
+                'label'=>$label,
                 'pid'=>$this->input->post('pid')
             ));
             if ($question_id > 0)

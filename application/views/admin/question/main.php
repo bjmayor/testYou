@@ -255,7 +255,7 @@
         <?php foreach($sub_questions as $sub_question):?>
           <div class="box box-default box-solid" id="question_group_<?php echo $sub_question['id']; ?>">
             <div class="box-header with-border" data-widget="collapse"><i class="fa fa-minus"></i>
-            <h3 class="box-title">问题Q<?php echo $sub_question['sub_label_id']; ?> </h3>
+            <h3 class="box-title">问题Q<?php echo $sub_question['label']; ?> </h3>
 
             </div>
             <!-- /.box-header -->
