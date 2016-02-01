@@ -38,6 +38,15 @@ class Page extends Admin_Controller {
         $this->data['page'] = $page;
         $this->data['questions'] = $this->question_model->get_page($page,$num,$category_id);
         $this->data['category'] = $this->question_category_model->get_all();
+        $categorys = array();
+        foreach ($this->data['category'] as $category)
+        {
+            $categorys[$category['id']] = $category['description'];
+        }
+        foreach ($this->data['questions'] as $key=>$question)
+        {
+            $this->data['questions'][$key]['category'] = $categorys[$question['question_category_id']];
+        }
         $this->template->admin_render('admin/question/page', $this->data);
     }
 
