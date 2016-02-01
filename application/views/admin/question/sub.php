@@ -82,7 +82,7 @@
                             <select class="form-control" style="width: 100%;">
                                 <?php foreach($results as $result): ?>
                                 <option value='<?php echo $result['label'];?>'
-                                <?php if($item['result_label']==$result['label']):?>selected<?php endif?>
+                                <?php if($item['jump_label']==$result['label']):?>selected<?php endif?>
                                 ><?php echo '结论'.$result['label'].':'.$result['show_text_result'];?></option>
                                 <?php endforeach;?>
                             </select>
@@ -100,15 +100,15 @@
                         <div class="col-sm-10">
                             <select class="form-control" style="width: 100%;" >
                                 <?php foreach($results as $result): ?>
-                                <option value='<?php echo $result['label'];?>' type="result"
-                                <?php if($item['result_label']==$result['label']):?>selected<?php endif?>
+                                <option value='<?php echo $result['label'];?>' type="0"
+                                <?php if($item['jump_label']==$result['label'] && $item['jump_type']==0):?>selected<?php endif?>
                                 ><?php echo '结论'.$result['label'].':'.$result['show_text_result'];?></option>
                                 <?php endforeach;?>
 
                                 <?php if($sub_questions!=false):?>
                                 <?php foreach($sub_questions as $sub_question): ?>
-                                <option value='<?php echo $sub_question['label'];?>' type="question"
-                                <?php if($item['next_question_label']==$sub_question['label']):?>selected<?php endif?>
+                                <option value='<?php echo $sub_question['label'];?>' type="1"
+                                <?php if($item['jump_label']==$sub_question['label'] && $item['jump_type']==1):?>selected<?php endif?>
                                  ><?php echo '问题'.$sub_question['label'].':'.$sub_question['title'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
@@ -160,14 +160,14 @@
                             <select class="form-control" style="width: 100%;" id = "result_select">
                                 <?php if($results !=false):?>
                                 <?php foreach($results as $item): ?>
-                                <option value='<?php echo $item['label'];?>' type="result"
+                                <option value='<?php echo $item['label'];?>' type="0"
                                 ><?php echo '结论'.$item['label'].':'.$item['show_text_result'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
 
                                 <?php if($sub_questions!=false):?>
                                 <?php foreach($sub_questions as $item): ?>
-                                <option value='<?php echo $item['label'];?>' type="question" ><?php echo '问题'.$item['label'].':'.$item['title'];?></option>
+                                <option value='<?php echo $item['label'];?>' type="1" ><?php echo '问题'.$item['label'].':'.$item['title'];?></option>
                                 <?php endforeach;?>
                                 <?php endif;?>
 
@@ -286,21 +286,14 @@
                     var answer_text = $(obj).find("input[name=answer]").val();
 <?php if ($main_question['question_type'] == 1):?>
                     var option = $(obj).find("option:selected");
-                    answerData.push({sub_question_id:questionId,label:label,answer_text:answer_text,result_label:option.val(),id:answer_id,question_id:pid});
+                    answerData.push({sub_question_id:questionId,label:label,answer_text:answer_text,jump_label:option.val(),id:answer_id,question_id:pid,jump_type:0});
 <?php elseif ($main_question['question_type'] == 2):?>
                    var score = $(obj).find("input[name=score]").val();
                     answerData.push({sub_question_id:questionId,label:label,answer_text:answer_text,score:score,id:answer_id,question_id:pid});
 <?php elseif ($main_question['question_type'] == 3):?>
 
                     var option = $(obj).find("option:selected");
-                    if(option.attr("type")=="result")
-                    {
-                        answerData.push({sub_question_id:questionId,label:label,answer_text:answer_text,result_label:option.val(),id:answer_id,question_id:pid});
-                    }
-                    else
-                    {
-                        answerData.push({sub_question_id:questionId,label:label,answer_text:answer_text,next_question_label:option.val(),id:answer_id,question_id:pid});
-                    }
+                    answerData.push({sub_question_id:questionId,label:label,answer_text:answer_text,jump_label:option.val(),jump_type:option.attr("type"),id:answer_id,question_id:pid});
 <?php endif;?>
                 });
                 $.post("<?php echo site_url('admin/answer/create');?>",

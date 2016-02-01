@@ -89,7 +89,7 @@ class Test extends MY_Controller {
         //如果是最后一次点击，需要计算分数
         $answer = $this->answer_model->get_answer(array('id'=>$answer_id));
         $results = $this->result_model->get_result(array("question_id"=>$this->data['main_question']['id']));
-        if($index ==0)
+        if($index ==1)
         {
             $this->session->set_userdata("score_".$this->data['main_question']['id'],array());
         }
@@ -98,8 +98,8 @@ class Test extends MY_Controller {
         {
             $last_question =  $this->data['sub_questions'][$index-1];
             $userdata[$last_question['id']] = $answer['score'];
+            $this->session->set_userdata("score_".$this->data['main_question']['id'],$userdata);
         }
-
         if($index >= $this->data['total'])
         {
             $total_score = 0;
@@ -127,7 +127,7 @@ class Test extends MY_Controller {
     }
 
 
-    public function result($question_id,$result_label)
+    public function result($question_id,$jump_label)
     {
         $this->load->model('result_model');
         $this->data['question'] = $this->question_model->get_question(array('id'=>$question_id));
@@ -135,7 +135,7 @@ class Test extends MY_Controller {
         {
             show_error("很遗憾，页面不存在",404,"页面找不到");
         }
-        $this->data['result'] = $this->result_model->get_result(array('question_id'=>$question_id,'label'=>$result_label));
+        $this->data['result'] = $this->result_model->get_result(array('question_id'=>$question_id,'label'=>$jump_label));
         $this->load->view('test/result',$this->data);
     }
 

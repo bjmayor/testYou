@@ -302,14 +302,14 @@
                       <div class="col-xs-3 col-sm-3">
                         <label>
                         <?php if($question['question_type']==1):?>
-                        结论<?php echo $answer['result_label']?>
+                        结论<?php echo $answer['jump_label']?>
                         <?php elseif($question['question_type']==2):?>
                         分数:<?php echo $answer['score'];?>
                         <?php else:?>
-                            <?php if($answer['next_question_label']>0):?>
-                            子问题<?php echo $answer['next_question_label'];?>
+                            <?php if($answer['jump_type']>0):?>
+                            子问题<?php echo $answer['jump_label'];?>
                             <?php else: ?>
-                            结论<?php echo $answer['result_label'];?>
+                            结论<?php echo $answer['jump_label'];?>
                             <?php endif;?>
                         <?php endif;?>
                         </label>

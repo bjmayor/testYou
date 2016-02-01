@@ -37,7 +37,7 @@
         <div class="invitation">
             <?php if($answers != false):?>
             <?php foreach($answers as $answer):?>
-                <a class="answer" href="#" result="<?php echo $answer['result_label']; ?>" next_id="<?php echo isset($answer['next_question_label'])?$answer['next_question_label']:-1; ?>" answer_id="<?php echo $answer['id']; ?>"><?php echo $answer['answer_text'];?></a>
+                <a class="answer" href="#" jump_label="<?php echo $answer['jump_label']; ?>" jump_type="<?php echo isset($answer['jump_type'])?$answer['jump_type']:-1; ?>" answer_id="<?php echo $answer['id']; ?>"><?php echo $answer['answer_text'];?></a>
             <?php endforeach;?>
             <?php endif;?>
         </div> 
@@ -46,13 +46,16 @@
 var questionId =  <?php echo $main_question['id'];?>;
 $(function(){
     $(".answer").click(function(){
-        if($(this).attr('next_id') > 0 )
+        if($(this).attr('jump_label') > 0 )
         {
-            window.location.href = "<?php echo site_url('test/jump/');?>"+"/"+questionId+"/"+$(this).attr('next_id');
-        }
-        else if($(this).attr('result')!=='')
-        {
-            window.location.href = "<?php echo site_url('test/result/');?>"+"/"+questionId+"/"+$(this).attr('result');
+            if($(this).attr("jump_type")==1)
+            {
+                window.location.href = "<?php echo site_url('test/jump/');?>"+"/"+questionId+"/"+$(this).attr('jump_label');
+            }
+            else
+            {
+                window.location.href = "<?php echo site_url('test/result/');?>"+"/"+questionId+"/"+$(this).attr('jump_label');
+            }
         }
         else
         {
