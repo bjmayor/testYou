@@ -23,7 +23,7 @@ class Page extends Admin_Controller {
 
 
 
-    public function page($page=1, $num=50,$category_id=1)
+    public function page($page=1, $num=50,$category_id=0)
     {
         $this->data['page_total'] = $this->question_model->get_page_total($num,$category_id);
         if($page>$this->data['page_total'])

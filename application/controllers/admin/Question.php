@@ -115,12 +115,7 @@ class Question extends Admin_Controller {
         $this->data['category'] = $this->question_category_model->get_all();
         $this->template->admin_render('admin/question/score', $this->data);
     }
-    public function page($page=1, $num=50,$category_id=1)
-    {
-        $this->data['questions'] = $this->question_model->getPage($page,$num,$category_id);
-        $this->data['category'] = $this->question_category_model->get_all();
-        $this->template->admin_render('admin/question/page', $this->data);
-    }
+
     public function do_upload($dir='',$filename='userfile')
     {
         /* Conf */
