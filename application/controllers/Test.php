@@ -45,7 +45,7 @@ class Test extends MY_Controller {
 
         $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$this->data['main_question']['id']));
         $this->data['total'] = count($this->data['sub_questions']);
-        $this->data['index'] = $index;
+        $this->data['index'] = 1;
         $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
         $this->data['question'] = $this->data['sub_questions'][0];
         $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
@@ -60,7 +60,13 @@ class Test extends MY_Controller {
             show_error("很遗憾，页面不存在",404,"页面找不到");
             return;
         }
+
+        $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$this->data['main_question']['id']));
+        $this->data['total'] = count($this->data['sub_questions']);
+        $this->data['index'] = 1;
+
         $this->data['question'] =  $this->question_model->get_question(array("pid"=>$question_id,"label"=>$next_question_label));
+        $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
         $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
         $this->load->view('test/start',$this->data);
     }

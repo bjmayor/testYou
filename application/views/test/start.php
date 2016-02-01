@@ -28,10 +28,10 @@
         <section class="main-suc">
         <div class="test-two">
             <div class="number" <?php if($main_question['question_type']!=2):?>style="height:25px"<?php endif;?>>
-		<?php if($main_question['question_type']==2):?>
-		<div class="num-bj"><?php echo $index+1; ?>/<?php echo $total; ?></div>
-		<?php endif;?>
-	</div>
+        <?php if($main_question['question_type']==2):?>
+        <div class="num-bj"><?php echo $index+1; ?>/<?php echo $total; ?></div>
+        <?php endif;?>
+    </div>
             <div class="questions"><?php echo $question['title']; ?></div>
         </div>
         <div class="invitation">
