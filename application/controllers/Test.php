@@ -45,7 +45,7 @@ class Test extends MY_Controller {
 
         $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$this->data['main_question']['id']));
         $this->data['total'] = count($this->data['sub_questions']);
-        $this->data['index'] = 1;
+        $this->data['index'] = 0;
         $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
         $this->data['question'] = $this->data['sub_questions'][0];
         $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
@@ -84,7 +84,7 @@ class Test extends MY_Controller {
         $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$this->data['main_question']['id']));
         $this->data['total'] = count($this->data['sub_questions']);
         $this->data['index'] = $index;
-        $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
+        $this->data['meta'] = $this->meta_model->get_meta($this->data['main_question']['id']);
     
         //如果是最后一次点击，需要计算分数
         $answer = $this->answer_model->get_answer(array('id'=>$answer_id));
@@ -123,7 +123,6 @@ class Test extends MY_Controller {
             $this->data['question'] = $this->data['sub_questions'][$index];
             $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
         }
-        break;
         $this->load->view('test/start',$this->data);
     }
 
