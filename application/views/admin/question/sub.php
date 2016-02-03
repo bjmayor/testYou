@@ -4,6 +4,9 @@
     <section class="content-header">
     <h1>
         添加/编辑子问题
+        <?php foreach($sub_questions as $subquestion): ?>
+        <a href="<?=site_url('admin/question/sub/'.$main_question['id'].'/'.$subquestion['id'])?>"><?=$subquestion['label']?></a>
+        <?php endforeach;?>
     </h1>
     <!--  <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 后台首页</a></li>
