@@ -246,14 +246,11 @@
                     return false;
             });
 
+            <?php if(!isset($answers) || $answers==false):?>
+                copyAnswer();
+            <?php endif;?>
             $("button[name=add_answer]").click(function(){
-                var lastGroup =  $("div[name=answer_group]").last();
-                var copyGroup = lastGroup.clone();
-                var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
-                copyGroup.find("input[name=answer]").attr("label",label);
-                copyGroup.find("input[name=answer]").attr("answer_id","-1");
-                copyGroup.find("span").html(label);
-                copyGroup.insertAfter(lastGroup);
+                copyAnswer();
             });
 
             $("button[name=delete_answer]").click(function(){
@@ -318,4 +315,16 @@
             });
 
         });
+    //拷贝一个答案
+    function copyAnswer()
+    {
+        var lastGroup =  $("div[name=answer_group]").last();
+        var copyGroup = lastGroup.clone();
+        var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
+        copyGroup.find("input[name=answer]").attr("label",label);
+        copyGroup.find("input[name=answer]").attr("answer_id","-1");
+        copyGroup.find("span").html(label);
+        copyGroup.insertAfter(lastGroup);
+
+    }
 </script>
