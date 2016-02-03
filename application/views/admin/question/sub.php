@@ -4,9 +4,11 @@
     <section class="content-header">
     <h1>
         添加/编辑子问题
+        <?php if(isset($sub_questions) && $sub_questions!=false):?>
         <?php foreach($sub_questions as $subquestion): ?>
-        <a href="<?=site_url('admin/question/sub/'.$main_question['id'].'/'.$subquestion['id'])?>"><?=$subquestion['label']?></a>
+        <a href="<?=site_url('admin/question/sub/'.$main_question['id'].'/'.$subquestion['id'])?>" <?php if($subquestion['id']==$question['id']):?>style="color:red;"<?php endif;?>><?=$subquestion['label']?></a>
         <?php endforeach;?>
+        <?php endif;?>
     </h1>
     <!--  <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> 后台首页</a></li>
