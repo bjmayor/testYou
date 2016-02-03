@@ -47,6 +47,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                         </li>
 
+                        <li class="<?=active_link_controller('loadjson')?>">
+                            <a href="<?php echo site_url('admin/loadjson/index'); ?>">
+                                <i class="fa fa-file"></i> <span>导入问题</span>
+                            </a>
+                        </li>
+
                         <li class="<?=active_link_controller('page')?>"><a href="<?php echo site_url('admin/page/page');?>"><i class="fa fa-th"></i> <span>题库管理</span></a></li>
                         <li class="header text-uppercase">系统管理菜单</li>
                         <li class="<?=active_link_controller('users')?>">
