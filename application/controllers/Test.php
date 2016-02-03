@@ -63,9 +63,16 @@ class Test extends MY_Controller {
 
         $this->data['sub_questions'] = $this->question_model->get_question(array('pid'=>$this->data['main_question']['id']));
         $this->data['total'] = count($this->data['sub_questions']);
-        $this->data['index'] = 1;
 
-        $this->data['question'] =  $this->question_model->get_question(array("pid"=>$question_id,"label"=>$next_question_label));
+        $this->data['question'] =  $this->question_model->get_question(array("pid"=>$question_id,"label"=>$next_question_label,"order_by"=>"label","sort_direction"=>"desc"));
+        for($i=0; $i < $this->data['total'];$i++)
+        {
+            if($this->data['sub_questions'][$i]['id'] == $this->data['question']['id'])
+            {
+                $this->data['index']=$i;
+                break;
+            }
+        }
         $this->data['meta'] = $this->meta_model->get_meta($this->data['question']['id']);
         $this->data['answers'] = $this->answer_model->get_answer(array('sub_question_id'=>$this->data['question']['id']));
         $this->load->view('test/start',$this->data);
