@@ -96,7 +96,7 @@
                 <?php elseif($main_question['question_type']==2):?>
                 <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">分数</label>
-                        <div class="col-xs-9 col-sm-9">
+                        <div class="col-xs-2 col-sm-2">
                             <input type="text" class="form-control sm" placeholder="分数" name="score" value="<?php echo $item['score']; ?>">
                         </div>
                 </div>
@@ -155,7 +155,7 @@
                     </div>
                 <?php elseif($main_question['question_type']==2):?>
                 <div class="form-group">
-                        <div class="col-xs-9 col-sm-9">
+                        <div class="col-xs-2 col-sm-2">
                             <input type="text" class="form-control sm" placeholder="分数" name="score">
                         </div>
                 </div>
