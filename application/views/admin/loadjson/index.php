@@ -13,17 +13,16 @@
 
     <!-- Main content -->
     <section class="content">
-
       <div class="box box-default" id="basicQuestion">
         
           <div class="box-body">
-    <?php if(!isset($error) || $error=''):?>
+    <?php if(!isset($error_msg) || $error_msg==''):?>
       <div class="callout callout-success">
         <h4>导入成功</h4>
       </div>
     <?php else:?> 
       <div class="callout callout-warning">
-      <h4><?=$error?></h4>
+      <h4><?=$error_msg?></h4>
       </div>
     <?php endif;?>
            <form class="form-horizontal" method="post" action="load">
@@ -43,7 +42,7 @@
                   <label for="title" class="col-sm-2 control-label">json数据</label>
 
                   <div class="col-sm-10">
-                        <textarea rows="10" cols="80" name="data" placeholder="第三方网站的json数据,请确保合法">
+                        <textarea rows="10" cols="80" name="data" >
                         </textarea>
                   </div>
                 </div>
