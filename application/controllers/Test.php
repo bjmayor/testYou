@@ -117,7 +117,7 @@ class Test extends MY_Controller {
             $result_id = 1;
             foreach($results as $result)
             {
-                if($total_score>$result['score_start'] && $total_score<$result['score_end'])
+                if($total_score>=$result['score_start'] && $total_score<=$result['score_end'])
                 {
                     $result_id = $result['label'];
                 }
