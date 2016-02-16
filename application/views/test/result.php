@@ -125,7 +125,7 @@ function loadList()
     $.get("<?php echo site_url('question/interest');?>"+"/"+categoryId,function(data,status){
         var result  = eval('('+data+')');
         $.each(result.data,function(index,item){
-            $(".news").append('<li><a href="'+"<?php echo site_url('test/start/');?>"+"/"+item.id+'"><div class="nerong">'+item.title+'<i class="icon enter"></i></div></a></li>');
+            $(".news").append('<li><a href="'+"<?php echo site_url('test/index/');?>"+"/"+item.id+'"><div class="nerong">'+item.title+'<i class="icon enter"></i></div></a></li>');
         });
     });
 
