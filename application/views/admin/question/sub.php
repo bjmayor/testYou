@@ -188,7 +188,7 @@
                 <?php endif;?>
                     <div class="form-group">
                     <label for="seo" class="col-sm-2 control-label"></label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-10" style="margin-bottom:30px;">
 
                         <button type="submit" class="btn btn-success" ><i class="fa fa-save"></i>  保存</button>
                         <button type="button" class="btn btn-default" style="margin-left:20px" name="add_answer"> 增加选项</button>
@@ -246,11 +246,14 @@
                     return false;
             });
 
-            <?php if(!isset($answers) || $answers==false):?>
-                copyAnswer();
-            <?php endif;?>
             $("button[name=add_answer]").click(function(){
-                copyAnswer();
+                var lastGroup =  $("div[name=answer_group]").last();
+                var copyGroup = lastGroup.clone();
+                var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
+                copyGroup.find("input[name=answer]").attr("label",label);
+                copyGroup.find("input[name=answer]").attr("answer_id","-1");
+                copyGroup.find("span").html(label);
+                copyGroup.insertAfter(lastGroup);
             });
 
             $("button[name=delete_answer]").click(function(){
@@ -315,16 +318,4 @@
             });
 
         });
-    //拷贝一个答案
-    function copyAnswer()
-    {
-        var lastGroup =  $("div[name=answer_group]").last();
-        var copyGroup = lastGroup.clone();
-        var label = String.fromCharCode(copyGroup.find("input[name=answer]").attr("label").charCodeAt(0)+1);
-        copyGroup.find("input[name=answer]").attr("label",label);
-        copyGroup.find("input[name=answer]").attr("answer_id","-1");
-        copyGroup.find("span").html(label);
-        copyGroup.insertAfter(lastGroup);
-
-    }
 </script>

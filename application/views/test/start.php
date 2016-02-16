@@ -40,7 +40,14 @@
                 <a class="answer" href="#" jump_label="<?php echo $answer['jump_label']; ?>" jump_type="<?php echo isset($answer['jump_type'])?$answer['jump_type']:-1; ?>" answer_id="<?php echo $answer['id']; ?>"><?php echo $answer['answer_text'];?></a>
             <?php endforeach;?>
             <?php endif;?>
-        </div> 
+        </div>
+        <div class="gg">
+            <script type="text/javascript">
+            /*测试子问题v1-选项下方-非原生*/
+            var cpro_id = "u2516179";
+            </script>
+            <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+        </div>
         </section>
 <script>
 var questionId =  <?php echo $main_question['id'];?>;

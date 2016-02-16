@@ -45,6 +45,13 @@
         <div class="navevery" category_id="8"><i class="icon navicon iq"></i><a href="#">智商</a></div>
         <div class="navevery" category_id="9"><i class="icon navicon colligate"></i><a href="#">综合</a></div>
         </nav>
+        <div class="gg" style="margin-left:-10px">
+            <script type="text/javascript">
+            var cpro_id="u2516184";
+            (window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id]={at:"3",hn:"0",wn:"0",imgRatio:"1.7",scale:"20.8",pat:"6",tn:"template_inlay_all_mobile_lu_native",rss1:"#f5f5f5",adp:"1",ptt:"0",titFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",titFS:"14",rss2:"#000000",titSU:"0",ptbg:"70",ptp:"0"}
+            </script>
+            <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+        </div>
         <ul class="screen">
             <li class="<?php if($type==0):?>current-l<?php else:?>none<?php endif;?>"><a href="<?php echo site_url('home/index/0');?>">最新<i class="icon icon-b"></i></a></li>
             <li <?php if($type==1):?>class="current-c"<?php endif;?>><a href="<?php echo site_url('home/index/1');?>">排行<i class="icon icon-b"></i></a></li>
@@ -67,6 +74,14 @@
                     <div class="pages"><a class="buts-last" href="<?php echo site_url('home/index/'.$type.'/'.($page-1));?>">上一页</a><a class="buts-next" href="<?php echo site_url('home/index/'.$type.'/'.($page+1));?>">下一页</a></div>
             <?php endif;?>
         <?php endif;?>
+        <div class="gg" style="margin-left:-10px;">
+        <script type="text/javascript">
+        /*测试v1-首页翻页下方-非原生*/
+        var cpro_id = "u2516186";
+        </script>
+        <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+
+        </div>
 
         </section>
     </body>

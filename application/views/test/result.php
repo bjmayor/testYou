@@ -5,6 +5,11 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title><?php echo $question['title']; ?></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta property="og:title" content="<?php echo $question['title']; ?>" />
+        <meta property="og:image" content="<?php echo base_url('upload').'/'.($question['img']!=''?$question['img']:'question_default.png');?>" />
+        <?php if(isset($description) && $description!=''):?>
+        <meta property="og:description" content="<?php echo $meta['seo_description']; ?>"/> 
+        <?php endif;?>
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/ceshi.css" type="text/css">
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/animate.css" type="text/css">
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url($front_dir);?>/js/zepto.js"></script>
@@ -24,7 +29,7 @@
 
     <body>
         <header class="headcity">
-        <div class="current-title text-c"><?php echo $question['title']; ?></div>
+        <div class="current-title text-c"><i class="icon home"></i><?php echo $question['title']; ?></div>
         </header>
         <section class="main-suc">
         <div class="succes-pic">
@@ -39,8 +44,15 @@
             <div class="invitation">
             <a class="share" onClick="_system._guide(true)">邀请好友测试</a>
             <a class="default" href="<?php echo base_url('test/start/'.$question['id']);?>">再测一次</a>
-            </div> 
+            </div>    
         </div>
+        <div class="gg">
+                <script type="text/javascript">
+                /*测试结果v1-再测一次按钮下方-非原生*/
+                var cpro_id = "u2516181";
+                </script>
+                <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+            </div>
         <div class="everybody"><span class="left"><strong>大家都在测试</strong></span><span class="right"><a class="rig-i" href="void(0);" id="refresh">换一批<i class="icon change"></i></a></span></div>  
         <ul class="news" style="display:block;">
         </ul>

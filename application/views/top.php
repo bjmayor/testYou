@@ -33,8 +33,15 @@
         <header class="headcity">
         <div class="current-list text-c"><?php echo $category['description']; ?>测试</div>
         </header>
+        <div class="gg">
+        <script type="text/javascript">
+        var cpro_id="u2516189";
+        (window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id]={at:"3",hn:"0",wn:"0",imgRatio:"1.7",scale:"20.8",pat:"6",tn:"template_inlay_all_mobile_lu_native",rss1:"#F5f5f5",adp:"1",ptt:"0",titFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",titFS:"14",rss2:"#000000",titSU:"0",ptbg:"70",ptp:"1"}
+        </script>
+        <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+        </div>
         <section class="main">
-        <ul class="screen" style="margin-top:10px;">
+        <ul class="screen" style="margin-top:3px;">
             <li class="<?php if($type==0):?>current-l<?php else: ?>none<?php endif;?>"><a href="<?php echo site_url('home/top/'.$category['id'].'/0/'.$page);?>">最新<i class="icon icon-b"></i></a></li>
             <li <?php if($type==1):?>class="current-c"<?php endif;?>><a href="<?php echo site_url('home/top/'.$category['id'].'/1/'.$page);?>">排行<i class="icon icon-b"></i></a></li>
             <li class="<?php if($type==2):?>current-r<?php else:?>none<?php endif;?>"><a href="<?php echo site_url('home/top/'.$category['id'].'/2/'.$page);?>">精品<i class="icon icon-b"></i></a></li>
@@ -56,6 +63,14 @@
             <?php endif;?>
         <?php endif;?>
         </section>
+        <div class="gg">
+        <script type="text/javascript">
+        /*小角落-分类首页-底部大图-非原生*/
+        var cpro_id = "u2516191";
+        </script>
+        <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+
+        </div>
 
 <script type="text/javascript">
 $(function(){
