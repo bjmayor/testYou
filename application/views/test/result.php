@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><?php echo $question['title']; ?></title>
+        <title><?php echo $result['show_text_result']."-".$question['title']; ?></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta property="og:title" content="<?php echo $question['title']; ?>" />
         <meta property="og:image" content="<?php echo base_url('upload').'/'.($question['img']!=''?$question['img']:'question_default.png');?>" />
