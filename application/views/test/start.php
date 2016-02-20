@@ -53,9 +53,9 @@
 var questionId =  <?php echo $main_question['id'];?>;
 $(function(){
     $(".answer").click(function(){
-        if($(this).attr('jump_label') > 0 )
+        if($(this).attr('jump_label') != '' )
         {
-            if($(this).attr("jump_type")==1)
+            if($(this).attr("jump_type")=="1")
             {
                 window.location.href = "<?php echo site_url('test/jump/');?>"+"/"+questionId+"/"+$(this).attr('jump_label');
             }
