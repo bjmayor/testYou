@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><?php echo $result['show_text_result']."-".$question['title']; ?></title>
+        <title>我的<?php echo $result['show_text_result']."-".$question['title']; ?></title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta property="og:title" content="<?php echo $question['title']; ?>" />
         <meta property="og:image" content="<?php echo base_url('upload').'/'.($question['img']!=''?$question['img']:'question_default.png');?>" />
@@ -12,6 +12,7 @@
         <?php endif;?>
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/ceshi.css" type="text/css">
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/animate.css" type="text/css">
+        <link href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url($front_dir);?>/js/zepto.js"></script>
         <script>
         var _hmt = _hmt || [];
@@ -29,7 +30,7 @@
 
     <body>
         <header class="headcity">
-        <div class="current-title text-c"><i class="icon home"></i><?php echo $question['title']; ?></div>
+        <div class="current-title text-c"><a href="/"><i class="fa fa-home" style="color:white;position: absolute;top:8px;left:10px;font-size:30px;"></i></a><?php echo $question['title']; ?></div>
         </header>
         <section class="main-suc">
         <div class="succes-pic">
@@ -42,20 +43,41 @@
             </div>
 
             <div class="invitation">
+
             <a class="share" onClick="_system._guide(true)">邀请好友测试</a>
-            <a class="default" href="<?php echo base_url('test/start/'.$question['id']);?>">再测一次</a>
+            <a class="default" href="<?php echo base_url('test/start/'.$question['id']);?>">我也要测</a>
             </div>    
         </div>
-        <div class="gg">
-                <script type="text/javascript">
-                /*测试结果v1-再测一次按钮下方-非原生*/
-                var cpro_id = "u2516181";
-                </script>
-                <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
-            </div>
+
+        <div class="gg"><script type="text/javascript">
+        /*小角落-测试结果v1-我也要测与推荐之间-原生*/
+        var cpro_id = "u2553347";
+        </script>
+        <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+        </div> 
+        
         <div class="everybody"><span class="left"><strong>大家都在测试</strong></span><span class="right"><a class="rig-i" href="void(0);" id="refresh">换一批<i class="icon change"></i></a></span></div>  
         <ul class="news" style="display:block;">
         </ul>
+
+
+
+        <div class="gg">
+          <script type="text/javascript">
+          var cpro_id="u2553431";
+          (window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id]={at:"3",pat:"15",tn:"template_inlay_all_mobile_lu_native",rss1:"#FFFFFF",titFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",titFS:"14",rss2:"#000000",ptFS:"16",ptFC:"#000000",ptFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",ptFW:"1",conpl:"0",conpr:"1",conpt:"0",conpb:"0",cpro_h:"480",ptn:"8",ptp:"0",itecpl:"10",piw:"0",pih:"0",ptDesc:"0",ptLogo:"0"}
+          </script>
+          <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+        </div>
+
+        <div class="gg">
+              <script type="text/javascript">
+              /*测试结果v1-再测一次按钮下方-非原生*/
+              var cpro_id = "u2516181";
+              </script>
+              <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+        </div>
+
 
         </section>
 <div id="cover"></div>

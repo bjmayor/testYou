@@ -3,12 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><?php echo $meta['seo_title']; ?></title>
+        <title><?php echo $question['title']; ?>-小角落</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="description"
-        content="<?php echo $meta['seo_description']; ?>">
         <meta name="keywords" content="<?php echo $meta['seo_keywords']; ?>">
+        <meta property="og:title" content="<?php echo $question['title']; ?>" />
+        <meta property="og:image" content="<?php echo base_url('upload').'/'.($question['img']!=''?$question['img']:'question_default.png');?>" />
+        <?php if(isset($description) && $description!=''):?>
+        <meta property="og:description" content="<?php echo $description;  ?>"/> 
+        <?php endif;?>
         <link rel="stylesheet" href="<?php echo base_url($front_dir);?>/css/ceshi.css" type="text/css">
+        <link href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
         <script type="text/javascript" charset="utf-8" src="<?php echo base_url($front_dir);?>/js/zepto.min.js"></script>
         <script>
         var _hmt = _hmt || [];
@@ -23,7 +27,7 @@
 
     <body>
         <header class="headcity">
-        <div class="current-title text-c"><div class="cut-title"><?php echo $main_question['title']; ?></div></div>
+        <div class="current-title text-c"><div class="cut-title"><a href="/"><i class="fa fa-home" style="color:white;position: absolute;top:8px;left:10px;font-size:30px;"></i></a><?php echo $main_question['title']; ?></div></div>
         </header>
         <section class="main-suc">
         <div class="test-two">
@@ -41,13 +45,21 @@
             <?php endforeach;?>
             <?php endif;?>
         </div>
-        <div class="gg">
+        
+        <div class="native_gg">
+            <script type="text/javascript">
+            var cpro_id="u2553377";
+            (window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id]={at:"3",pat:"15",tn:"template_inlay_all_mobile_lu_native",rss1:"#FFFFFF",titFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",titFS:"14",rss2:"#000000",ptFS:"16",ptFC:"#000000",ptFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",ptFW:"1",conpl:"0",conpr:"1",conpt:"0",conpb:"0",cpro_h:"360",ptn:"6",ptp:"0",itecpl:"10",piw:"0",pih:"0",ptDesc:"0",ptLogo:"0"}
+            </script>
+            <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+        </div>
+       <!--  <div class="gg">
             <script type="text/javascript">
             /*测试子问题v1-选项下方-非原生*/
             var cpro_id = "u2516179";
             </script>
             <script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
-        </div>
+        </div> -->
         </section>
 <script>
 var questionId =  <?php echo $main_question['id'];?>;

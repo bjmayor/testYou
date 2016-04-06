@@ -1,6 +1,5 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
 /**
    {"question":{
 
@@ -75,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    }} 
  **/
 
-class LoadJson extends Admin_Controller
+class LoadJson extends CI_Controller
 {
     
     function __construct()
@@ -88,20 +87,27 @@ class LoadJson extends Admin_Controller
         $this->load->model('meta_model');
     }
 
-    public function index()
-    {
-        $this->template->admin_render('admin/loadjson/index', $this->data);
-    }
-
     public function load()
     {
-        $error = "";
-        $this->loadStandardJson($this->input->post('data'),$error);
-        if($error!="")
-        {
-            $this->data['error_msg'] = $error;
-        }
-        $this->template->admin_render('admin/loadjson/index', $this->data);
+	if(!is_cli())
+	{
+		return ;
+	}
+	for($i=1345;$i<1409;$i++)
+	{
+	
+        	$json = fetchPage($i);
+
+		if($json)
+		{
+			$error = NULL;
+			if(!$this->loadStandardJson($json,$error))
+			{
+				var_dump($error);
+			}
+		}
+	}
+	
     }
 
     //导入标准的json数据
@@ -261,6 +267,108 @@ class LoadJson extends Admin_Controller
 
     }
 
+}
+function fetchPage($page_number)
+{
+    $page_results = array();
+    $page_results['seo_keyword']='';
+    $page_content = file_get_contents("http://www.aiwenchan.com/testapp2016/test1/".$page_number);
+    if(strpos($page_content,"如果您的浏览器")!==false)
+    {
+        return;
+    }
+    if(preg_match("/<title>([^<]*)<\/title>/i", $page_content, $matches)){
+        $page_results['title'] =  $matches[1];
+    } else {
+        print $page_number . ":title  was not found.";
+        return;
+    }
+    if(preg_match("/<img class=\"show animated fadeInDownBig\" src=\"([^\"]*)\"/i", $page_content, $matches)){
+        #    file_put_contents("./img/".md5($matches[1]),file_get_contents($matches[1]));
+        $page_results['img'] = $matches[1];
+    } else {
+        print $page_number . ": A match was not found.";
+        return;
+    }
+    if(preg_match("/transform: translate\(0px, 0px\) translateZ\(0px\);\"> <li>(.*)<\/li> <\/ul>/i", $page_content, $matches)){
+        $page_results['description'] =  $matches[1];
+    } else {
+        print $page_number . ": description  was not found.";
+        return;
+    }
+
+    if(preg_match("/xlist=eval\((\[[\S\s]*\])\)/m", $page_content, $matches)){
+        $origin_list = (array)json_decode($matches[1],true);
+        $page_results['sub_questions'] =  array();
+        $page_results['results'] = array();
+        $temp_result = array();
+        foreach($origin_list as $item)
+        {
+            $result_page_url = "";
+            $sub_question = array();
+            $sub_question['img'] = $item['img'];
+            $sub_question['title'] = $item['question'];
+            $sub_question['answer'] = array();
+            foreach($item['answer'] as $option)
+            {
+
+                $sub_question['answer'][] = $option;
+                if(isset($option['weight']))
+                {
+                    return;
+                }
+                if(!is_numeric($option['next']))
+                {
+                    if(!isset($temp_result[$option['next']]))
+                    {
+                        if($result_page_url == "")
+                        {
+                            if(preg_match("/window.location.href='(.*)'\+level/i", $page_content, $matches))
+                            {
+                                $result_page_url = $matches[1];
+                            }
+                        }
+
+                        $temp_result[$option['next']] = parse_result($result_page_url . $option['next'],$option['next']);
+                        $page_results['results'][] = $temp_result[$option['next']];
+                    }
+                }
+            }
+            $page_results['sub_questions'][] = $sub_question;
+        }
+    } else {
+        print $page_number . ": list  was not found.";
+        return;
+    }
+    $page_results = array("question"=>$page_results);
+    return json_encode($page_results,JSON_UNESCAPED_UNICODE);
+//    file_put_contents("./page/question_".$page_number,json_encode($page_results,JSON_UNESCAPED_UNICODE));
+
+}
+//var_dump(parse_result("http://www.aiwenchan.com/testapp2016/test3203/1031?sv=B",'B'));
+function parse_result($page_url,$label)
+{
+    $page_result_content = file_get_contents($page_url);
+    $result = array();
+    $result['label'] = $label;
+    if(preg_match("/<div class=\"title\">([^<]*)<\/div>/i",$page_result_content,$matches))
+    {
+        $result['title'] = $matches[1];
+    }
+    if(preg_match("/<div id=\"divDes\" class=\"intro\">([^<]*)<\/div>/m",$page_result_content,$matches))
+    {
+        $result['description'] = $matches[1];
+    }
+    if(preg_match("/<img id=\"DetialImg\" src=\"([^\"]*)\"\/>/i",$page_result_content,$matches))
+    {
+        $result['img'] = $matches[1];
+    }
+    else
+    {
+        $result['img'] = '';
+    }
+
+    return $result;
 }
 ?>
 
