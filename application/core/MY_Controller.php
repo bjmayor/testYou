@@ -99,6 +99,12 @@ class MY_Controller extends CI_Controller
         }
         return false;
     }
+
+    protected function ajaxReturn($data,$code=0,$msg="")
+    {
+	$ret = array("data"=>$data,"msg"=>$msg,"code"=>$code);
+	echo json_encode($ret);
+    }
 }
 
 

@@ -97,11 +97,11 @@ $db['default'] = array(
 
 $db['rds'] = array(
 	'dsn'	=> '',
-	'hostname' => 'rds0167857b7z086fowa.mysql.rds.aliyuncs.com',
-	'username' => 'xiaojiaoluo',
-	'password' => 'fsUnK494dDBXW',
-	'database' => 'testyou',
-	'dbdriver' => 'mysql',
+	'hostname' => $_SERVER['MYSQL_HOST'],
+	'username' => $_SERVER['MYSQL_USER'],
+	'password' => $_SERVER['MYSQL_PASS'],
+	'database' => 'wifi',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
