@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'rds';
+$active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -78,8 +78,8 @@ $db['default'] = array(
 	'hostname' => '127.0.0.1',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'testyou',
-	'dbdriver' => 'mysql',
+	'database' => 'district',
+	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
@@ -97,9 +97,9 @@ $db['default'] = array(
 
 $db['rds'] = array(
 	'dsn'	=> '',
-	'hostname' => $_SERVER['MYSQL_HOST'],
-	'username' => $_SERVER['MYSQL_USER'],
-	'password' => $_SERVER['MYSQL_PASS'],
+//	'hostname' => $_SERVER['MYSQL_HOST'],
+//	'username' => $_SERVER['MYSQL_USER'],
+//	'password' => $_SERVER['MYSQL_PASS'],
 	'database' => 'wifi',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
